@@ -1,0 +1,7 @@
+gnome-hearts -- TODO
+
+* Undo/redo support
+* Implement suitable structs as proper GObjects
+* More and better AI's
+* More rulesets
+* Add better icons and card decks

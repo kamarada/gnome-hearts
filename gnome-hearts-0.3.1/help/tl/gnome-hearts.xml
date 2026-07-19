@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+<article id="index" lang="hearts-doc-tl">
+	<articleinfo>
+
+		<title>Gnome Hearts User Documentation</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>
+			This documentation is for the TRUNK version of gnome-hearts.
+		</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>Panimula</title>
+		
+		<para>Ang Hearts ay isang paglilinlang-pagkuhang laro sa baraha na may apat na manlalaro. Ang layon ng larong ito ay ang makakalap ng pinakakaunting barahang may puntos, ang mga barahang ito ay lahat ng hearts at ang Reyna ng spades. Sa oras na makamit ng isang manlalaro ang napiling dami ng puntos, matatapos na ang laro at ang manlalarong may pinakamababang puntos sa talaan ay siyang mananalo.</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>Paglalaro ng Hearts</title>
+		
+		<para>
+			The game is played with four players. North, east and west are computer players and you are the south player.
+			A game is made up of several rounds. In each round players gain points by taking point cards. The objective is to
+			gain as few points as possible. The game ends as soon as one player reaches a set amount of points. The player
+			with the lowest amount of points is declared the winner. How many points a card is and when the game ends depends
+			on the ruleset. See the <link linkend="hearts-rules">game preferences</link> for more details.
+		</para>
+		
+		<para>Ang bawat manlalaro ay bibigyan ng mga baraha bago magsimula ng bawat round. Mayroon kang pagkakataong pumili ng tatlong baraha na hindi mo gusto at ipasa sa ibang manlalaro. Sa unang round ang mga baraha ay ipinapasa pakaliwa, sa pangalawa ay tungo sa kasalungat na manlalaro, sa pangatlo ay pakanan at sa pang-apat ay walang barahang ipinapasa sa iba. I-click ang tatlong baraha na gusto mong ipasa at i-click ang manlalarong gusto mong pagpasahan.</para>
+		
+		<para>Matapos ipasa ang mga baraha, magsisimula na ang round. Ang mga round ay nahahati sa mga trick o panlilinlang. Ang bawat manlalaro ay gagamit ng baraha sa bawat panlilinlang. Ang panlilinlang ay sinisimulan ng manlalaro na nakakuha ng naunang panlilinlang. Ang ibang mga manlalaro ay dapat gumamit ng baraha na kapareho ng baraha na ginamit upang simulan ang panlilinlang. Kung hindi mo masundan ang panlilinlang, maaari kang gumamit ng ibang uri ng baraha. I-click ang barahang gusto mong gamitin. Ang barahang maaari mong gamitin ay magkukulay asul kapag inibabawan ito ng mouse cursor. Ang manlalaro na nagbitiw ng pinakamataas na baraha ng parehong uri sa unang baraha ang siyang mananalo sa panlilinlang at makakakuha ng puntos para dito.</para>
+		
+		<para>Matatapos ang round kung ubos na ang baraha ng mga manlalaro. Lahat ng puntos na nakalap ng bawat manlalaro ay pagsasama-samahin. Kung wala pang manlalaro ang nakakalap ng nararapat na puntos, magsisimula ang panibagong round.</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>Mga Menu</title>
+		
+		<para>Ang menu bar sa taas ng application ay naglalaman ng mga sumusunod na menu:</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>Game</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+									<guimenuitem>New game</guimenuitem>
+								</menuchoice>
+								- Start a new game of <application>Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Restart</guimenuitem>
+								</menuchoice>
+								- Restart the current round
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Scores</guimenuitem>
+								</menuchoice>
+								- Show the score table
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Preferences</guimenuitem>
+								</menuchoice>
+								- Open the preferences dialog
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut>
+									<guimenuitem>Quit</guimenuitem>
+								</menuchoice>
+								- Quit <application>Hearts</application>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>View</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F11</keycap></shortcut>
+									<guimenuitem>Fullscreen</guimenuitem>
+								</menuchoice>
+								- Toggle fullscreen mode on and off
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>T</keycap></keycombo></shortcut>
+									<guimenuitem>Toolbar</guimenuitem>
+								</menuchoice>
+								- Toggle the toolbar on and off
+								<menuchoice>
+									<guimenuitem>Statusbar</guimenuitem>
+								</menuchoice>
+								- Toggle the statusbar on and off
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Control</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Undo</guimenuitem>
+								</menuchoice>
+								- Undo your last move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Redo</guimenuitem>
+								</menuchoice>
+								- Redo a previously undone move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F1</keycap></shortcut>
+									<guimenuitem>Hint</guimenuitem>
+								</menuchoice>
+								- Have the computer give you a tip on what you should do
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Help</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut>
+									<guimenuitem>Help</guimenuitem>
+								</menuchoice>
+								- Open the help file for <application>Gnome Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>About</guimenuitem>
+								</menuchoice>
+								- Shows some information about the <application>Gnome Hearts</application> version you are using
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>Mga Kagustuhan</title>
+
+		<para>Ang dialog ng mga kagustuhan ay may tatlong tab:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>Game</title>
+			
+			<para>Sa tab na ito makakapili ka ng ruleset na gusto mong gamitin at magbigay ng "gentleman's rules". Ang bawar ruleset ay ibang uri ng larong hearts.</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Standard</term>
+					<listitem>
+						<para>
+							The standard ruleset is what most people will be familiar with. All of the hearts are worth one point and
+							the queen of spades is worth 13 points. The game ends as soon as one player reaches 100 points. You can also
+							"shoot the moon" - that is taking all the hearts and the queen of spades in a single round. Your score
+							will be reduced 26 points instead of increased by 26 points. You can also "shoot the sun" by taking all
+							the tricks in a round. In that case your score is reduced by 52 points.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>Ang omnibus ruleset ay halos kapareho lang ng standard ruleset ngunit may bonus card dito. Ang manlalaro na makukuha ang jack ng diamons ay mababawasan ng 10 puntos sa kaniyang talaan. Hindi mo kailangan makuha ang barahang ito kung "sumusuntok ka sa buwan".</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus Alternative</term>
+					<listitem>
+						<para>Ang ruleset na ito ay halos kapareho lang ng Omnibus ruleset ngunti ang bonus card ay ang diyes ng diamonds.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Spot Hearts</term>
+					<listitem>
+						<para>
+							All the hearts cards are worth their face value, with 11 points for the jack, 12 points for the queen,
+							13 points for the king and 14 points for the ace. The queen of spades is worth 25 points and the game ends
+							when the first player reaches 500 points. "Shooting the moon" will reduce your score by 129 points and shooting
+							the sun will reduce it by 258 points.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>Maaari ka rin maglagay ng "gentleman's rules" sa ibabaw ng ruleset:</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Dos ng clubs ang mauuna</term>
+					<listitem>
+						<para>Kung pinili ang tuntuning ito, ang manlalaro na may hawak ng dos ng clubs ang siyang magsisimula ng unang panlilinlang gamit ang barahang iyon. Kung hindi pipiliin ang tuntuning ito, ikaw ang laging magsisimula ng unang panlilinlang.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Kailangang mataasan muna ang nakababang heart bago magbitaw ng ibang baraha.</term>
+					<listitem>
+						<para>
+							Hearts are "broken" when a player cannot follow the suit in a trick and plays a hearts card instead. When
+							this rule is enabled, you cannot start a trick with hearts until hearts are "broken" this way.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Hindi maaaring magbitiw ng barahang may puntos sa unang panlilinlang.</term>
+					<listitem>
+						<para>Kung pinili ang tuntuning ito, hindi maaaring gamitin ang anu mang barahang hearts o ang reyna ng spades sa unang panlilinlang ng bawat round. Maaari mo pa rin gamitin ang mga bonus card sa unang panlilinlang kung ang ginagamit na ruleset ay Omnibus.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>Mga Kalaban</title>
+			
+			<para>
+				On this tab you can choose which computer opponents you want to play against. Simply select their names from the
+				dropdown list. <application>Hearts</application> opponents are implemented in <application>Python</application> scripts.
+				You can easily create and modify the players by editing these scripts. For more information about editing players,
+				see the <ulink url="http://www.gnome-hearts.org/developers/">Developer Documentation</ulink> on the hearts
+				website.
+			</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>Estilo</title>
+			
+			<para>Sa tab na ito, maaari mong palit-palitan ang itsura ng <application>Hearts</application>. Maaari kang mamili ng larawang pang-background para sa laro at mamili ng klase ng barahang paglalaruan. Kung mayroon kang <application>gnome-games</application> application na naka-install, o sa pamamagitan ng <application>gnome-games-extra-data</application> package, makakapamili ka din ng mga baraha mula sa kanila.</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

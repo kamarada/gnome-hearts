@@ -1,0 +1,532 @@
+2008-02-13  sander
+
+	* [r169] configure.in, help/Makefile.am, help/de,
+	  help/de/Makefile.am, help/de/fdl-appendix.xml,
+	  help/de/gnome-hearts-de.omf, help/de/gnome-hearts.xml,
+	  help/de/legal.xml, help/en_GB/gnome-hearts.xml, help/es,
+	  help/es/Makefile.am, help/es/fdl-appendix.xml,
+	  help/es/gnome-hearts-es.omf, help/es/gnome-hearts.xml,
+	  help/es/legal.xml, help/it/gnome-hearts.xml,
+	  help/pl/gnome-hearts.xml, help/tl/gnome-hearts.xml: Added German
+	  and Spanish documentation. Updated the other documentation
+	  translations.
+	* [r168] po/LINGUAS, po/da.po, po/de.po, po/el.po, po/en_GB.po,
+	  po/es.po, po/eu.po, po/fi.po, po/fr.po, po/hu.po, po/id.po,
+	  po/it.po, po/ml.po, po/nl.po, po/pl.po, po/pt.po, po/pt_BR.po,
+	  po/ru.po, po/sk.po, po/sv.po, po/tl.po, po/zh_CN.po: Added Greek
+	  and Slovak translations. Updated other translations.
+	* [r167] ChangeLog, NEWS, README: Updated ChangeLog, NEWS and
+	  README
+	* [r166] configure.in, src/gnome-hearts.glade: Bumped version
+	  number to 0.2.1
+	* [r165] AUTHORS: Updated AUTHORS
+	* [r164] configure.in, help/Makefile.am, help/zh_CN,
+	  help/zh_CN/Makefile.am, help/zh_CN/fdl-appendix.xml,
+	  help/zh_CN/gnome-hearts-zh_CN.omf, help/zh_CN/gnome-hearts.xml,
+	  help/zh_CN/legal.xml: Added simplified Chineese documentation.
+	  Thanks to Wei Mingzhi.
+
+2007-11-09  sander
+
+	* [r163] scripts/definitions.py, scripts/hearts.py.in,
+	  scripts/player.py, scripts/players/john.py,
+	  scripts/players/luis.py, scripts/players/mike.py,
+	  scripts/players/pauline.py, scripts/stock_ai.py: The Python
+	  scripts are not intended to be run directly.
+	* [r162] src/ui.c: Fix gnome-games cards directory.
+	* [r161] configure.in, scripts/Makefile.am,
+	  scripts/players/Makefile.am: Use a private Python directory.
+	* [r160] configure.in: Link Python dynamically
+
+2007-11-08  sander
+
+	* [r159] gnome-hearts.desktop.in: Fix the desktop.in file
+
+2007-10-30  sander
+
+	* [r157] scripts/hearts.py.in: Ugly bugs in the Python Trick class.
+	  Fixes bug #25.
+
+2007-10-27  sander
+
+	* [r155] scripts/players/luis.py: Fixed #24, Luis.py crash when
+	  forced to play queen of spades
+
+2007-09-07  sander
+
+	* [r153] ChangeLog, NEWS: Update Changelog and NEWS.
+	* [r152] .: Branching version 0.2 for release.
+	* [r151] trunk/configure.in: Updating configure.in
+	* [r150] trunk/help/C/gnome-hearts.xml: Spelling corrections by
+	  Malcolm Parsons.
+	* [r149] trunk/help/en_GB/gnome-hearts.xml,
+	  trunk/help/it/gnome-hearts.xml, trunk/help/nl/gnome-hearts.xml,
+	  trunk/help/pl/gnome-hearts.xml, trunk/help/pt/gnome-hearts.xml,
+	  trunk/help/tl/gnome-hearts.xml: Import translated documentation
+	* [r148] trunk/help/Makefile.am, trunk/help/en_GB,
+	  trunk/help/en_GB/Makefile.am, trunk/help/en_GB/fdl-appendix.xml,
+	  trunk/help/en_GB/gnome-hearts-en_GB.omf,
+	  trunk/help/en_GB/gnome-hearts.xml, trunk/help/en_GB/legal.xml,
+	  trunk/help/it, trunk/help/it/Makefile.am,
+	  trunk/help/it/fdl-appendix.xml,
+	  trunk/help/it/gnome-hearts-it.omf,
+	  trunk/help/it/gnome-hearts.xml, trunk/help/it/legal.xml,
+	  trunk/help/nl/gnome-hearts-nl.omf, trunk/help/pt,
+	  trunk/help/pt/Makefile.am, trunk/help/pt/fdl-appendix.xml,
+	  trunk/help/pt/gnome-hearts-pt.omf,
+	  trunk/help/pt/gnome-hearts.xml, trunk/help/pt/legal.xml,
+	  trunk/help/tl, trunk/help/tl/Makefile.am,
+	  trunk/help/tl/fdl-appendix.xml,
+	  trunk/help/tl/gnome-hearts-tl.omf,
+	  trunk/help/tl/gnome-hearts.xml, trunk/help/tl/legal.xml,
+	  trunk/po/LINGUAS, trunk/po/da.po, trunk/po/de.po,
+	  trunk/po/en_GB.po, trunk/po/es.po, trunk/po/eu.po,
+	  trunk/po/fi.po, trunk/po/fr.po, trunk/po/hu.po, trunk/po/id.po,
+	  trunk/po/it.po, trunk/po/ml.po, trunk/po/nl.po, trunk/po/pl.po,
+	  trunk/po/pt.po, trunk/po/pt_BR.po, trunk/po/ru.po,
+	  trunk/po/sv.po, trunk/po/tl.po, trunk/po/zh_CN.po: Updated game
+	  translations and added structure for doc translations.
+
+2007-09-02  sander
+
+	* [r147] trunk/scripts/hearts.py.in: Fixed a regression from r146.
+
+2007-08-30  sander
+
+	* [r146] trunk/scripts/definitions.py,
+	  trunk/scripts/players/luis.py, trunk/scripts/stock_ai.py: Some
+	  bugfixes to the Python Player API
+
+2007-08-28  sander
+
+	* [r145] trunk/src/gnome-hearts.glade: Changed the signal on About
+	  dialog from "close" to "response".
+
+2007-08-27  sander
+
+	* [r144] trunk/src/gnome-hearts.glade: Added "close" signal to
+	  dialog box
+	* [r143] trunk/po/POTFILES.in, trunk/src/gnome-hearts.glade: Added
+	  delete_event signals to "about" and "hint" windows.
+	* [r142] trunk/AUTHORS, trunk/NEWS, trunk/help/C/gnome-hearts.xml,
+	  trunk/help/nl/gnome-hearts.xml, trunk/help/pl/gnome-hearts.xml,
+	  trunk/scripts/players/luis.py, trunk/scripts/stock_ai.py:
+	  Bringing documentation up to date for version 0.2
+
+2007-08-25  sander
+
+	* [r141] trunk/src/gnome-hearts.cfg.in,
+	  trunk/src/gnome-hearts.glade: Fixed bug where a new
+	  ~/.gnome-hearts.cfg would be made each time.
+	* [r140] trunk/configure.in, trunk/src/gnome-hearts.glade: Bump
+	  version number to 0.2
+	* [r139] trunk/src/cards.c, trunk/src/cards.h, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/player-api.c, trunk/src/player.c,
+	  trunk/src/player.h: Rewrote the cards point counting system.
+	  Fixes bug #18
+
+2007-08-24  sander
+
+	* [r138] trunk/src/background.c, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/hearts.h, trunk/src/ui.c,
+	  trunk/src/ui.h: Fixing the last bugs from the C rewrite.
+	* [r137] trunk/src/background.c, trunk/src/background.h,
+	  trunk/src/events.c, trunk/src/hearts.c, trunk/src/hearts.h,
+	  trunk/src/player-api.c, trunk/src/player.c, trunk/src/player.h,
+	  trunk/src/ui.c, trunk/src/ui.h: More fixes to the big C overhaul
+	  from r134 and r136.
+	* [r136] trunk/src/background.c, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/ui.c, trunk/src/ui.h: Fixed the
+	  build and run errors of r134. It runs, but doesn't do anything
+	  yet.
+	* [r135] trunk/src/gnome-hearts.cfg.in: Fixed a typo in the config.
+	  Closes bug #17.
+	* [r134] trunk/scripts/hearts.py.in, trunk/scripts/players/john.py,
+	  trunk/scripts/players/luis.py, trunk/scripts/players/mike.py,
+	  trunk/scripts/players/pauline.py, trunk/src/Makefile.am,
+	  trunk/src/background.c, trunk/src/background.h, trunk/src/cfg.c,
+	  trunk/src/cfg.h, trunk/src/events.c, trunk/src/events.h,
+	  trunk/src/gnome-hearts.cfg.in, trunk/src/hearts.c,
+	  trunk/src/hearts.h, trunk/src/player-api.c,
+	  trunk/src/player-api.h, trunk/src/player.c, trunk/src/ui.c,
+	  trunk/src/ui.h: Committing the bulk part of a major C code
+	  overhaul. Doesn't compile (yet\!).
+
+2007-08-23  sander
+
+	* [r133] trunk/bootstrap, trunk/configure.in, trunk/m4,
+	  trunk/m4/python.m4: Adding check for python headers in configure.
+	  Fixes bug #20.
+
+2007-08-17  sander
+
+	* [r132] trunk/configure.in: Fixed PYTHON_DIR issue.
+	* [r131] trunk/bootstrap: Removed unnecessary m4 macro.
+
+2006-12-15  sander
+
+	* [r130] trunk/scripts/definitions.py,
+	  trunk/scripts/players/Makefile.am, trunk/scripts/players/luis.py,
+	  trunk/src/hearts.c: Ported Luis AI to Python
+
+2006-12-14  sander
+
+	* [r129] trunk/src/hearts.h: Some typo's fixed
+	* [r128] trunk/scripts/stock_ai.py, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/player.c, trunk/src/player.h: Add
+	  trick reference to player class
+	* [r127] trunk/src/hearts.c, trunk/src/player.c,
+	  trunk/src/player.h: Finished new hint API
+	* [r126] trunk/scripts/hearts.py.in, trunk/scripts/player.py,
+	  trunk/scripts/players/john.py, trunk/scripts/players/mike.py,
+	  trunk/scripts/players/pauline.py, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/player.c, trunk/src/player.h: Fix
+	  player names and hints (partially)
+
+2006-12-12  sander
+
+	* [r125] trunk/configure.in, trunk/scripts/Makefile.am,
+	  trunk/scripts/hearts.py, trunk/scripts/hearts.py.in,
+	  trunk/scripts/players/Makefile.am, trunk/src/gnome-hearts.cfg.in,
+	  trunk/src/hearts.c: Fixed the autobuild system for Python
+
+2006-12-11  sander
+
+	* [r123] trunk/scripts/hearts.py, trunk/src/cards.c,
+	  trunk/src/cards.h, trunk/src/hearts.c, trunk/src/player.c,
+	  trunk/src/player.h: Cleaning up the Python API code a bit
+
+2006-12-10  sander
+
+	* [r122] trunk/scripts/Makefile.am, trunk/scripts/definitions.py,
+	  trunk/scripts/hearts.py, trunk/scripts/player.py,
+	  trunk/scripts/stock_ai.py, trunk/src/hearts.c,
+	  trunk/src/player-api.c, trunk/src/player.c: Patched the Python
+	  interface so the game actually runs again
+
+2006-12-08  sander
+
+	* [r121] trunk/configure.in, trunk/src/Makefile.am,
+	  trunk/src/cards.c, trunk/src/events.c, trunk/src/hearts.c,
+	  trunk/src/hearts.h, trunk/src/player-api.c,
+	  trunk/src/player-api.h, trunk/src/player.c: Second draft. And
+	  this one builds too!
+	* [r120] trunk/configure.in, trunk/scripts/Makefile.am,
+	  trunk/scripts/example_player.lua, trunk/scripts/hearts.lua,
+	  trunk/scripts/hearts.py, trunk/scripts/player.py,
+	  trunk/scripts/players/John.lua, trunk/scripts/players/Luis.lua,
+	  trunk/scripts/players/Makefile.am,
+	  trunk/scripts/players/Mike.lua,
+	  trunk/scripts/players/Pauline.lua, trunk/scripts/players/john.py,
+	  trunk/scripts/players/mike.py, trunk/scripts/players/pauline.py,
+	  trunk/scripts/stock_ai.lua, trunk/scripts/stock_ai.py,
+	  trunk/src/Makefile.am, trunk/src/cards.c, trunk/src/cards.h,
+	  trunk/src/hearts.c, trunk/src/hearts.h, trunk/src/player-api.c,
+	  trunk/src/player-api.h, trunk/src/player.c, trunk/src/player.h:
+	  FTBFS: First draft of Python version
+
+2006-11-06  sander
+
+	* [r119] trunk/configure.in, trunk/help/pl/Makefile.am: Ported r118
+	  (Polish doc update) from branches/0.1.x
+	* [r115] trunk/help/Makefile.am, trunk/help/pl, trunk/po/de.po,
+	  trunk/po/es.po, trunk/po/eu.po, trunk/po/fi.po, trunk/po/fr.po,
+	  trunk/po/pt_BR.po, trunk/po/zh_CN.po: Ported r114 (translations)
+	  from branch 0.1.x
+
+2006-11-02  sander
+
+	* [r112] trunk/src/hearts.c, trunk/src/hearts.h: Ported r111
+	  (Backup card style) from 0.1.x branch
+
+2006-08-14  sander
+
+	* [r109] trunk/src/gnome-hearts.glade: Added Christian Persch's UI
+	  HIG compience patch
+
+2006-08-03  sander
+
+	* [r104] trunk/src/hearts.c: ported r103 (end_round hook fix) from
+	  branches/0.1.x
+
+2006-07-31  sander
+
+	* [r102] trunk/po/LINGUAS: Forgot to update LINGUAS
+
+2006-07-30  sander
+
+	* [r101] trunk/po/da.po, trunk/po/de.po, trunk/po/eu.po,
+	  trunk/po/fi.po, trunk/po/fr.po, trunk/po/nl.po, trunk/po/pl.po,
+	  trunk/po/pt.po, trunk/po/sv.po, trunk/po/zh_CN.po: merged rosetta
+	  translations
+	* [r100] trunk/AUTHORS, trunk/COPYING-DOCS, trunk/ChangeLog,
+	  trunk/Makefile.am, trunk/NEWS, trunk/README, trunk/TODO,
+	  trunk/bootstrap, trunk/configure.in,
+	  trunk/gnome-hearts.desktop.in, trunk/hearts.desktop.in,
+	  trunk/help/C/Makefile.am, trunk/help/C/gnome-hearts-C.omf,
+	  trunk/help/C/gnome-hearts.xml, trunk/help/C/hearts-C.omf,
+	  trunk/help/C/hearts.xml, trunk/help/nl/Makefile.am,
+	  trunk/help/nl/gnome-hearts-nl.omf,
+	  trunk/help/nl/gnome-hearts.xml, trunk/help/nl/hearts-nl.omf,
+	  trunk/help/nl/hearts.xml, trunk/man, trunk/pixmaps/Makefile.am,
+	  trunk/pixmaps/gnome-hearts-small.png,
+	  trunk/pixmaps/gnome-hearts.png,
+	  trunk/pixmaps/hearts-icon-small.png,
+	  trunk/pixmaps/hearts-icon.png, trunk/po/LINGUAS,
+	  trunk/po/POTFILES.in, trunk/po/de.po, trunk/po/es.po,
+	  trunk/po/fi.po, trunk/po/fr.po, trunk/po/nl.po, trunk/po/pt.po,
+	  trunk/po/pt_BR.po, trunk/scripts/Makefile.am,
+	  trunk/scripts/players/John.lua,
+	  trunk/scripts/players/Makefile.am,
+	  trunk/scripts/players/Mike.lua,
+	  trunk/scripts/players/Pauline.lua, trunk/src/Makefile.am,
+	  trunk/src/cards.h, trunk/src/events.c,
+	  trunk/src/gnome-hearts.cfg.in, trunk/src/gnome-hearts.glade,
+	  trunk/src/hearts.c, trunk/src/hearts.cfg.in,
+	  trunk/src/hearts.glade, trunk/src/lua.c, trunk/src/lua.h,
+	  trunk/src/player-api.c, trunk/src/player-api.h,
+	  trunk/src/player.c, trunk/src/player.h: Merge branches/0.1.x @
+	  r97 to the trunk
+	* [r99] trunk/COPYING-DOCS, trunk/Makefile.am: Undo r58
+
+2006-06-04  sander
+
+	* [r58] trunk/COPYING-DOCS, trunk/Makefile.am: Added FDL license
+
+2006-06-01  sander
+
+	* [r55] trunk/po/LINGUAS, trunk/po/de.po, trunk/po/fi.po,
+	  trunk/po/fr.po, trunk/po/nl.po, trunk/po/pt.po,
+	  trunk/po/pt_BR.po: Merged in latest Rosetta translations
+	* [r54] trunk/help/C/hearts.xml, trunk/help/nl/hearts.xml,
+	  trunk/src/hearts.glade: Last UI and documentation fixes
+	* [r53] trunk/pixmaps/Makefile.am, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/hearts.glade: Fixed the help links
+	  and gnome initialization
+	* [r52] trunk/pixmaps/Makefile.am,
+	  trunk/pixmaps/hearts-icon-small.png, trunk/src/hearts.glade:
+	  Several more glade fixes
+	* [r51] trunk/help/nl/Makefile.am: oops... forgot the makefile
+	  changes
+	* [r50] trunk/help/nl/fdl-appendix.xml, trunk/help/nl/hearts.xml,
+	  trunk/help/nl/legal.xml: Added dutch legalize in docs
+	* [r49] trunk/src/hearts.c: hide "leave fullscreen" buttons on
+	  startup
+
+2006-05-31  sander
+
+	* [r48] trunk/Makefile.am, trunk/configure.in,
+	  trunk/help/C/Makefile.am, trunk/help/C/fdl-appendix.xml,
+	  trunk/help/C/hearts-C.omf, trunk/help/C/hearts.xml,
+	  trunk/help/C/legal.xml, trunk/help/Makefile.am,
+	  trunk/help/nl/Makefile.am, trunk/help/nl/hearts-nl.omf,
+	  trunk/omf.make, trunk/xmldocs.make: Added the documentation to
+	  the build system
+	* [r47] trunk/src/hearts.glade: And one more....
+	* [r46] trunk/help/nl/hearts.xml, trunk/src/events.c,
+	  trunk/src/hearts.glade: A bunch of glade fixes. Thanks to Alan
+	  Horkan for the review
+
+2006-05-30  sander
+
+	* [r45] trunk/help/nl, trunk/help/nl/hearts.xml, trunk/po/LINGUAS,
+	  trunk/po/de.po, trunk/po/fi.po, trunk/po/fr.po, trunk/po/nl.po,
+	  trunk/po/pt_BR.po: merged rosetta translations in
+
+2006-05-28  sander
+
+	* [r44] trunk/src/hearts.c, trunk/src/hearts.glade: Replaced radio
+	  buttons with checkboxed according to HIG
+
+2006-05-26  sander
+
+	* [r43] trunk/help/C/hearts.xml, trunk/scripts/hearts.lua,
+	  trunk/scripts/players/Luis.lua,
+	  trunk/scripts/players/Makefile.am, trunk/scripts/stock_ai.lua:
+	  added Luis AI based on KDE hearts
+
+2006-05-24  sander
+
+	* [r42] trunk/help, trunk/help/C, trunk/help/C/hearts.xml: English
+	  Docbook XML manual added
+
+2006-05-23  sander
+
+	* [r41] trunk/src/events.c, trunk/src/events.h,
+	  trunk/src/hearts.glade: Tweaked the menu and added an online help
+	  item
+	* [r40] trunk/src/cards.c, trunk/src/hearts.c,
+	  trunk/src/hearts.glade: Added some comments for translators
+
+2006-05-22  sander
+
+	* [r39] trunk/src/cards.c, trunk/src/events.c: Fixed a bug that
+	  caused unnecesary redraws of active cards
+	* [r38] trunk/src/events.c, trunk/src/hearts.c,
+	  trunk/src/hearts.glade, trunk/src/hearts.h: Added messages to the
+	  status bar
+
+2006-05-18  sander
+
+	* [r37] trunk/src/hearts.c, trunk/src/hearts.glade: The "no blood
+	  on the first trick" now applies to the queen of spades as well
+	* [r36] trunk/po/POTFILES.in, trunk/po/nl.po,
+	  trunk/scripts/stock_ai.lua, trunk/src/Makefile.am,
+	  trunk/src/cards.c, trunk/src/cards.h, trunk/src/events.c,
+	  trunk/src/events.h, trunk/src/gettext.h, trunk/src/hearts.c,
+	  trunk/src/hearts.glade, trunk/src/hearts.h, trunk/src/lua.c,
+	  trunk/src/lua.h, trunk/src/player.c: Hint function implemented
+	  and player functions cleaned up
+	* [r35] trunk/src/events.c, trunk/src/events.h, trunk/src/hearts.c,
+	  trunk/src/hearts.glade: more score table fixes from Tom
+	  Hargreaves
+
+2006-05-17  sander
+
+	* [r34] trunk/po/nl.po: reverted r33. Silly me.... I should read
+	  before I change :-)
+	* [r33] trunk/po/nl.po: wrong charset in nl.po
+	* [r32] trunk/src/hearts.c, trunk/src/hearts.glade: Score table
+	  alignment fix by Tom Hargreaves and a fix for the player names
+
+2006-05-16  sander
+
+	* [r31] trunk/po/nl.po, trunk/src/hearts.glade: Changed "Cards" to
+	  "Style" and updated the po files
+	* [r30] trunk/src/events.c, trunk/src/hearts.c: A better fix for
+	  the gtk_file_chooser crasher bug
+
+2006-05-15  sander
+
+	* [r29] trunk/src/hearts.c: Removed GTK double buffering
+
+2006-05-14  sander
+
+	* [r28] trunk/src/hearts.c: fixed a bug caused by changed
+	  gtk_main() behaviour
+
+2006-05-08  sander
+
+	* [r27] trunk/configure.in, trunk/src/events.c, trunk/src/hearts.c,
+	  trunk/src/hearts.cfg, trunk/src/hearts.cfg.in,
+	  trunk/src/hearts.glade, trunk/src/hearts.h: Background chooser
+	  added and fix to card style preference
+
+2006-05-07  sander
+
+	* [r26] trunk/src/hearts.c: cleaned up main()
+	* [r25] trunk/src/hearts.c, trunk/src/hearts.cfg: version checking
+	  of the user's ~/.hearts.cfg
+	* [r24] trunk/src/events.c, trunk/src/hearts.c: Preferences screen
+	  shows card style changes immediately and only starts a new game
+	  on rule or AI changes
+
+2006-05-06  sander
+
+	* [r23] trunk/bootstrap, trunk/configure.in: build system fixes
+
+2006-05-04  sander
+
+	* [r22] trunk/src/cards-image.c, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/hearts.cfg, trunk/src/hearts.glade,
+	  trunk/src/hearts.h: card style preference works and uses the
+	  gnome-games cards as well as the hearts cards
+	* [r21] trunk/src/cards.c, trunk/src/cards.h, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/player.c, trunk/src/player.h:
+	  "Shooting the moon" implemented
+
+2006-05-03  sander
+
+	* [r20] trunk/src/cards-image.c, trunk/src/events.c,
+	  trunk/src/hearts.c, trunk/src/player.c, trunk/src/preimage.c:
+	  fixed a bunch of (big) memory leaks
+	* [r19] trunk/bootstrap, trunk/configure.in: a few build system
+	  fixes
+
+2006-05-01  sander
+
+	* [r18] trunk/po/nl.po, trunk/src/hearts.c, trunk/src/hearts.glade:
+	  Game ends correctly at 100 or 500 points
+	* [r17] trunk/src/hearts.c: fix for non-ext2 filesystems
+
+2006-04-30  sander
+
+	* [r16] trunk/AUTHORS: added contributors
+
+2006-04-28  sander
+
+	* [r15] trunk/AUTHORS, trunk/scripts/example_player.lua,
+	  trunk/scripts/hearts.lua, trunk/scripts/players/John.lua,
+	  trunk/scripts/players/Mike.lua,
+	  trunk/scripts/players/Pauline.lua, trunk/scripts/stock_ai.lua,
+	  trunk/src/cards-image.c, trunk/src/cards-image.h,
+	  trunk/src/cards.c, trunk/src/cards.h, trunk/src/events.c,
+	  trunk/src/events.h, trunk/src/hearts.c, trunk/src/hearts.h,
+	  trunk/src/lua.c, trunk/src/lua.h, trunk/src/player.c,
+	  trunk/src/player.h, trunk/src/preimage.c, trunk/src/preimage.h:
+	  added proper copyright statements, GPL stuff, etcetera
+
+2006-04-27  sander
+
+	* [r14] trunk/src/cards.c: omnibus rules bugfix
+
+2006-04-24  sander
+
+	* [r13] trunk/Makefile.am, trunk/scripts/Makefile.am,
+	  trunk/scripts/players/Makefile.am, trunk/src/Makefile.am: Fixed
+	  the dist and distclean make targets
+	* [r12] trunk/hearts.desktop.in, trunk/pixmaps/Makefile.am,
+	  trunk/pixmaps/hearts-icon.png, trunk/pixmaps/hearts-icon.xpm:
+	  Replaced xpm icon with png icon
+
+2006-04-23  sander
+
+	* [r11] trunk/hearts.desktop.in: Fixed hearts.desktop.in
+	* [r10] trunk/po/nl.po, trunk/src/hearts.glade: Dutch translation
+	* [r9] trunk/po/LINGUAS, trunk/po/en.po: Removed en.po since the
+	  strings in the code are english
+	* [r8] trunk/Makefile.am: Fixed .desktop i18n issue
+	* [r7] trunk/configure.in: Fix for intltool < 0.34.90
+	* [r6] trunk/Makefile.am, trunk/bootstrap, trunk/configure.in,
+	  trunk/hearts.desktop.in: Added .desktop file
+
+2006-04-22  sander
+
+	* [r5] trunk/scripts/players/John.lua,
+	  trunk/scripts/players/Mike.lua,
+	  trunk/scripts/players/Pauline.lua, trunk/scripts/stock_ai.lua,
+	  trunk/src/Makefile.am, trunk/src/events.c, trunk/src/hearts.c,
+	  trunk/src/hearts.cfg, trunk/src/hearts.glade, trunk/src/player.c,
+	  trunk/src/preimage.c: Fixed the last leftover crasher bugs from
+	  the old Anjuta makefile setup. Hearts now runs without crashing.
+	* [r4] trunk/README, trunk/bootstrap, trunk/configure.in: Added a
+	  bootstrap script and fixed the bugzilla URL
+	* [r3] trunk/po/LINGUAS, trunk/po/nl.po: added dutch translations
+
+2006-04-21  sander
+
+	* [r2] trunk/AUTHORS, trunk/COPYING, trunk/ChangeLog,
+	  trunk/INSTALL, trunk/Makefile.am, trunk/NEWS, trunk/README,
+	  trunk/TODO, trunk/configure.in, trunk/pixmaps,
+	  trunk/pixmaps/Makefile.am, trunk/pixmaps/baize.png,
+	  trunk/pixmaps/dondorf.svg, trunk/pixmaps/hearts-icon.xpm,
+	  trunk/po, trunk/po/ChangeLog, trunk/po/LINGUAS,
+	  trunk/po/POTFILES.in, trunk/po/en.po, trunk/scripts,
+	  trunk/scripts/Makefile.am, trunk/scripts/example_player.lua,
+	  trunk/scripts/hearts.lua, trunk/scripts/players,
+	  trunk/scripts/players/John.lua,
+	  trunk/scripts/players/Makefile.am,
+	  trunk/scripts/players/Mike.lua,
+	  trunk/scripts/players/Pauline.lua, trunk/scripts/stock_ai.lua,
+	  trunk/src, trunk/src/Makefile.am, trunk/src/cards-image.c,
+	  trunk/src/cards-image.h, trunk/src/cards.c, trunk/src/cards.h,
+	  trunk/src/events.c, trunk/src/events.h, trunk/src/hearts.c,
+	  trunk/src/hearts.glade, trunk/src/hearts.h, trunk/src/lua.c,
+	  trunk/src/lua.h, trunk/src/player.c, trunk/src/player.h,
+	  trunk/src/preimage.c, trunk/src/preimage.h: Initial project
+	  import
+
+2006-04-19  sander
+
+	* [r1] branches, tags, trunk: Initial repository layout
+

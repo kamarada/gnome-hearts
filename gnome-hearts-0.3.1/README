@@ -1,0 +1,48 @@
+==============================================================================
+                               gnome-hearts
+==============================================================================
+
+Building and installing from source:
+
+If you obtained this package from the subversion repository, you must first
+boostrap the package by running ./bootstrap. After a succesfull bootstrap you
+can build and install the package with:
+
+./configure
+make
+make install
+
+If you use the same --prefix for configure that was used for gnome-games then 
+gnome-hearts will be able to use the installed gnome-games card decks as well
+as the cards provided in this package.
+
+Playing the game:
+
+The complete documentation is provided as a DocBook XML file and can be
+accessed through the GNOME help system. Alternatively you can find the user
+guide on http://www.jejik.com/gnome-hearts/users/
+
+Contributing:
+
+* Bugs and feature requests
+
+All bugs, feature requests and the like should go in Bugzilla at 
+http://bugzilla.jejik.com, but before you file a new one, please do a quick 
+search of bugzilla and the mailing list archive to see if your issue has already
+been reported.
+
+* Translating Hearts
+
+Hearts is translated through Launchpad.net's Rosetta system. Translations
+should be added and updated through there, not as diffs for the subversion
+repository. This makes our life easier because we won't have to resolve
+conflicts between translations in Subversion and translations in Rosetta. You
+can find Hearts in Rosetta at:
+
+https://translations.launchpad.net/hearts/trunk/
+
+* Submitting patches
+
+If you have a patch that you want to contribute then you can send an e-mail to
+the gnome-hearts mailing list at hearts@lists.jejik.com. You must be subscribed
+to the mailing list to do so (to prevent spammers abusing our lists).

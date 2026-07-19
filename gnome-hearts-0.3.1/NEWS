@@ -1,0 +1,39 @@
+gnome-hearts NEWS -- history of user-visible changes.
+
+Version 0.3
+
+* Added three new AI players and improved the others
+* Player scores can be displayed on the playing area
+* Queen of Spades can optionally break hearts
+* Added a --show-cards commandline option for AI writers
+* Updated all translations
+
+Version 0.2.1
+
+* Fixed several bugs that could cause a crash
+* Merged in the new translations from Rosetta
+* Added Greek and Slovak translations
+* Added Simplified Chineese, German and Spanish documentation
+
+Version 0.2
+
+* Ported the AI scripts from Lua to Python
+* Added the "shooting the sun" rule.
+* Merged in the new translations from Rosetta
+
+Version 0.1.3
+
+* Added Polish docomentation
+* Merged in the new translations from Rosetta
+
+Version 0.1.2
+
+* Merged in the new translations from Rosetta
+
+Version 0.1.1
+
+* gnome-hearts now build properly on Suse and other distributions that package Lua as liblua instead of liblua50.
+
+Version 0.1
+
+* Initial release

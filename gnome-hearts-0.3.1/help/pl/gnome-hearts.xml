@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+<article id="index" lang="hearts-doc-pl">
+	<articleinfo>
+
+		<title>Gnome Hearts User Documentation</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>
+			This documentation is for the TRUNK version of gnome-hearts.
+		</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>Wprowadzenie</title>
+		
+		<para>Kierki są grą dla czterech graczy opartą na lewach. Celem gry jest wzięcie jak najmniejszej liczby punktowanych kart, przy czym punktowanymi kartami są zazwyczaj wszystkie kiery i dama pik. Gdy tylko jeden z graczy osiągnie ustaloną liczbę punktów, następuje koniec gry i gracz z najmniejszą liczbą punktów zostaje zwycięzcą.</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>Granie w Kierki</title>
+		
+		<para>
+			The game is played with four players. North, east and west are computer players and you are the south player.
+			A game is made up of several rounds. In each round players gain points by taking point cards. The objective is to
+			gain as few points as possible. The game ends as soon as one player reaches a set amount of points. The player
+			with the lowest amount of points is declared the winner. How many points a card is and when the game ends depends
+			on the ruleset. See the <link linkend="hearts-rules">game preferences</link> for more details.
+		</para>
+		
+		<para>Każdemu z graczy rozdawana jest pełna dłoń na początku rundy. Możesz wybrać trzy karty, których nie chcesz, i przekazać je innemu z graczy. W pierwszej rundzie gry karty przekazywane są w lewo, w drugiej przez środek stołu, w trzeciej w prawo, a w czwartej rundzie karty nie mogą być przekazane. Kliknij trzy karty, które chcesz przekazać, a następnie kliknij gracza, któremu chcesz je dać.</para>
+		
+		<para>Kiedy karty zostaną przekazane, zaczyna się runda. Rundy składają się z kolejnych lew. Każdy z graczy rzuca jedną kartę podczas lewy. Lewa jest rozpoczynana przez gracza, który wziął poprzednią lewę. Inni gracze muszą grać kartami tego samego koloru, co karta, która rozpoczęła lewę. Jeśli nie możesz zagrać do lewy, możesz zagrać inną kartą. Kliknij kartę na swojej ręce, by ją zagrać. Karta, którą możesz zagrać, po najechaniu na nią myszką stanie się niebieska. Gracz, który zagrał najwyższą kartę zgodną kolorem z rozpoczynającą kartą, zabiera lewę i dostaje punkty.</para>
+		
+		<para>Runda się kończy, kiedy wszystkie karty zostaną zagrane. Punkty zebrane przez każdego z graczy są do siebie dodawane. Jeśli żaden z graczy nie przekroczył limitu, rozpoczyna się kolejna runda.</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>Menu</title>
+		
+		<para>Pasek menu w górnej części aplikacji zawiera następujące menu:</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>Game</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+									<guimenuitem>New game</guimenuitem>
+								</menuchoice>
+								- Start a new game of <application>Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Restart</guimenuitem>
+								</menuchoice>
+								- Restart the current round
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Scores</guimenuitem>
+								</menuchoice>
+								- Show the score table
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Preferences</guimenuitem>
+								</menuchoice>
+								- Open the preferences dialog
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut>
+									<guimenuitem>Quit</guimenuitem>
+								</menuchoice>
+								- Quit <application>Hearts</application>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Widok</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F11</keycap></shortcut>
+									<guimenuitem>Fullscreen</guimenuitem>
+								</menuchoice>
+								- Toggle fullscreen mode on and off
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>T</keycap></keycombo></shortcut>
+									<guimenuitem>Toolbar</guimenuitem>
+								</menuchoice>
+								- Toggle the toolbar on and off
+								<menuchoice>
+									<guimenuitem>Statusbar</guimenuitem>
+								</menuchoice>
+								- Toggle the statusbar on and off
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Kontrola gry</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Undo</guimenuitem>
+								</menuchoice>
+								- Undo your last move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Redo</guimenuitem>
+								</menuchoice>
+								- Redo a previously undone move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F1</keycap></shortcut>
+									<guimenuitem>Hint</guimenuitem>
+								</menuchoice>
+								- Have the computer give you a tip on what you should do
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Pomoc</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut>
+									<guimenuitem>Help</guimenuitem>
+								</menuchoice>
+								- Open the help file for <application>Gnome Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>About</guimenuitem>
+								</menuchoice>
+								- Shows some information about the <application>Gnome Hearts</application> version you are using
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>Preferencje</title>
+
+		<para>Okno dialogowe preferencji zawiera trzy zakładki:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>Game</title>
+			
+			<para>W tej zakładce możesz wybrać zbiór zasad i pewne umowne zasady. Każdy ze zbiorów zasad to inna odmiana Kierek.</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Standardowy</term>
+					<listitem>
+						<para>
+							The standard ruleset is what most people will be familiar with. All of the hearts are worth one point and
+							the queen of spades is worth 13 points. The game ends as soon as one player reaches 100 points. You can also
+							"shoot the moon" - that is taking all the hearts and the queen of spades in a single round. Your score
+							will be reduced 26 points instead of increased by 26 points. You can also "shoot the sun" by taking all
+							the tricks in a round. In that case your score is reduced by 52 points.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>Zbiór zasad omnibus jest prawie identyczny względem standardowego, ale z bonusową kartą. Graczowi, który weźmie waleta karo, odejmowanych jest 10 punktów. Nie musisz brać tej karty, jeśli chcesz zebrać wszystkie karty punktowane.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus alternatywny</term>
+					<listitem>
+						<para>Ten zbiór zasad od omnibusa różni się tylko tym, że bonusową kartą jest dziesiątka karo.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Wypunktowane karo</term>
+					<listitem>
+						<para>
+							All the hearts cards are worth their face value, with 11 points for the jack, 12 points for the queen,
+							13 points for the king and 14 points for the ace. The queen of spades is worth 25 points and the game ends
+							when the first player reaches 500 points. "Shooting the moon" will reduce your score by 129 points and shooting
+							the sun will reduce it by 258 points.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>Możesz też ustalić pewne dodatkowe, umowne zasady.</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Dwójka pik zaczyna rundę</term>
+					<listitem>
+						<para>Kiedy ta opcja jest zaznaczona, gracz posiadający dwójkę pik rozpoczyna pierwszą lewę w rundzie tą kartą. Kiedy nie jest zaznaczona, zawsze ty zaczynasz pierwszą lewę.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Należy "złamać serca", zanim zacznie się lewę kierem</term>
+					<listitem>
+						<para>
+							Hearts are "broken" when a player cannot follow the suit in a trick and plays a hearts card instead. When
+							this rule is enabled, you cannot start a trick with hearts until hearts are "broken" this way.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Nie można zagrać punktowanymi kartami w pierwszej lewie</term>
+					<listitem>
+						<para>Gdy ta opcja jest włączona, nie możesz zagrać kierem lub damą pik w pierwszej lewie rundy. Nadal możesz zagrać kartą bonusową, jeśli używasz któregoś ze zbiorów zasad omnibus.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>Rywale</title>
+			
+			<para>
+				On this tab you can choose which computer opponents you want to play against. Simply select their names from the
+				dropdown list. <application>Hearts</application> opponents are implemented in <application>Python</application> scripts.
+				You can easily create and modify the players by editing these scripts. For more information about editing players,
+				see the <ulink url="http://www.gnome-hearts.org/developers/">Developer Documentation</ulink> on the hearts
+				website.
+			</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>Styl</title>
+			
+			<para>Ta zakładka pozwala ci dostosować wygląd <application>Kierek</application>. Możesz ustawić obrazek na tło gry i wybrać, jaką talią kart chcesz grać. Jeśli masz zainstalowaną aplikację <application>gnome-games</application>, opcjonalnie wraz z pakietem <application>gnome-games-extra-data</application>, możesz wybrać również jedną z talii z tych pakietów.</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

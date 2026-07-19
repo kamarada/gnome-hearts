@@ -1,0 +1,39 @@
+# This is the configuration file for GNOME hearts
+# You can edit it manually or use the preferences
+# dialog in the game itself. It follows the standard
+# keyfile format for glib and .desktop files.
+
+[hearts]
+
+# Configuration file version number
+version=3
+
+# The scoring rules. Can be set to standard, omnimub, omnibus_alt or spot_hearts
+ruleset=standard
+
+# If the two of clubs leads a round. Set to true or false
+clubs_lead=true
+
+# If hearts must be "broken" before leading in a trick. Set to true or false
+hearts_break=true
+
+# If the gentleman's rule "no blood on the first trick" applies. Set to true or false
+no_blood=true
+
+# Queen of Spades also breaks hearts
+queen_breaks_hearts=true
+
+# Show player scores next to their names
+show_blood=false
+
+# The AI scripts to use. Should be a lua script in the /scripts directory
+north_ai=PlayerAI_John
+east_ai=PlayerAI_Pauline
+west_ai=PlayerAI_Mike
+
+# The filename of the card style to use. Full path or a filename in the /cards directory
+card_style=dondorf.svg
+
+# The background
+background_image=@CONFIG_DATA_DIR@/pixmaps/gnome-hearts/baize.png
+background_tiled=true

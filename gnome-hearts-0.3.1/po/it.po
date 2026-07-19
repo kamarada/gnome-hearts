@@ -1,0 +1,477 @@
+# Italian translation for hearts
+# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# This file is distributed under the same license as the hearts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hearts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-05 07:45+0200\n"
+"PO-Revision-Date: 2008-01-18 18:19+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-02-13 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. set the score window title
+#: ../src/hearts.c:89
+msgid "Scores"
+msgstr "Punteggi"
+
+#: ../src/hearts.c:141 ../src/hearts.c:183
+msgid "Select three cards that you wish to pass on."
+msgstr "Seleziona tre carte che vorresti passare."
+
+#. redraw the screen
+#: ../src/hearts.c:146 ../src/hearts.c:188 ../src/events.c:205
+#: ../src/events.c:233
+msgid "Click on the card you wish to play."
+msgstr "Clicca sulla carta che vuoi giocare."
+
+#: ../src/hearts.c:299
+msgid "Game over - You have won!"
+msgstr "Game over - Hai vinto!"
+
+#: ../src/hearts.c:301
+msgid "Game over - You have lost"
+msgstr "Game over - Hai perso"
+
+#: ../src/hearts.c:303
+msgid "Click somewhere to start a new game."
+msgstr "Clicca da qualche parte per iniziare una nuova partita."
+
+#. redraw the screen
+#: ../src/hearts.c:307 ../src/hearts.c:482 ../src/events.c:181
+#: ../src/events.c:270
+msgid "Click somewhere to continue the game."
+msgstr "Clicca da qualche parte per continuare la partita."
+
+#. Hint: %s is the name of the card the player should play
+#: ../src/hearts.c:486
+#, c-format
+msgid "Play %s."
+msgstr "Gioco %s."
+
+#: ../src/hearts.c:491 ../src/events.c:192
+#, c-format
+msgid "Click on the hand of %s to pass the cards."
+msgstr "Clicca sulla mano di %s per passare le carte."
+
+#. Hint: %s is the name of the card the player should pass on
+#: ../src/hearts.c:503
+#, c-format
+msgid "Pass %s."
+msgstr "Passa %s."
+
+#: ../src/hearts.c:507
+msgid "Sorry, I can't help you."
+msgstr "Spiacente, non posso aiutarti."
+
+#: ../src/cards.c:39
+msgid "the ace of clubs"
+msgstr "l'asso di fiori"
+
+#: ../src/cards.c:40
+msgid "the two of clubs"
+msgstr "il due di fiori"
+
+#: ../src/cards.c:41
+msgid "the three of clubs"
+msgstr "il tre di fiori"
+
+#: ../src/cards.c:42
+msgid "the four of clubs"
+msgstr "il quattro di fiori"
+
+#: ../src/cards.c:43
+msgid "the five of clubs"
+msgstr "il cinque di fiori"
+
+#: ../src/cards.c:44
+msgid "the six of clubs"
+msgstr "il sei di fiori"
+
+#: ../src/cards.c:45
+msgid "the seven of clubs"
+msgstr "il sette di fiori"
+
+#: ../src/cards.c:46
+msgid "the eight of clubs"
+msgstr "l'otto di fiori"
+
+#: ../src/cards.c:47
+msgid "the nine of clubs"
+msgstr "il nove di fiori"
+
+#: ../src/cards.c:48
+msgid "the ten of clubs"
+msgstr "il dieci di fiori"
+
+#: ../src/cards.c:49
+msgid "the jack of clubs"
+msgstr "il jack di fiori"
+
+#: ../src/cards.c:50
+msgid "the queen of clubs"
+msgstr "la regina di fiori"
+
+#: ../src/cards.c:51
+msgid "the king of clubs"
+msgstr "il re di fiori"
+
+#: ../src/cards.c:58
+msgid "the ace of diamonds"
+msgstr "l'asso di quadri"
+
+#: ../src/cards.c:59
+msgid "the two of diamonds"
+msgstr "il due di quadri"
+
+#: ../src/cards.c:60
+msgid "the three of diamonds"
+msgstr "il tre di quadri"
+
+#: ../src/cards.c:61
+msgid "the four of diamonds"
+msgstr "il quattro di quadri"
+
+#: ../src/cards.c:62
+msgid "the five of diamonds"
+msgstr "il cinque di quadri"
+
+#: ../src/cards.c:63
+msgid "the six of diamonds"
+msgstr "il sei di quadri"
+
+#: ../src/cards.c:64
+msgid "the seven of diamonds"
+msgstr "il sette di quadri"
+
+#: ../src/cards.c:65
+msgid "the eight of diamonds"
+msgstr "l'otto di quadri"
+
+#: ../src/cards.c:66
+msgid "the nine of diamonds"
+msgstr "il nove di quadri"
+
+#: ../src/cards.c:67
+msgid "the ten of diamonds"
+msgstr "il dieci di quadri"
+
+#: ../src/cards.c:68
+msgid "the jack of diamonds"
+msgstr "il jack di quadri"
+
+#: ../src/cards.c:69
+msgid "the queen of diamonds"
+msgstr "la regina di quadri"
+
+#: ../src/cards.c:70
+msgid "the king of diamonds"
+msgstr "il re di quadri"
+
+#. Motörhead! :-)
+#: ../src/cards.c:77
+msgid "the ace of spades"
+msgstr "l'asso di picche"
+
+#: ../src/cards.c:78
+msgid "the two of spades"
+msgstr "il due di picche"
+
+#: ../src/cards.c:79
+msgid "the three of spades"
+msgstr "il tre di picche"
+
+#: ../src/cards.c:80
+msgid "the four of spades"
+msgstr "il quattro di picche"
+
+#: ../src/cards.c:81
+msgid "the five of spades"
+msgstr "il cinque di picche"
+
+#: ../src/cards.c:82
+msgid "the six of spades"
+msgstr "il sei di picche"
+
+#: ../src/cards.c:83
+msgid "the seven of spades"
+msgstr "il sette di picche"
+
+#: ../src/cards.c:84
+msgid "the eight of spades"
+msgstr "l'otto di picche"
+
+#: ../src/cards.c:85
+msgid "the nine of spades"
+msgstr "il nove di picche"
+
+#: ../src/cards.c:86
+msgid "the ten of spades"
+msgstr "il dieci di picche"
+
+#: ../src/cards.c:87
+msgid "the jack of spades"
+msgstr "il jack di picche"
+
+#: ../src/cards.c:88
+msgid "the queen of spades"
+msgstr "la regina di picche"
+
+#: ../src/cards.c:89
+msgid "the king of spades"
+msgstr "il re di picche"
+
+#: ../src/cards.c:96
+msgid "the ace of hearts"
+msgstr "l'asso di cuori"
+
+#: ../src/cards.c:97
+msgid "the two of hearts"
+msgstr "il due di cuori"
+
+#: ../src/cards.c:98
+msgid "the three of hearts"
+msgstr "il tre di cuori"
+
+#: ../src/cards.c:99
+msgid "the four of hearts"
+msgstr "il quattro di cuori"
+
+#: ../src/cards.c:100
+msgid "the five of hearts"
+msgstr "il cinque di cuori"
+
+#: ../src/cards.c:101
+msgid "the six of hearts"
+msgstr "il sei di cuori"
+
+#: ../src/cards.c:102
+msgid "the seven of hearts"
+msgstr "il sette di cuori"
+
+#: ../src/cards.c:103
+msgid "the eight of hearts"
+msgstr "l'otto di cuori"
+
+#: ../src/cards.c:104
+msgid "the nine of hearts"
+msgstr "il nove di cuori"
+
+#: ../src/cards.c:105
+msgid "the ten of hearts"
+msgstr "il dieci di cuori"
+
+#: ../src/cards.c:106
+msgid "the jack of hearts"
+msgstr "il jack di cuori"
+
+#: ../src/cards.c:107
+msgid "the queen of hearts"
+msgstr "la regina di cuori"
+
+#: ../src/cards.c:108
+msgid "the king of hearts"
+msgstr "il re di cuori"
+
+#: ../src/ui.c:60
+msgid "Images"
+msgstr "Immagini"
+
+#: ../src/gnome-hearts.glade.h:1
+msgid "A hearts game for GNOME by Sander Marechal"
+msgstr "Il gioco di Hearts per GNOME creato da Sander Marechal"
+
+#: ../src/gnome-hearts.glade.h:2
+msgid "Car_d style:"
+msgstr "Stile Car_te"
+
+#: ../src/gnome-hearts.glade.h:3
+#, fuzzy
+msgid "Choose a _background image:"
+msgstr "Scegli un'immagine di _sfondo:"
+
+#: ../src/gnome-hearts.glade.h:4
+msgid "Choose a ruleset for the game and set some gentleman's rules"
+msgstr ""
+"Scegli il set di regole per il gioco e imposta qualche regola da signore"
+
+#: ../src/gnome-hearts.glade.h:5
+msgid "Choose the style of the cards you wish to play with"
+msgstr "Scegli il modello delle carte con cui desideri giocare con"
+
+#: ../src/gnome-hearts.glade.h:6
+msgid "Copyright 2006-2007, Stichting Lone Wolves"
+msgstr "Copyright 2006-2007, Stichting Lone Wolves"
+
+#: ../src/gnome-hearts.glade.h:7
+msgid "Game"
+msgstr "Game"
+
+#. The name of the game, not the type of card
+#: ../src/gnome-hearts.glade.h:9
+msgid "Hearts"
+msgstr "Hearts"
+
+#: ../src/gnome-hearts.glade.h:10
+msgid "Hearts must be \"_broken\" before leading the trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:11
+msgid "Hint"
+msgstr "Suggerimento"
+
+#: ../src/gnome-hearts.glade.h:12
+msgid ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+msgstr ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+
+#: ../src/gnome-hearts.glade.h:16
+msgid "Players"
+msgstr "Giocatori"
+
+#: ../src/gnome-hearts.glade.h:17
+msgid "Preferences"
+msgstr "Opzioni"
+
+#: ../src/gnome-hearts.glade.h:18
+msgid "Restart"
+msgstr "Riavvia"
+
+#: ../src/gnome-hearts.glade.h:19
+msgid "Select a background image"
+msgstr "Seleziona una immagine di sfondo"
+
+#: ../src/gnome-hearts.glade.h:20
+msgid ""
+"Select which players you wish to play against, or choose <random> to have "
+"the computer pick one for you."
+msgstr ""
+"Seleziona i giocatori contro cui vuoi giocare, o scegli <random> per far "
+"scegliere al computer."
+
+#: ../src/gnome-hearts.glade.h:21
+msgid "Style"
+msgstr "Stile"
+
+#: ../src/gnome-hearts.glade.h:22
+msgid "_Control"
+msgstr "_Controlli"
+
+#: ../src/gnome-hearts.glade.h:23
+msgid "_East:"
+msgstr "_Est"
+
+#: ../src/gnome-hearts.glade.h:24
+msgid "_Fullscreen"
+msgstr "_A schermo pieno"
+
+#: ../src/gnome-hearts.glade.h:25
+msgid "_Game"
+msgstr "_Partita"
+
+#: ../src/gnome-hearts.glade.h:26
+msgid "_Help"
+msgstr "_Guida"
+
+#: ../src/gnome-hearts.glade.h:27
+msgid "_Hint"
+msgstr "_Suggerimento"
+
+#: ../src/gnome-hearts.glade.h:28
+msgid "_Leave fullscreen"
+msgstr "_Lascia la modalità schermo pieno"
+
+#: ../src/gnome-hearts.glade.h:29
+msgid "_North:"
+msgstr "_Nord"
+
+#: ../src/gnome-hearts.glade.h:30
+msgid "_Point cards may not be played on the first trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:31
+msgid "_Queen of Spades breaks hearts"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:32
+msgid "_Redo move"
+msgstr "_Ripeti mossa"
+
+#: ../src/gnome-hearts.glade.h:33
+msgid "_Restart"
+msgstr "_Riavvia"
+
+#: ../src/gnome-hearts.glade.h:34
+msgid "_Ruleset:"
+msgstr "_Regole:"
+
+#: ../src/gnome-hearts.glade.h:35
+msgid "_Scores"
+msgstr "_Punteggi"
+
+#: ../src/gnome-hearts.glade.h:36
+msgid "_Show the player scores next to their name"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:37
+msgid "_Statusbar"
+msgstr "_Barra di Stato"
+
+#: ../src/gnome-hearts.glade.h:38
+msgid "_Stretch image"
+msgstr "_Allunga immagine"
+
+#: ../src/gnome-hearts.glade.h:39
+msgid "_Tile image"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:40
+msgid "_Toolbar"
+msgstr "_Barra degli strumenti"
+
+#: ../src/gnome-hearts.glade.h:41
+#, fuzzy
+msgid "_Two of clubs leads the round"
+msgstr "_Due dei club conducono il giro"
+
+#: ../src/gnome-hearts.glade.h:42
+msgid "_Undo move"
+msgstr "_Annulla mossa"
+
+#: ../src/gnome-hearts.glade.h:43
+msgid "_View"
+msgstr "_Mostra"
+
+#: ../src/gnome-hearts.glade.h:44
+msgid "_West:"
+msgstr "_Ovest:"
+
+#. The game, not the type of card.
+#: ../src/gnome-hearts.glade.h:46
+#, fuzzy
+msgid "gnome-hearts 0.3"
+msgstr "gnome-hearts 0.3"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gnome-hearts.glade.h:48
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Fulvio Ciucci https://launchpad.net/~kitpou\n"
+"  Mario Butera https://launchpad.net/~mammaliturchi\n"
+"  Michele Chiarabelli https://launchpad.net/~allimac1985\n"
+"  Paolo Naldini https://launchpad.net/~hattory"

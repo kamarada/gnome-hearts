@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+<article id="index" lang="nl">
+	<articleinfo>
+
+		<title>Hartenjagen Gebruikers Handleiding</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<year>2008</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>Dit document is voor de TRUNK versie van Hartenjagen</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>Inleiding</title>
+		
+		<para>Hartenjagen is een kaartspel voor vier spelers dat draait om het halen van slagen. Het doel van het spel is om zo weining mogelijk punten te halen, waarbij alle harten en de schoppen vrouw puntkaarten zijn. Het spel is over wanneer een van de spelers een bepaald aantal punten heeft bereikt. De speler met het minste aantal punten is de winnaar.</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>Hartenjagen spelen</title>
+		
+		<para>Het spel wordt gespeeld met vier spelers. Noord, oost en west zijn computerspelers en jij bent de zuidelijke speler. Een spel bestaat uit meerdere ronden. In elke ronde kunnen spelers punten halen door puntkaarten te pakken. Het doel is zo weining mogelijk punten te halen. Het spel is over wanneer een van de spelers een bepaald aantal punten heeft bereikt. De speler met het minste aantal punten is de winnaar. Welke kaarten de puntkaarten zijn en bij welke score het spel over is hangt af van de regelset die gebruikt wordt. Zie <link linkend="hearts-rules">spel voorkeuren</link> voor meer informatie.</para>
+		
+		<para>Aan het begin van een ronde krijgt elke speler een hand met kaarten. Je hebt de mogelijkheid om drie kaarten te selecteren die je niet hebben wil en die je aan een andere speler wil doorgeven. In de eerste ronde van het spel worden de kaarten naar links doorgegeven, in de tweede ronde naar de overkant, in de derde ronde naar rechts en in de vierde ronde worden geen kaarten doorgegeven. Klik op de drie kaarten die je door wil geven en klik op de speler waaraan je ze door wil geven.</para>
+		
+		<para>De speelronde zelf begint nadat de kaarten zijn doorgegeven. Ronden bestaan uit meerdere slagen. Elke speler speelt een kaart per slag. De slag wordt geopend door de speler die de vorige slag heeft gewonnen. De andere spelers moeten moeten vervolgens een kaart van dezelfde kleur spelen als de speler die de slag opende. Als je de kleur niet kan volgen dan kun je een andere kaart spelen. Klik op een kaart om hem te spelen. Eem kaart die geldig is om op dat moment te spelen zal blauw worden als je de muiscursor over de kaart hebt. De speler die de hoogste kaart van de juiste kleur heeft gespeeld neemt de slag en daarmee alle puntkaarten in die slag.</para>
+		
+		<para>De ronde eindigd wanneer alle kaarten zijn gespeeld. Alle puntkaarten die elke speler heeft gehaald worden dan bij elkaar opgeteld. Als geen van de spelers het gestelde aantal punten heeft gehaald dan volgt er nog een ronde.</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>Menus</title>
+		
+		<para>De menubalk bovenaan de applicatie bevat de volgende menus:</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>Spel</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut><guimenuitem>Nieuw spel</guimenuitem></menuchoice>	- Start een nieuw <application>Hartenjagen</application> spel</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Herstarten</guimenuitem></menuchoice> - Herstart de huidige ronde</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Scores</guimenuitem></menuchoice> - Toon de score table</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Voorkeuren</guimenuitem></menuchoice> - Open het voorkeuren scherm</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut><guimenuitem>Stop</guimenuitem></menuchoice> - Stop <application>Hartenjagen</application></para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Beeld</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut><guimenuitem>Stop</guimenuitem></menuchoice> - Stop <application>Hartenjagen</application></para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Besturing</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut><guimenuitem>Ongedaan maken</guimenuitem></menuchoice> - Maak je laatste beurt ongedaan</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut><guimenuitem>Opnieuw</guimenuitem></menuchoice> - Speel een eerder ongedaan gemaakte beurt opnieuw</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><shortcut>F1</shortcut><guimenuitem>Hint</guimenuitem></menuchoice> - Laat de computer je een hint geven over wat je moet doen</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Hulp</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut><guimenuitem>Hulp</guimenuitem></menuchoice> - Toon de hulp voor <application>Hartenjagen</application></para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Over</guimenuitem></menuchoice> - Toon informatie over de <application>Hartenjagen</application> versie de je gebruikt</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>Voorkeuren</title>
+
+		<para>Het voorkeuren scherm heeft drie tabs:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>Spel</title>
+			
+			<para>Op deze tab kun je kiezen met welke regelset je wil spelen en kun je enkele extra regels instellen. Elke regelset is een andere variant van het <application>Hartenjagen</application> spel.</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Standaard</term>
+					<listitem>
+						<para>De standaard regelset is wat de meeste mensen zullen kennen. Alle harten zijn 1 punt waard en de schoppen vrouw is 13 punten waard. Het spel is over zodra de eerste speler 100 punten heeft bereikt. Als je alle harten kaarten plus de schoppen vrouw kan bemachtigen binnen een ronde dan wordt er 26 punten van je score afgetrokken in plaats van opgeteld. Weet je alle kaarten in een ronde te behalen dan wordt er 52 punten van je score afgetrokken.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>De omnibus regels zijn vrijwel identiek aan de standaard regels, maar met een extra bonus kaart. De score van de speler die de ruiten boer pakt wordt met 10 punten verminderd. Je hoeft deze bonus kaart niet te pakken als de voor de bonus van 26 punten speelt.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus Alternatief</term>
+					<listitem>
+						<para>Deze regelset is vrijwel identiek aan de Omnibus regels, maar met de ruiten tien in plaats van de ruiten boer als bonus kaart.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Spot Harten</term>
+					<listitem>
+						<para>Alle harten zijn de waarde op de kaart waard, waarbij de boer 11 punten is, de vrouw 12 punten, de heer 13 punten en de aas 14 punten. De schoppen vrouw is 25 punten waard en het spel is over wanneer de eerste speler 500 punten bereikt. Als je alle harten kaarten en de schoppen vrouw pakt dan wordt er 129 punten van je score afgetrokken. Pak je alle kaarten dan gaat er 258 punten van je score af.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>Je kan naast de regelset nog enkele extra regels instellen:</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Klaveren twee opent de ronde</term>
+					<listitem>
+						<para>Als deze optie aan staat dan begint de eerste slag in een ronde bij de speler die de klaveren twee heeft. Staat deze optie uit, dan start jij, de speler, altijd de eerste slag.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Harten moet "gebroken" worden voor het uitkomen met harten in een slag</term>
+					<listitem>
+						<para>Harten zijn "gebroken" wanneer een speler de kleur van de eerste kaart in een slag niet kan volgen en in plaats daarvan een harten kaart speelt. Als deze regel aan staat dan kun je geen slag beginnen met harten totdat deze "gebroken" zijn.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Shoppen vrouw breekt harten</term>
+					<listitem>
+						<para>Dit geld alleen als harten gebroken moeten worden voor dat er mee mag worden uitgekomen. Wanneer deze optie aan staat dan is harten ook gebroken na het spelen van de shoppen vrouw.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Puntkaarten mogen niet in de eerste slag gespeeld worden</term>
+					<listitem>
+						<para>Wanneer deze regel aan staat dan mag je geen harten kaarten of de schoppen vrouw spelen in de eerste slag van een ronde. Je mag wel bonus kaarten spelen als je een van de Omnibus regelsets gebruikt.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Toon de punten naast de namen van de spelers</term>
+					<listitem>
+						<para>Deze optie toont zowel de punten in de huidige ronden als de punten voor het totale spel naast de namen van de spelers op het speelveld.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>Tegenstanders</title>
+			
+			<para>Op deze tab kun je kiezen tegen welke computer tegenstanders je wilt spelen. Selecteer eenvoudigweg hun namen uit de lijst. Tegenspelers in <application>Hartenjagen</application> zin geïmplementeerd in <application>Python</application> scripts. Je kan deze scripts makkelijk zelf aanmaken en bewerken. Zie de <ulink url="http://www.gnome-hearts.org/developers/">Developer Documentation</ulink> op de <application>Hartenjagen</application> website voor meer informatie.</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>Stijl</title>
+			
+			<para>Via deze tab kun je het uiterlijk van <application>Hartenjagen</application> aanpassen. Je kan een achtergrond-afbeelding kiezen en een stok kaarten selecteren waarmee je wil spelen. Als je het <application>gnome-games</application> pakket hebt geïnstalleerd, eventueel met het <application>gnome-games-extra-data</application> pakket, dan zijn ook de stokken kaarten daaruit beschikbaar.</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

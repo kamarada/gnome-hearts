@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY legal SYSTEM "legal.xml">
+  <!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+
+<article id="index" lang="en">
+	<articleinfo>
+
+		<title>GNOME 红心大战用户文档</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>
+			本文档是根据 GNOME 红心大战的 TRUNK 版本而制作的。
+		</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>简介</title>
+		
+		<para>
+			红心大战是一个四人玩的纸牌游戏。游戏的目的是收尽可能少的分牌，分牌包括所有的红桃以及黑桃 Q。如果一个玩家的分数达到了
+			规定的某个数值，游戏将会结束，得分最少的玩家将成为赢家。
+		</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>进行游戏</title>
+		
+		<para>
+			该游戏由四个人玩。北家，东家和西家为电脑玩家，您操纵的是南家。一轮游戏由若干局组成。在每局中玩家以收得分牌的方式取
+			得分数。游戏的目标是尽可能地少得分。如果某个玩家的分数达到一定数值，游戏将结束。得分最少的玩家将成为赢家。分数的
+			上限由所选择的规则集决定。请参看<link linkend="hearts-rules">首选项</link>以获得更多信息。
+		</para>
+		
+		<para>
+			在一局游戏开始前，系统将向每个玩家发一手牌。您将有机会先选择三张您不想要的牌，并且将它们传给另外一名玩家。游戏的
+			第一局向左传牌，第二局向对家传牌，第三局向右传牌，第四局不传牌，以此类推。单击您想要传的三张牌，然后再单击要把牌
+			传到的玩家。
+		</para>
+		
+		<para>
+			传牌之后，一局游戏将正式开始。一局游戏由若干墩组成。在一墩中，每名玩家出一张牌，由收到上一墩的牌的玩家先出。其它
+			的玩家必须出与领圈的牌花色相同的牌。如果您没有与领圈的牌相同花色的牌，您就可以垫出其它花色的牌。单击您所要出的牌
+			即可。在鼠标指向您可以出的牌的时候，它将会变成蓝色。出与领圈的牌相同花色并且拥有最高点数的牌的玩家将赢得此墩，并
+			获得此墩所包含的分数。
+		</para>
+		
+		<para>
+			如所有的牌都已出完，一局游戏将结束。每名玩家所获取的分数将被加在一起。如果没有玩家达到分数上限，则下一局游戏开始。
+		</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>菜单</title>
+		
+		<para>窗口最上方的菜单栏包含如下菜单:</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>游戏</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+									<guimenuitem>新游戏</guimenuitem>
+								</menuchoice>
+								- 开始一局新的<application>红心大战</application>游戏
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>重新开始</guimenuitem>
+								</menuchoice>
+								- 重新开始本局游戏
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>分数</guimenuitem>
+								</menuchoice>
+								- 显示分数表
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>首选项</guimenuitem>
+								</menuchoice>
+								- 打开首选项对话框
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut>
+									<guimenuitem>退出</guimenuitem>
+								</menuchoice>
+								- 退出<application>红心大战</application>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>查看</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F11</keycap></shortcut>
+									<guimenuitem>全屏</guimenuitem>
+								</menuchoice>
+								- 启用或关闭全屏模式
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>T</keycap></keycombo></shortcut>
+									<guimenuitem>工具栏</guimenuitem>
+								</menuchoice>
+								- 显示或隐藏工具栏
+								<menuchoice>
+									<guimenuitem>状态栏</guimenuitem>
+								</menuchoice>
+								- 显示或隐藏状态栏
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>控制</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>撤销</guimenuitem>
+								</menuchoice>
+								- 撤销您的上一步的动作
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>重复</guimenuitem>
+								</menuchoice>
+								- 重复进行已撤销的动作
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F1</keycap></shortcut>
+									<guimenuitem>提示</guimenuitem>
+								</menuchoice>
+								- 让电脑提示您下一步该做什么
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Help</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut>
+									<guimenuitem>帮助</guimenuitem>
+								</menuchoice>
+								- 打开<application>红心大战</application>的帮助文档
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>关于</guimenuitem>
+								</menuchoice>
+								- 显示关于您正在使用的<application>红心大战</application>的版本信息
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>首选项</title>
+
+		<para>首选项对话框包含以下选项卡:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>游戏</title>
+			
+			<para>
+				在此选项卡中您可以选择使用哪一种规则集，并且设置一些其它的游戏规则。每个规则集是红心大战游戏的一种不同
+				玩家。
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>标准</term>
+					<listitem>
+						<para>
+							“标准”规则集是大多数人熟悉的玩法。所有的红桃牌的分值为 1 分，黑桃 Q 的分值
+							为 13 分。游戏在某名玩家分数达到 100 分将会结束。您也可以“收齐”，即收齐所
+							有的红桃牌及黑桃 Q。您的分数将被扣掉 26 分，而不是加上 26 分。如果您赢得了
+							一局游戏的所有墩，您的分数将被扣掉 52 分。
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>
+							Omnibus 规则集和标准规则集基本相同，主要区别是增加了一张负分牌。获得
+							方块 J 的玩家将被扣掉 10 分。您不需要方块 J 来达到“收齐”。
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus 变种</term>
+					<listitem>
+						<para>
+							此规则集和 Omnibus 规则集基本相同，除了负分牌变为方块 10。
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Spot Hearts</term>
+					<listitem>
+						<para>
+							所有红桃牌的分值为其点数，J 为 11 分，Q 为 12 分，K 为 13 分，A 为 14 分。
+							黑桃 Q 的分值为 25 分。分数上限为 500 分。“收齐” 者的分数将被扣掉 129 分，
+							赢得所有墩的玩家的分数将被扣掉 258 分。
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				您也可以设定一些其它的规则:
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>每局开始时必须先出草花 2</term>
+					<listitem>
+						<para>
+							如此选项被打开，则持有草花 2 的玩家将在每局开始时出第一张牌，且必须
+							先出草花 2。如关闭，则您将总是第一个出牌的玩家。
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>没出过红桃时，不得用红桃领圈</term>
+					<listitem>
+						<para>
+							如果没有玩家曾经垫出过红桃牌，且此选项被打开，您将不能用红桃牌领圈。
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>第一轮不得出有分值的牌</term>
+					<listitem>
+						<para>
+							如此选项被打开，在每局的第一墩您将不能出红桃或黑桃 Q。您仍然可以出 Omnibus 规则集所规定的负分牌。
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>对手</title>
+			
+			<para>
+				在此选项卡中您可以选择您喜欢的电脑对手。从下拉框中选择它们的名字即可。
+				<application>红心大战</application>的对手是以<application>Python</application>
+				脚本的形式实现的。您可以修改这些脚本来自己建立或修改对手的行为。欲知详情，请参阅红心大战网站上的：
+				<ulink url="http://www.gnome-hearts.org/developers/">开发文档</ulink>。
+			</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>风格</title>
+			
+			<para>
+				此选项卡允许您自定义<application>红心大战</application>的外观。您可以选择一个您喜欢的背景
+				图片，或者选择一个纸牌样式。如果您安装了 <application>gnome-games</application> 软件包，
+				或者 <application>gnome-games-extra-data</application> 软件包，那么您将同时可以选择它们
+				所提供的纸牌样式。
+			</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

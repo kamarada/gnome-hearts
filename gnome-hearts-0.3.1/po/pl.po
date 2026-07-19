@@ -1,0 +1,470 @@
+# Polish translation for hearts
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the hearts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hearts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-05 07:45+0200\n"
+"PO-Revision-Date: 2006-07-02 00:49+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-02-13 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. set the score window title
+#: ../src/hearts.c:89
+msgid "Scores"
+msgstr "Punkty"
+
+#: ../src/hearts.c:141 ../src/hearts.c:183
+msgid "Select three cards that you wish to pass on."
+msgstr "Wybierz trzy karty, które chcesz przekazać."
+
+#. redraw the screen
+#: ../src/hearts.c:146 ../src/hearts.c:188 ../src/events.c:205
+#: ../src/events.c:233
+msgid "Click on the card you wish to play."
+msgstr "Kliknij kartę, którą chcesz zagrać."
+
+#: ../src/hearts.c:299
+msgid "Game over - You have won!"
+msgstr "Gra zakończona - wygrałeś!"
+
+#: ../src/hearts.c:301
+msgid "Game over - You have lost"
+msgstr "Gra zakończona - przegrałeś"
+
+#: ../src/hearts.c:303
+msgid "Click somewhere to start a new game."
+msgstr "Kliknij gdziekolwiek, by zacząć nową grę."
+
+#. redraw the screen
+#: ../src/hearts.c:307 ../src/hearts.c:482 ../src/events.c:181
+#: ../src/events.c:270
+msgid "Click somewhere to continue the game."
+msgstr "Kliknij gdziekolwiek, by kontynuować."
+
+#. Hint: %s is the name of the card the player should play
+#: ../src/hearts.c:486
+#, c-format
+msgid "Play %s."
+msgstr "Zagraj %s."
+
+#: ../src/hearts.c:491 ../src/events.c:192
+#, c-format
+msgid "Click on the hand of %s to pass the cards."
+msgstr "Kliknij rękę gracza %s, by przekazać karty."
+
+#. Hint: %s is the name of the card the player should pass on
+#: ../src/hearts.c:503
+#, c-format
+msgid "Pass %s."
+msgstr "Przekaż %s."
+
+#: ../src/hearts.c:507
+msgid "Sorry, I can't help you."
+msgstr "Wybacz, nie mogę ci pomóc."
+
+#: ../src/cards.c:39
+msgid "the ace of clubs"
+msgstr "asa trefl"
+
+#: ../src/cards.c:40
+msgid "the two of clubs"
+msgstr "dwójkę trefl"
+
+#: ../src/cards.c:41
+msgid "the three of clubs"
+msgstr "trójkę trefl"
+
+#: ../src/cards.c:42
+msgid "the four of clubs"
+msgstr "czwórkę trefl"
+
+#: ../src/cards.c:43
+msgid "the five of clubs"
+msgstr "piątkę trefl"
+
+#: ../src/cards.c:44
+msgid "the six of clubs"
+msgstr "szóstkę trefl"
+
+#: ../src/cards.c:45
+msgid "the seven of clubs"
+msgstr "siódemkę trefl"
+
+#: ../src/cards.c:46
+msgid "the eight of clubs"
+msgstr "ósemkę trefl"
+
+#: ../src/cards.c:47
+msgid "the nine of clubs"
+msgstr "dziewiątkę trefl"
+
+#: ../src/cards.c:48
+msgid "the ten of clubs"
+msgstr "dziesiątkę trefl"
+
+#: ../src/cards.c:49
+msgid "the jack of clubs"
+msgstr "waleta trefl"
+
+#: ../src/cards.c:50
+msgid "the queen of clubs"
+msgstr "damę trefl"
+
+#: ../src/cards.c:51
+msgid "the king of clubs"
+msgstr "króla trefl"
+
+#: ../src/cards.c:58
+msgid "the ace of diamonds"
+msgstr "asa karo"
+
+#: ../src/cards.c:59
+msgid "the two of diamonds"
+msgstr "dwójkę karo"
+
+#: ../src/cards.c:60
+msgid "the three of diamonds"
+msgstr "trójkę karo"
+
+#: ../src/cards.c:61
+msgid "the four of diamonds"
+msgstr "czwórkę karo"
+
+#: ../src/cards.c:62
+msgid "the five of diamonds"
+msgstr "piątkę karo"
+
+#: ../src/cards.c:63
+msgid "the six of diamonds"
+msgstr "szóstkę karo"
+
+#: ../src/cards.c:64
+msgid "the seven of diamonds"
+msgstr "siódemkę karo"
+
+#: ../src/cards.c:65
+msgid "the eight of diamonds"
+msgstr "ósemkę karo"
+
+#: ../src/cards.c:66
+msgid "the nine of diamonds"
+msgstr "dziewiątkę karo"
+
+#: ../src/cards.c:67
+msgid "the ten of diamonds"
+msgstr "dziesiątkę karo"
+
+#: ../src/cards.c:68
+msgid "the jack of diamonds"
+msgstr "waleta karo"
+
+#: ../src/cards.c:69
+msgid "the queen of diamonds"
+msgstr "damę karo"
+
+#: ../src/cards.c:70
+msgid "the king of diamonds"
+msgstr "króla karo"
+
+#. Motörhead! :-)
+#: ../src/cards.c:77
+msgid "the ace of spades"
+msgstr "asa pik"
+
+#: ../src/cards.c:78
+msgid "the two of spades"
+msgstr "dwójkę pik"
+
+#: ../src/cards.c:79
+msgid "the three of spades"
+msgstr "trójkę pik"
+
+#: ../src/cards.c:80
+msgid "the four of spades"
+msgstr "czwórkę pik"
+
+#: ../src/cards.c:81
+msgid "the five of spades"
+msgstr "piątkę pik"
+
+#: ../src/cards.c:82
+msgid "the six of spades"
+msgstr "szóstkę pik"
+
+#: ../src/cards.c:83
+msgid "the seven of spades"
+msgstr "siódemkę pik"
+
+#: ../src/cards.c:84
+msgid "the eight of spades"
+msgstr "ósemkę pik"
+
+#: ../src/cards.c:85
+msgid "the nine of spades"
+msgstr "dziewiątkę pik"
+
+#: ../src/cards.c:86
+msgid "the ten of spades"
+msgstr "dziesiątkę pik"
+
+#: ../src/cards.c:87
+msgid "the jack of spades"
+msgstr "waleta pik"
+
+#: ../src/cards.c:88
+msgid "the queen of spades"
+msgstr "damę pik"
+
+#: ../src/cards.c:89
+msgid "the king of spades"
+msgstr "króla pik"
+
+#: ../src/cards.c:96
+msgid "the ace of hearts"
+msgstr "asa kier"
+
+#: ../src/cards.c:97
+msgid "the two of hearts"
+msgstr "dwójkę kier"
+
+#: ../src/cards.c:98
+msgid "the three of hearts"
+msgstr "trójkę kier"
+
+#: ../src/cards.c:99
+msgid "the four of hearts"
+msgstr "czwórkę kier"
+
+#: ../src/cards.c:100
+msgid "the five of hearts"
+msgstr "piątkę kier"
+
+#: ../src/cards.c:101
+msgid "the six of hearts"
+msgstr "szóstkę kier"
+
+#: ../src/cards.c:102
+msgid "the seven of hearts"
+msgstr "siódemkę kier"
+
+#: ../src/cards.c:103
+msgid "the eight of hearts"
+msgstr "ósemkę kier"
+
+#: ../src/cards.c:104
+msgid "the nine of hearts"
+msgstr "dziewiątkę kier"
+
+#: ../src/cards.c:105
+msgid "the ten of hearts"
+msgstr "dziesiątkę kier"
+
+#: ../src/cards.c:106
+msgid "the jack of hearts"
+msgstr "waleta kier"
+
+#: ../src/cards.c:107
+msgid "the queen of hearts"
+msgstr "damę kier"
+
+#: ../src/cards.c:108
+msgid "the king of hearts"
+msgstr "króla kier"
+
+#: ../src/ui.c:60
+msgid "Images"
+msgstr "Obrazki"
+
+#: ../src/gnome-hearts.glade.h:1
+msgid "A hearts game for GNOME by Sander Marechal"
+msgstr "Kierki dla GNOME autorstwa Sander'a Marechal"
+
+#: ../src/gnome-hearts.glade.h:2
+msgid "Car_d style:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:3
+msgid "Choose a _background image:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:4
+msgid "Choose a ruleset for the game and set some gentleman's rules"
+msgstr "Wybierz zbiór zasad i ustal umowne zasady"
+
+#: ../src/gnome-hearts.glade.h:5
+msgid "Choose the style of the cards you wish to play with"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:6
+msgid "Copyright 2006-2007, Stichting Lone Wolves"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:7
+msgid "Game"
+msgstr "Gra"
+
+#. The name of the game, not the type of card
+#: ../src/gnome-hearts.glade.h:9
+msgid "Hearts"
+msgstr "Kierki"
+
+#: ../src/gnome-hearts.glade.h:10
+msgid "Hearts must be \"_broken\" before leading the trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:11
+msgid "Hint"
+msgstr "Podpowiedź"
+
+#: ../src/gnome-hearts.glade.h:12
+msgid ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+msgstr ""
+"Omnibus\n"
+"Omnibus alternatywny\n"
+"Wypunktowane kiery\n"
+"Standardowy"
+
+#: ../src/gnome-hearts.glade.h:16
+msgid "Players"
+msgstr "Gracze"
+
+#: ../src/gnome-hearts.glade.h:17
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: ../src/gnome-hearts.glade.h:18
+msgid "Restart"
+msgstr "Zacznij od początku"
+
+#: ../src/gnome-hearts.glade.h:19
+msgid "Select a background image"
+msgstr "Wybierz obrazek na tło"
+
+#: ../src/gnome-hearts.glade.h:20
+msgid ""
+"Select which players you wish to play against, or choose <random> to have "
+"the computer pick one for you."
+msgstr ""
+"Wybierz, z kim chcesz grać, bądź zaznacz <losowo>, by komputer dobrał gracza "
+"za ciebie."
+
+#: ../src/gnome-hearts.glade.h:21
+msgid "Style"
+msgstr "Styl"
+
+#: ../src/gnome-hearts.glade.h:22
+msgid "_Control"
+msgstr "_Kontrola gry"
+
+#: ../src/gnome-hearts.glade.h:23
+msgid "_East:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:24
+msgid "_Fullscreen"
+msgstr "Pełny _ekran"
+
+#: ../src/gnome-hearts.glade.h:25
+msgid "_Game"
+msgstr "_Gra"
+
+#: ../src/gnome-hearts.glade.h:26
+msgid "_Help"
+msgstr "_Pomoc"
+
+#: ../src/gnome-hearts.glade.h:27
+msgid "_Hint"
+msgstr "P_odpowiedź"
+
+#: ../src/gnome-hearts.glade.h:28
+msgid "_Leave fullscreen"
+msgstr "Opuść pełny _ekran"
+
+#: ../src/gnome-hearts.glade.h:29
+msgid "_North:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:30
+msgid "_Point cards may not be played on the first trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:31
+msgid "_Queen of Spades breaks hearts"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:32
+msgid "_Redo move"
+msgstr "_Powtórz ruch"
+
+#: ../src/gnome-hearts.glade.h:33
+msgid "_Restart"
+msgstr "_Restart"
+
+#: ../src/gnome-hearts.glade.h:34
+msgid "_Ruleset:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:35
+msgid "_Scores"
+msgstr "_Punkty"
+
+#: ../src/gnome-hearts.glade.h:36
+msgid "_Show the player scores next to their name"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:37
+msgid "_Statusbar"
+msgstr "Pasek _statusu"
+
+#: ../src/gnome-hearts.glade.h:38
+msgid "_Stretch image"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:39
+msgid "_Tile image"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:40
+msgid "_Toolbar"
+msgstr "Pasek _narzędzi"
+
+#: ../src/gnome-hearts.glade.h:41
+msgid "_Two of clubs leads the round"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:42
+msgid "_Undo move"
+msgstr "_Cofnij ruch"
+
+#: ../src/gnome-hearts.glade.h:43
+msgid "_View"
+msgstr "_Widok"
+
+#: ../src/gnome-hearts.glade.h:44
+msgid "_West:"
+msgstr ""
+
+#. The game, not the type of card.
+#: ../src/gnome-hearts.glade.h:46
+msgid "gnome-hearts 0.3"
+msgstr ""
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gnome-hearts.glade.h:48
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Michal Mela https://launchpad.net/~maik3l"

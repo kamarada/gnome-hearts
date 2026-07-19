@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+<article id="index" lang="hearts-doc-es">
+	<articleinfo>
+
+		<title>Documentación de Usuario de Corazones para Gnome</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>Esta documentación es para la versión TRONCO de corazones-gnome.</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>Introducción</title>
+		
+		<para>Corazones es un juego de cartas de tomar trucos que se juega con cuatro jugadores. El objetivo del juego es ganar la menor cantidad posible de cartas de puntos. Las tarjetas de puntos son usualmente todas las cartas de corazones y la Reina de picas. Tan pronto como un jugador alcanza un número de puntos establecido el juego termina y el jugador con el puntaje menor es declarado el ganador.</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>Jugando Corazones</title>
+		
+		<para>
+			The game is played with four players. North, east and west are computer players and you are the south player.
+			A game is made up of several rounds. In each round players gain points by taking point cards. The objective is to
+			gain as few points as possible. The game ends as soon as one player reaches a set amount of points. The player
+			with the lowest amount of points is declared the winner. How many points a card is and when the game ends depends
+			on the ruleset. See the <link linkend="hearts-rules">game preferences</link> for more details.
+		</para>
+		
+		<para>Cada jugador recibe una mano de cartas al principio de una ronda. Usted tiene la oportunidad de seleccionar tres cartas que no desea y pasarlas a otro jugador. En la primera ronda del juego las cartas se pasan a la izquierda; en la segunda ronda pasan al lado opuesto de la mesa; en la tercera ronda pasan a la derecha y en la cuarta ronda no se pueden pasar cartas. Haga clic en las tres cartas que usted desea pasar y luego haga clic en el jugador al cual desea pasárselas.</para>
+		
+		<para>Después que las cartas se han pasado, la ronda comienza. Las rondas se componen de varios trucos. Cada jugador juega una carta durante el truco. El truco es comenzado por el jugador que se llevo el truco anterior. Los jugadores restantes deben jugar una carta del mismo manjar de la carta que comienza el truco. Si usted no puede seguir el truco entonces puedo jugar con otra carta de otro manjar. Haga clic en una carta en su mano para jugarla. Una carta que sea valida para jugar se tornara azul cuando coloque el puntero del ratón sobre esa carta. El jugador que que juegue la carta mas alta que sigue el manjar de la primera carta jugada gana el truco y acumula los puntos de ese truco</para>
+		
+		<para>La ronda termina cuando todas las cartas se han jugado. Todos los puntos que cada jugador gana en la ronda se suman al total acumulado. Si ninguno de los jugadores alcanza el limite de puntos establecido entonces se juega otra ronda.</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>Menús</title>
+		
+		<para>La barra de menú en la parte superior de la aplicación contiene los siguientes menús.</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>Juego</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut><guimenuitem>Nuevo juego</guimenuitem></menuchoice> - Comenzar un nuevo juego de <application>Corazones</application></para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Reiniciar</guimenuitem></menuchoice> - Reiniciar el juego actual</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Marcadores</guimenuitem></menuchoice> - Mostrar la tabla de marcadores</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Preferencias</guimenuitem></menuchoice> - Abrir el diálogo de preferencias</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut><guimenuitem>Salir</guimenuitem></menuchoice> - Salir<application>Corazones</application></para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Ver</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F11</keycap></shortcut>
+									<guimenuitem>Fullscreen</guimenuitem>
+								</menuchoice>
+								- Toggle fullscreen mode on and off
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>T</keycap></keycombo></shortcut>
+									<guimenuitem>Toolbar</guimenuitem>
+								</menuchoice>
+								- Toggle the toolbar on and off
+								<menuchoice>
+									<guimenuitem>Statusbar</guimenuitem>
+								</menuchoice>
+								- Toggle the statusbar on and off
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Control</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut><guimenuitem>Deshacer</guimenuitem></menuchoice> - Deshacer el último movimiento</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Redo</guimenuitem>
+								</menuchoice>
+								- Redo a previously undone move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F1</keycap></shortcut>
+									<guimenuitem>Hint</guimenuitem>
+								</menuchoice>
+								- Have the computer give you a tip on what you should do
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Ayuda</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para><menuchoice><shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut><guimenuitem>Help</guimenuitem></menuchoice> - Abrir la ayuda para <application>Corazones de Gnome</application></para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>About</guimenuitem>
+								</menuchoice>
+								- Shows some information about the <application>Gnome Hearts</application> version you are using
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>Preferences</title>
+
+		<para>El diálogo de preferencias contiene tres pestañas:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>Juego</title>
+			
+			<para>
+				On this tab you can choose what ruleset you want to play with and set some gentlemen's rules. Each of the rulsets
+				is a different variant of hearts.
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Estándar</term>
+					<listitem>
+						<para>
+							The standard ruleset is what most people will be familiar with. All of the hearts are worth one point and
+							the queen of spades is worth 13 points. The game ends as soon as one player reaches 100 points. You can also
+							"shoot the moon" - that is taking all the hearts and the queen of spades in a single round. Your score
+							will be reduced 26 points instead of increased by 26 points. You can also "shoot the sun" by taking all
+							the tricks in a round. In that case your score is reduced by 52 points.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>
+							The omnibus ruleset is nearly identical to the standard ruleset but with a bonus card. The player who
+							takes the jack of diamonds has his score reduced by 10 points. You do not need to take this card when
+							you "shoot the moon".
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus Alternative</term>
+					<listitem>
+						<para>
+							This ruleset is virtually identical to the Omnibus ruleset but with the ten of diamonds as the bonus card.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Spot Hearts</term>
+					<listitem>
+						<para>
+							All the hearts cards are worth their face value, with 11 points for the jack, 12 points for the queen,
+							13 points for the king and 14 points for the ace. The queen of spades is worth 25 points and the game ends
+							when the first player reaches 500 points. "Shooting the moon" will reduce your score by 129 points and shooting
+							the sun will reduce it by 258 points.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				You can also set some gentleman's rules on top of the ruleset:
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Two of clubs leads the round</term>
+					<listitem>
+						<para>
+							When this option is set to yes then the player who has the two of clubs starts the first trick of the round
+							with that card. When set to no then you, the player, always starts the first trick.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Hearts must be "broken" before leading the trick</term>
+					<listitem>
+						<para>
+							Hearts are "broken" when a player cannot follow the suit in a trick and plays a hearts card instead. When
+							this rule is enabled, you cannot start a trick with hearts until hearts are "broken" this way.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Point cards may not be played in the first trick</term>
+					<listitem>
+						<para>
+							When this rule is enabled, you cannot play a hearts card or the queen of spades in the first trick of a round.
+							You are still allowed to play bonus cards in the first trick if you are using one of the Omnibus rulesets.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>Oponentes</title>
+			
+			<para>
+				On this tab you can choose which computer opponents you want to play against. Simply select their names from the
+				dropdown list. <application>Hearts</application> opponents are implemented in <application>Python</application> scripts.
+				You can easily create and modify the players by editing these scripts. For more information about editing players,
+				see the <ulink url="http://www.gnome-hearts.org/developers/">Developer Documentation</ulink> on the hearts
+				website.
+			</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>Estilo</title>
+			
+			<para>
+				This tab allows you to customize the look of <application>Hearts</application>. You can choose a background image
+				for the game and pick a deck of cards to play with. If you have the <application>gnome-games</application>
+				application installed, optionally with the <application>gnome-games-extra-data</application> package, then you
+				can choose the card decks provided by them as well.
+			</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

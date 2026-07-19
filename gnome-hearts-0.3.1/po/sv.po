@@ -1,0 +1,477 @@
+# Swedish translation for hearts
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the hearts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hearts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-05 07:45+0200\n"
+"PO-Revision-Date: 2007-12-19 19:23+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <sv@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-02-13 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. set the score window title
+#: ../src/hearts.c:89
+msgid "Scores"
+msgstr "Poäng"
+
+#: ../src/hearts.c:141 ../src/hearts.c:183
+msgid "Select three cards that you wish to pass on."
+msgstr "Välj tre kort som du vill skicka vidare."
+
+#. redraw the screen
+#: ../src/hearts.c:146 ../src/hearts.c:188 ../src/events.c:205
+#: ../src/events.c:233
+msgid "Click on the card you wish to play."
+msgstr "Klicka på det kort du vill spela."
+
+#: ../src/hearts.c:299
+msgid "Game over - You have won!"
+msgstr "Spelet är slut - Du har vunnit!"
+
+#: ../src/hearts.c:301
+msgid "Game over - You have lost"
+msgstr "Spelet är slut - Du har förlorat"
+
+#: ../src/hearts.c:303
+msgid "Click somewhere to start a new game."
+msgstr "Klicka någonstans för att starta ett nytt spel."
+
+#. redraw the screen
+#: ../src/hearts.c:307 ../src/hearts.c:482 ../src/events.c:181
+#: ../src/events.c:270
+msgid "Click somewhere to continue the game."
+msgstr "Klicka någonstans för att fortsätta spelet."
+
+#. Hint: %s is the name of the card the player should play
+#: ../src/hearts.c:486
+#, c-format
+msgid "Play %s."
+msgstr "Spela %s."
+
+#: ../src/hearts.c:491 ../src/events.c:192
+#, c-format
+msgid "Click on the hand of %s to pass the cards."
+msgstr "Klicka på handen med %s för att skicka korten."
+
+#. Hint: %s is the name of the card the player should pass on
+#: ../src/hearts.c:503
+#, c-format
+msgid "Pass %s."
+msgstr "Skicka %s."
+
+#: ../src/hearts.c:507
+msgid "Sorry, I can't help you."
+msgstr "Tyvärr, jag kan inte hjälpa dig."
+
+#: ../src/cards.c:39
+msgid "the ace of clubs"
+msgstr "klöver ess"
+
+#: ../src/cards.c:40
+msgid "the two of clubs"
+msgstr "klöver två"
+
+#: ../src/cards.c:41
+msgid "the three of clubs"
+msgstr "klöver tre"
+
+#: ../src/cards.c:42
+msgid "the four of clubs"
+msgstr "klöver fyra"
+
+#: ../src/cards.c:43
+msgid "the five of clubs"
+msgstr "klöver fem"
+
+#: ../src/cards.c:44
+msgid "the six of clubs"
+msgstr "klöver sex"
+
+#: ../src/cards.c:45
+msgid "the seven of clubs"
+msgstr "klöver sju"
+
+#: ../src/cards.c:46
+msgid "the eight of clubs"
+msgstr "klöver åtta"
+
+#: ../src/cards.c:47
+msgid "the nine of clubs"
+msgstr "klöver nio"
+
+#: ../src/cards.c:48
+msgid "the ten of clubs"
+msgstr "klöver tio"
+
+#: ../src/cards.c:49
+msgid "the jack of clubs"
+msgstr "klöver knekt"
+
+#: ../src/cards.c:50
+msgid "the queen of clubs"
+msgstr "klöver dam"
+
+#: ../src/cards.c:51
+msgid "the king of clubs"
+msgstr "klöver kung"
+
+#: ../src/cards.c:58
+msgid "the ace of diamonds"
+msgstr "ruter ess"
+
+#: ../src/cards.c:59
+msgid "the two of diamonds"
+msgstr "ruter två"
+
+#: ../src/cards.c:60
+msgid "the three of diamonds"
+msgstr "ruter tre"
+
+#: ../src/cards.c:61
+msgid "the four of diamonds"
+msgstr "ruter fyra"
+
+#: ../src/cards.c:62
+msgid "the five of diamonds"
+msgstr "ruter fem"
+
+#: ../src/cards.c:63
+msgid "the six of diamonds"
+msgstr "ruter sex"
+
+#: ../src/cards.c:64
+msgid "the seven of diamonds"
+msgstr "ruter sju"
+
+#: ../src/cards.c:65
+msgid "the eight of diamonds"
+msgstr "ruter åtta"
+
+#: ../src/cards.c:66
+msgid "the nine of diamonds"
+msgstr "ruter nio"
+
+#: ../src/cards.c:67
+msgid "the ten of diamonds"
+msgstr "ruter tio"
+
+#: ../src/cards.c:68
+msgid "the jack of diamonds"
+msgstr "ruter knekt"
+
+#: ../src/cards.c:69
+msgid "the queen of diamonds"
+msgstr "ruter dam"
+
+#: ../src/cards.c:70
+msgid "the king of diamonds"
+msgstr "ruter kung"
+
+#. Motörhead! :-)
+#: ../src/cards.c:77
+msgid "the ace of spades"
+msgstr "spader ess"
+
+#: ../src/cards.c:78
+msgid "the two of spades"
+msgstr "spader två"
+
+#: ../src/cards.c:79
+msgid "the three of spades"
+msgstr "spader tre"
+
+#: ../src/cards.c:80
+msgid "the four of spades"
+msgstr "spader fyra"
+
+#: ../src/cards.c:81
+msgid "the five of spades"
+msgstr "spader fem"
+
+#: ../src/cards.c:82
+msgid "the six of spades"
+msgstr "spader sex"
+
+#: ../src/cards.c:83
+msgid "the seven of spades"
+msgstr "spader sju"
+
+#: ../src/cards.c:84
+msgid "the eight of spades"
+msgstr "spader åtta"
+
+#: ../src/cards.c:85
+msgid "the nine of spades"
+msgstr "spader nio"
+
+#: ../src/cards.c:86
+msgid "the ten of spades"
+msgstr "spader tio"
+
+#: ../src/cards.c:87
+msgid "the jack of spades"
+msgstr "spader knekt"
+
+#: ../src/cards.c:88
+msgid "the queen of spades"
+msgstr "spader dam"
+
+#: ../src/cards.c:89
+msgid "the king of spades"
+msgstr "spader kung"
+
+#: ../src/cards.c:96
+msgid "the ace of hearts"
+msgstr "hjärter ess"
+
+#: ../src/cards.c:97
+msgid "the two of hearts"
+msgstr "hjärter två"
+
+#: ../src/cards.c:98
+msgid "the three of hearts"
+msgstr "hjärter tre"
+
+#: ../src/cards.c:99
+msgid "the four of hearts"
+msgstr "hjärter fyra"
+
+#: ../src/cards.c:100
+msgid "the five of hearts"
+msgstr "hjärter fem"
+
+#: ../src/cards.c:101
+msgid "the six of hearts"
+msgstr "hjärter sex"
+
+#: ../src/cards.c:102
+msgid "the seven of hearts"
+msgstr "hjärter sju"
+
+#: ../src/cards.c:103
+msgid "the eight of hearts"
+msgstr "hjärter åtta"
+
+#: ../src/cards.c:104
+msgid "the nine of hearts"
+msgstr "hjärter nio"
+
+#: ../src/cards.c:105
+msgid "the ten of hearts"
+msgstr "hjärter tio"
+
+#: ../src/cards.c:106
+msgid "the jack of hearts"
+msgstr "hjärter knekt"
+
+#: ../src/cards.c:107
+msgid "the queen of hearts"
+msgstr "hjärter dam"
+
+#: ../src/cards.c:108
+msgid "the king of hearts"
+msgstr "hjärter kung"
+
+#: ../src/ui.c:60
+msgid "Images"
+msgstr "Bilder"
+
+#: ../src/gnome-hearts.glade.h:1
+msgid "A hearts game for GNOME by Sander Marechal"
+msgstr "Ett hjärterspel för GNOME av Sander Marechal"
+
+#: ../src/gnome-hearts.glade.h:2
+msgid "Car_d style:"
+msgstr "Kor_tstil"
+
+#: ../src/gnome-hearts.glade.h:3
+msgid "Choose a _background image:"
+msgstr "Välj en _bakgrundsbild:"
+
+#: ../src/gnome-hearts.glade.h:4
+msgid "Choose a ruleset for the game and set some gentleman's rules"
+msgstr ""
+"Välj en regeluppsättning för spelet och ställ in några gentlemannaregler"
+
+#: ../src/gnome-hearts.glade.h:5
+msgid "Choose the style of the cards you wish to play with"
+msgstr "Välj utseende på korten du vill spela med"
+
+#: ../src/gnome-hearts.glade.h:6
+msgid "Copyright 2006-2007, Stichting Lone Wolves"
+msgstr "Copyright 2006-2007, Stichting Lone Wolves"
+
+#: ../src/gnome-hearts.glade.h:7
+msgid "Game"
+msgstr "Spel"
+
+#. The name of the game, not the type of card
+#: ../src/gnome-hearts.glade.h:9
+msgid "Hearts"
+msgstr "Hjärter"
+
+#: ../src/gnome-hearts.glade.h:10
+#, fuzzy
+msgid "Hearts must be \"_broken\" before leading the trick"
+msgstr "Hjärter måste \"_brytas\" innan första omgången"
+
+#: ../src/gnome-hearts.glade.h:11
+msgid "Hint"
+msgstr "Tips"
+
+#: ../src/gnome-hearts.glade.h:12
+msgid ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+msgstr ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+
+#: ../src/gnome-hearts.glade.h:16
+msgid "Players"
+msgstr "Spelare"
+
+#: ../src/gnome-hearts.glade.h:17
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: ../src/gnome-hearts.glade.h:18
+msgid "Restart"
+msgstr "Starta om"
+
+#: ../src/gnome-hearts.glade.h:19
+msgid "Select a background image"
+msgstr "Välj en bakgrundsbild"
+
+#: ../src/gnome-hearts.glade.h:20
+msgid ""
+"Select which players you wish to play against, or choose <random> to have "
+"the computer pick one for you."
+msgstr ""
+"Välj vilka spelare du vill spela mot, eller välj <slumpad> för att låta "
+"datorn välja en åt dig."
+
+#: ../src/gnome-hearts.glade.h:21
+msgid "Style"
+msgstr "Stil"
+
+#: ../src/gnome-hearts.glade.h:22
+msgid "_Control"
+msgstr "_Kontroll"
+
+#: ../src/gnome-hearts.glade.h:23
+msgid "_East:"
+msgstr "_Öst:"
+
+#: ../src/gnome-hearts.glade.h:24
+msgid "_Fullscreen"
+msgstr "_Helskärm"
+
+#: ../src/gnome-hearts.glade.h:25
+msgid "_Game"
+msgstr "_Spel"
+
+#: ../src/gnome-hearts.glade.h:26
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../src/gnome-hearts.glade.h:27
+msgid "_Hint"
+msgstr "_Tips"
+
+#: ../src/gnome-hearts.glade.h:28
+msgid "_Leave fullscreen"
+msgstr "_Lämna helskärm"
+
+#: ../src/gnome-hearts.glade.h:29
+msgid "_North:"
+msgstr "_Nord:"
+
+#: ../src/gnome-hearts.glade.h:30
+#, fuzzy
+msgid "_Point cards may not be played on the first trick"
+msgstr "_Poängkort kan inte spelas under första omgången"
+
+#: ../src/gnome-hearts.glade.h:31
+msgid "_Queen of Spades breaks hearts"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:32
+msgid "_Redo move"
+msgstr "_Gör om drag"
+
+#: ../src/gnome-hearts.glade.h:33
+msgid "_Restart"
+msgstr "_Starta om"
+
+#: ../src/gnome-hearts.glade.h:34
+msgid "_Ruleset:"
+msgstr "_Regeluppsättning:"
+
+#: ../src/gnome-hearts.glade.h:35
+msgid "_Scores"
+msgstr "_Poäng"
+
+#: ../src/gnome-hearts.glade.h:36
+msgid "_Show the player scores next to their name"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:37
+msgid "_Statusbar"
+msgstr "_Statusrad"
+
+#: ../src/gnome-hearts.glade.h:38
+msgid "_Stretch image"
+msgstr "_Sträck bild"
+
+#: ../src/gnome-hearts.glade.h:39
+#, fuzzy
+msgid "_Tile image"
+msgstr "_Mönsterbild"
+
+#: ../src/gnome-hearts.glade.h:40
+msgid "_Toolbar"
+msgstr "_Verktygsrad"
+
+#: ../src/gnome-hearts.glade.h:41
+msgid "_Two of clubs leads the round"
+msgstr "_Två klöver börjar omgången"
+
+#: ../src/gnome-hearts.glade.h:42
+msgid "_Undo move"
+msgstr "_Ångra drag"
+
+#: ../src/gnome-hearts.glade.h:43
+msgid "_View"
+msgstr "_Visa"
+
+#: ../src/gnome-hearts.glade.h:44
+msgid "_West:"
+msgstr "_Väst:"
+
+#. The game, not the type of card.
+#: ../src/gnome-hearts.glade.h:46
+#, fuzzy
+msgid "gnome-hearts 0.3"
+msgstr "gnome-hearts 0.3"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gnome-hearts.glade.h:48
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Daniel Nylander https://launchpad.net/~yeager\n"
+"  Jonas Björk https://launchpad.net/~jonasbjork\n"
+"  Mårten Woxberg https://launchpad.net/~maxmc"

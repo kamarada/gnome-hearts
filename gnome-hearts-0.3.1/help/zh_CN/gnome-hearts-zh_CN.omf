@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<omf>
+  <resource>
+    <creator>
+     s.marechal@jejik.com (Sander Marechal)
+    </creator>
+    <title>
+     红心大战用户手册
+    </title>
+    <date>
+     2006-05-31
+    </date>
+    <subject category="GNOME|Games"/>
+    <description>
+     GNOME 红心大战是在 GNOME 桌面环境下实现的一个经典红心大战游戏。
+    </description>
+    <type>
+     user's guide
+    </type>
+    <format mime="text/xml" dtd="-//OASIS//DTD DocBook XML V4.1.2//EN"/>
+    <identifier url=""/>
+    <language code="zh_CN"/>
+    <relation seriesid="a68bfd24-f0f2-11da-8c72-c8ba95736893"/>
+    <rights type="GNU FDL" license.version="1.1" license="http://www.gnu.org/licenses/fdl.html" holder="Sander Marechal"/>
+  </resource>
+</omf>

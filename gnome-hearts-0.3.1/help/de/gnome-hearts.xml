@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+<article id="index" lang="hearts-doc-de">
+	<articleinfo>
+
+		<title>Gnome Hearts Benutzeranleitung</title>
+		
+		<copyright>
+			<year>2006</year>
+			<year>2007</year>
+			<holder>Sander Marechal</holder>
+		</copyright>
+
+		<author>
+			<firstname>Sander</firstname>
+			<surname>Marechal</surname>
+			<affiliation>
+				<orgname>Stichting Lone Wolves</orgname>
+				<address>s.marechal@jejik.com</address>
+			</affiliation>
+		</author>
+
+		&legal;
+		
+		<releaseinfo>Das ist die Anleitung für die TRUNK Version von Gnome-Hearts</releaseinfo>
+
+	</articleinfo>
+	
+	<sect1 id="hearts-intro">
+		<title>Einleitung</title>
+		
+		<para>Hearts ist ein Stich-Kartenspiel, das von 4 Spielern gespielt wird. Das Ziel des Spiels ist es so viele Punktkarten wie möglichen zu erhalten, wobei die Punktkarten üblicherweise alle Herzkarten sowie die Pik-Dame sind. Sobald ein Spieler eine festgelegte Punktezahl erreicht ist das Spiel vorbei und der Spieler mit den wenigsten Punkten gewinnt.</para>
+	</sect1>
+	
+	<sect1 id="hearts-playing">
+		<title>Hearts spielen</title>
+		
+		<para>
+			The game is played with four players. North, east and west are computer players and you are the south player.
+			A game is made up of several rounds. In each round players gain points by taking point cards. The objective is to
+			gain as few points as possible. The game ends as soon as one player reaches a set amount of points. The player
+			with the lowest amount of points is declared the winner. How many points a card is and when the game ends depends
+			on the ruleset. See the <link linkend="hearts-rules">game preferences</link> for more details.
+		</para>
+		
+		<para>
+			Each player is dealt a hand of cards at the beginning of a round. You have the opportunity to select three cards
+			that you do not want and pass them to another player. In the first round of a game the cards pass left, in the second
+			round they pass across the table, in the third round they pass right and in the fourth round no cards can be passed.
+			Click on the three cards that you want to pass along and then click on the player you want to pass them to.
+		</para>
+		
+		<para>
+			After the cards have been passed, the round itself begins. Rounds are made up of several tricks. Each player plays
+			one card during a trick. The trick is started by the player who took the previous trick. The other players must play
+			a card of the same suit as the card that started the trick. If you cannot follow the trick then you can play another card.
+			Click on a card in your hand to play it. A card that is valid to play will turn blue when you hover the mouse cursor
+			over it. The player who played the highest card that followed the suit of the first card wins the trick and takes the 
+			points in that trick.
+		</para>
+		
+		<para>Die Runde endet, wenn alle Karten ausgespielt wurden. Alle Punkte, die jeder Spieler gesammelt hat, werden addiert. Falls keiner der Spieler das gesetzte Limit erreicht, wird eine neue Runde gespielt.</para>
+	</sect1>
+	
+	<sect1 id="hearts-menus">
+		<title>Menüs</title>
+		
+		<para>Die Menübar in der Kopfzeile der Anwendung beinhaltet die folgenden Menüs:</para>
+		
+		<variablelist>
+			<varlistentry>
+				<term><guimenu>Spiel</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+									<guimenuitem>New game</guimenuitem>
+								</menuchoice>
+								- Start a new game of <application>Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Neustartt</guimenuitem></menuchoice> - Momentane Runde neu starten</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>Scores</guimenuitem>
+								</menuchoice>
+								- Show the score table
+							</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><guimenuitem>Eigenschaften</guimenuitem></menuchoice> - Öffnet den Eigenschaften-Dialog</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut>
+									<guimenuitem>Quit</guimenuitem>
+								</menuchoice>
+								- Quit <application>Hearts</application>
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Ansicht</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycap>F11</keycap></shortcut>
+									<guimenuitem>Fullscreen</guimenuitem>
+								</menuchoice>
+								- Toggle fullscreen mode on and off
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>T</keycap></keycombo></shortcut>
+									<guimenuitem>Toolbar</guimenuitem>
+								</menuchoice>
+								- Toggle the toolbar on and off
+								<menuchoice>
+									<guimenuitem>Statusbar</guimenuitem>
+								</menuchoice>
+								- Toggle the statusbar on and off
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Steuerung</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Undo</guimenuitem>
+								</menuchoice>
+								- Undo your last move
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+									<guimenuitem>Redo</guimenuitem>
+								</menuchoice>
+								- Redo a previously undone move
+							</para>
+						</listitem>
+						<listitem>
+							<para><menuchoice><shortcut><keycap>F1</keycap></shortcut><guimenuitem>Hinweis</guimenuitem></menuchoice> - Lass den Computer einen Hinweis geben</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry>
+				<term><guimenu>Hilfe</guimenu></term>
+				<listitem>
+					<itemizedlist>
+						<listitem>
+							<para>
+								<menuchoice>
+									<shortcut><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut>
+									<guimenuitem>Help</guimenuitem>
+								</menuchoice>
+								- Open the help file for <application>Gnome Hearts</application>
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<menuchoice>
+									<guimenuitem>About</guimenuitem>
+								</menuchoice>
+								- Shows some information about the <application>Gnome Hearts</application> version you are using
+							</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+	</sect1>
+
+	<sect1 id="hearts-prefs">
+		<title>Einstellungen</title>
+
+		<para>The preferences dialog contains three tabs:</para>
+		
+		<sect2 id="hearts-rules">
+			<title>Spiel</title>
+			
+			<para>
+				On this tab you can choose what ruleset you want to play with and set some gentlemen's rules. Each of the rulsets
+				is a different variant of hearts.
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Standard</term>
+					<listitem>
+						<para>
+							The standard ruleset is what most people will be familiar with. All of the hearts are worth one point and
+							the queen of spades is worth 13 points. The game ends as soon as one player reaches 100 points. You can also
+							"shoot the moon" - that is taking all the hearts and the queen of spades in a single round. Your score
+							will be reduced 26 points instead of increased by 26 points. You can also "shoot the sun" by taking all
+							the tricks in a round. In that case your score is reduced by 52 points.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus</term>
+					<listitem>
+						<para>
+							The omnibus ruleset is nearly identical to the standard ruleset but with a bonus card. The player who
+							takes the jack of diamonds has his score reduced by 10 points. You do not need to take this card when
+							you "shoot the moon".
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Omnibus Alternative</term>
+					<listitem>
+						<para>
+							This ruleset is virtually identical to the Omnibus ruleset but with the ten of diamonds as the bonus card.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Spot Hearts</term>
+					<listitem>
+						<para>
+							All the hearts cards are worth their face value, with 11 points for the jack, 12 points for the queen,
+							13 points for the king and 14 points for the ace. The queen of spades is worth 25 points and the game ends
+							when the first player reaches 500 points. "Shooting the moon" will reduce your score by 129 points and shooting
+							the sun will reduce it by 258 points.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+			<para>
+				You can also set some gentleman's rules on top of the ruleset:
+			</para>
+			
+			<variablelist>
+				<varlistentry>
+					<term>Two of clubs leads the round</term>
+					<listitem>
+						<para>
+							When this option is set to yes then the player who has the two of clubs starts the first trick of the round
+							with that card. When set to no then you, the player, always starts the first trick.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Hearts must be "broken" before leading the trick</term>
+					<listitem>
+						<para>
+							Hearts are "broken" when a player cannot follow the suit in a trick and plays a hearts card instead. When
+							this rule is enabled, you cannot start a trick with hearts until hearts are "broken" this way.
+						</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term>Point cards may not be played in the first trick</term>
+					<listitem>
+						<para>
+							When this rule is enabled, you cannot play a hearts card or the queen of spades in the first trick of a round.
+							You are still allowed to play bonus cards in the first trick if you are using one of the Omnibus rulesets.
+						</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			
+		</sect2>
+		
+		<sect2 id="hearts-opponents">
+			<title>Gegenspieler</title>
+			
+			<para>
+				On this tab you can choose which computer opponents you want to play against. Simply select their names from the
+				dropdown list. <application>Hearts</application> opponents are implemented in <application>Python</application> scripts.
+				You can easily create and modify the players by editing these scripts. For more information about editing players,
+				see the <ulink url="http://www.gnome-hearts.org/developers/">Developer Documentation</ulink> on the hearts
+				website.
+			</para>
+		</sect2>
+		
+		<sect2 id="hearts-style">
+			<title>Stil</title>
+			
+			<para>
+				This tab allows you to customize the look of <application>Hearts</application>. You can choose a background image
+				for the game and pick a deck of cards to play with. If you have the <application>gnome-games</application>
+				application installed, optionally with the <application>gnome-games-extra-data</application> package, then you
+				can choose the card decks provided by them as well.
+			</para>
+		</sect2>
+	</sect1>
+	
+	&GFDL;
+	
+</article>

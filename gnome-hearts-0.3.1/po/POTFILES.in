@@ -1,0 +1,16 @@
+[encoding: UTF-8]
+
+# List of source files containing translatable strings.
+
+# Source files
+src/hearts.c
+src/events.c
+src/preimage.c
+src/cards-image.c
+src/cards.c
+src/player.c
+src/player-api.c
+src/ui.c
+
+# The glade file
+src/gnome-hearts.glade

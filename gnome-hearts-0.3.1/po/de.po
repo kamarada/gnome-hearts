@@ -1,0 +1,477 @@
+# German translation for hearts
+# Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+# This file is distributed under the same license as the hearts package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2006.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: hearts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-05 07:45+0200\n"
+"PO-Revision-Date: 2007-11-07 09:50+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2008-02-13 22:44+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#. set the score window title
+#: ../src/hearts.c:89
+msgid "Scores"
+msgstr "Punkte"
+
+#: ../src/hearts.c:141 ../src/hearts.c:183
+msgid "Select three cards that you wish to pass on."
+msgstr "Wähle drei Karten, die du weitergeben möchtest"
+
+#. redraw the screen
+#: ../src/hearts.c:146 ../src/hearts.c:188 ../src/events.c:205
+#: ../src/events.c:233
+msgid "Click on the card you wish to play."
+msgstr "Klicke auf die Karte die du spielen möchtest."
+
+#: ../src/hearts.c:299
+msgid "Game over - You have won!"
+msgstr "Das Spiel ist aus - Du hast gewonnen!"
+
+#: ../src/hearts.c:301
+msgid "Game over - You have lost"
+msgstr "Das Spiel ist aus - Du hast verloren"
+
+#: ../src/hearts.c:303
+msgid "Click somewhere to start a new game."
+msgstr "Klicken für ein neues Spiel."
+
+#. redraw the screen
+#: ../src/hearts.c:307 ../src/hearts.c:482 ../src/events.c:181
+#: ../src/events.c:270
+msgid "Click somewhere to continue the game."
+msgstr "Klicken um das Spiel fortzusetzen"
+
+#. Hint: %s is the name of the card the player should play
+#: ../src/hearts.c:486
+#, c-format
+msgid "Play %s."
+msgstr "Tipp: Spiele %s."
+
+#: ../src/hearts.c:491 ../src/events.c:192
+#, c-format
+msgid "Click on the hand of %s to pass the cards."
+msgstr "Klicke auf die Hand von %s um die Karten weiterzueben."
+
+#. Hint: %s is the name of the card the player should pass on
+#: ../src/hearts.c:503
+#, c-format
+msgid "Pass %s."
+msgstr "Gib %s weiter."
+
+#: ../src/hearts.c:507
+msgid "Sorry, I can't help you."
+msgstr "Tut mir Leid, ich kann dir nicht helfen."
+
+#: ../src/cards.c:39
+msgid "the ace of clubs"
+msgstr "Kreuz Ass"
+
+#: ../src/cards.c:40
+msgid "the two of clubs"
+msgstr "Kreuz 2"
+
+#: ../src/cards.c:41
+msgid "the three of clubs"
+msgstr "Kreuz 3"
+
+#: ../src/cards.c:42
+msgid "the four of clubs"
+msgstr "Kreuz 4"
+
+#: ../src/cards.c:43
+msgid "the five of clubs"
+msgstr "Kreuz 5"
+
+#: ../src/cards.c:44
+msgid "the six of clubs"
+msgstr "Kreuz 6"
+
+#: ../src/cards.c:45
+msgid "the seven of clubs"
+msgstr "Kreuz 7"
+
+#: ../src/cards.c:46
+msgid "the eight of clubs"
+msgstr "Kreuz 8"
+
+#: ../src/cards.c:47
+msgid "the nine of clubs"
+msgstr "Kreuz 9"
+
+#: ../src/cards.c:48
+msgid "the ten of clubs"
+msgstr "Kreuz 10"
+
+#: ../src/cards.c:49
+msgid "the jack of clubs"
+msgstr "Kreuz Bube"
+
+#: ../src/cards.c:50
+msgid "the queen of clubs"
+msgstr "Kreuz Dame"
+
+#: ../src/cards.c:51
+msgid "the king of clubs"
+msgstr "Kreuz König"
+
+#: ../src/cards.c:58
+msgid "the ace of diamonds"
+msgstr "Karo Ass"
+
+#: ../src/cards.c:59
+msgid "the two of diamonds"
+msgstr "Karo 2"
+
+#: ../src/cards.c:60
+msgid "the three of diamonds"
+msgstr "Karo 3"
+
+#: ../src/cards.c:61
+msgid "the four of diamonds"
+msgstr "Karo 4"
+
+#: ../src/cards.c:62
+msgid "the five of diamonds"
+msgstr "Karo 5"
+
+#: ../src/cards.c:63
+msgid "the six of diamonds"
+msgstr "Karo6"
+
+#: ../src/cards.c:64
+msgid "the seven of diamonds"
+msgstr "Karo 7"
+
+#: ../src/cards.c:65
+msgid "the eight of diamonds"
+msgstr "Karo 8"
+
+#: ../src/cards.c:66
+msgid "the nine of diamonds"
+msgstr "Karo 9"
+
+#: ../src/cards.c:67
+msgid "the ten of diamonds"
+msgstr "Karo 10"
+
+#: ../src/cards.c:68
+msgid "the jack of diamonds"
+msgstr "Karo Bube"
+
+#: ../src/cards.c:69
+msgid "the queen of diamonds"
+msgstr "Karo Dame"
+
+#: ../src/cards.c:70
+msgid "the king of diamonds"
+msgstr "Karo König"
+
+#. Motörhead! :-)
+#: ../src/cards.c:77
+msgid "the ace of spades"
+msgstr "Pik Ass"
+
+#: ../src/cards.c:78
+msgid "the two of spades"
+msgstr "Pik 2"
+
+#: ../src/cards.c:79
+msgid "the three of spades"
+msgstr "Pik 3"
+
+#: ../src/cards.c:80
+msgid "the four of spades"
+msgstr "Pik 4"
+
+#: ../src/cards.c:81
+msgid "the five of spades"
+msgstr "Pik 5"
+
+#: ../src/cards.c:82
+msgid "the six of spades"
+msgstr "Pik 6"
+
+#: ../src/cards.c:83
+msgid "the seven of spades"
+msgstr "Pik 7"
+
+#: ../src/cards.c:84
+msgid "the eight of spades"
+msgstr "Pik 8"
+
+#: ../src/cards.c:85
+msgid "the nine of spades"
+msgstr "Pik 9"
+
+#: ../src/cards.c:86
+msgid "the ten of spades"
+msgstr "Pik 10"
+
+#: ../src/cards.c:87
+msgid "the jack of spades"
+msgstr "Pik Bube"
+
+#: ../src/cards.c:88
+msgid "the queen of spades"
+msgstr "Pik Dame"
+
+#: ../src/cards.c:89
+msgid "the king of spades"
+msgstr "Pik König"
+
+#: ../src/cards.c:96
+msgid "the ace of hearts"
+msgstr "Herz Ass"
+
+#: ../src/cards.c:97
+msgid "the two of hearts"
+msgstr "Herz 2"
+
+#: ../src/cards.c:98
+msgid "the three of hearts"
+msgstr "Herz 3"
+
+#: ../src/cards.c:99
+msgid "the four of hearts"
+msgstr "Herz 4"
+
+#: ../src/cards.c:100
+msgid "the five of hearts"
+msgstr "Herz 5"
+
+#: ../src/cards.c:101
+msgid "the six of hearts"
+msgstr "Herz 6"
+
+#: ../src/cards.c:102
+msgid "the seven of hearts"
+msgstr "Herz 7"
+
+#: ../src/cards.c:103
+msgid "the eight of hearts"
+msgstr "Herz 8"
+
+#: ../src/cards.c:104
+msgid "the nine of hearts"
+msgstr "Herz 9"
+
+#: ../src/cards.c:105
+msgid "the ten of hearts"
+msgstr "Herz 10"
+
+#: ../src/cards.c:106
+msgid "the jack of hearts"
+msgstr "Herz Bube"
+
+#: ../src/cards.c:107
+msgid "the queen of hearts"
+msgstr "Herz Dame"
+
+#: ../src/cards.c:108
+msgid "the king of hearts"
+msgstr "Herz König"
+
+#: ../src/ui.c:60
+msgid "Images"
+msgstr "Bilder"
+
+#: ../src/gnome-hearts.glade.h:1
+msgid "A hearts game for GNOME by Sander Marechal"
+msgstr "Ein Hearts Spiel für Gnome von Sander Marechal"
+
+#: ../src/gnome-hearts.glade.h:2
+msgid "Car_d style:"
+msgstr "Kartenstil"
+
+#: ../src/gnome-hearts.glade.h:3
+msgid "Choose a _background image:"
+msgstr "Hintergrundbild auswählen:"
+
+#: ../src/gnome-hearts.glade.h:4
+msgid "Choose a ruleset for the game and set some gentleman's rules"
+msgstr ""
+"Wähle einen Regelsatz für das Spiel und setzte einige \"Gentleman\" Regeln "
+"fest"
+
+#: ../src/gnome-hearts.glade.h:5
+msgid "Choose the style of the cards you wish to play with"
+msgstr "Wähle den gewünschten Kartenstil"
+
+#: ../src/gnome-hearts.glade.h:6
+msgid "Copyright 2006-2007, Stichting Lone Wolves"
+msgstr "Copyright 2006-2007, Stichting Lone Wolves"
+
+#: ../src/gnome-hearts.glade.h:7
+msgid "Game"
+msgstr "Spiel"
+
+#. The name of the game, not the type of card
+#: ../src/gnome-hearts.glade.h:9
+msgid "Hearts"
+msgstr "Hearts"
+
+#: ../src/gnome-hearts.glade.h:10
+msgid "Hearts must be \"_broken\" before leading the trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:11
+msgid "Hint"
+msgstr "Tipp"
+
+#: ../src/gnome-hearts.glade.h:12
+msgid ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+msgstr ""
+"Omnibus\n"
+"Omnibus Alternative\n"
+"Spot Hearts\n"
+"Standard"
+
+#: ../src/gnome-hearts.glade.h:16
+msgid "Players"
+msgstr "Spieler"
+
+#: ../src/gnome-hearts.glade.h:17
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: ../src/gnome-hearts.glade.h:18
+msgid "Restart"
+msgstr "Neustart"
+
+#: ../src/gnome-hearts.glade.h:19
+msgid "Select a background image"
+msgstr "Wähle ein Hintergrundbild"
+
+#: ../src/gnome-hearts.glade.h:20
+msgid ""
+"Select which players you wish to play against, or choose <random> to have "
+"the computer pick one for you."
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:21
+msgid "Style"
+msgstr "Stil"
+
+#: ../src/gnome-hearts.glade.h:22
+msgid "_Control"
+msgstr "_Steuerung"
+
+#: ../src/gnome-hearts.glade.h:23
+msgid "_East:"
+msgstr "_Ost"
+
+#: ../src/gnome-hearts.glade.h:24
+msgid "_Fullscreen"
+msgstr "_Vollbild"
+
+#: ../src/gnome-hearts.glade.h:25
+msgid "_Game"
+msgstr "_Spiel"
+
+#: ../src/gnome-hearts.glade.h:26
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: ../src/gnome-hearts.glade.h:27
+msgid "_Hint"
+msgstr "_Hinweis"
+
+#: ../src/gnome-hearts.glade.h:28
+msgid "_Leave fullscreen"
+msgstr "Vollbild ver_lassen"
+
+#: ../src/gnome-hearts.glade.h:29
+msgid "_North:"
+msgstr "_Nord"
+
+#: ../src/gnome-hearts.glade.h:30
+msgid "_Point cards may not be played on the first trick"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:31
+msgid "_Queen of Spades breaks hearts"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:32
+msgid "_Redo move"
+msgstr "Zug _wiederherstellen"
+
+#: ../src/gnome-hearts.glade.h:33
+msgid "_Restart"
+msgstr "_Neu starten"
+
+#: ../src/gnome-hearts.glade.h:34
+msgid "_Ruleset:"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:35
+msgid "_Scores"
+msgstr "_Punkte"
+
+#: ../src/gnome-hearts.glade.h:36
+msgid "_Show the player scores next to their name"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:37
+msgid "_Statusbar"
+msgstr "_Statusleiste"
+
+#: ../src/gnome-hearts.glade.h:38
+msgid "_Stretch image"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:39
+msgid "_Tile image"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:40
+msgid "_Toolbar"
+msgstr "_Werkzeugleiste"
+
+#: ../src/gnome-hearts.glade.h:41
+msgid "_Two of clubs leads the round"
+msgstr ""
+
+#: ../src/gnome-hearts.glade.h:42
+msgid "_Undo move"
+msgstr "Einen Schritt zurück"
+
+#: ../src/gnome-hearts.glade.h:43
+msgid "_View"
+msgstr "_Ansicht"
+
+#: ../src/gnome-hearts.glade.h:44
+msgid "_West:"
+msgstr "_West:"
+
+#. The game, not the type of card.
+#: ../src/gnome-hearts.glade.h:46
+#, fuzzy
+msgid "gnome-hearts 0.3"
+msgstr "gnome-hearts 0.3"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/gnome-hearts.glade.h:48
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Blackout https://launchpad.net/~coolx67\n"
+"  Charlotte https://launchpad.net/~lenteuitje\n"
+"  Harald Eiermann https://launchpad.net/~harald-eiermann\n"
+"  Joerg Rings https://launchpad.net/~jrings\n"
+"  Ramona https://launchpad.net/~shiii\n"
+"  Stefan K. https://launchpad.net/~stefank.\n"
+"  osswald https://launchpad.net/~christoph-osswalds"
