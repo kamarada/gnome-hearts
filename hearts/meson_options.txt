@@ -1,0 +1,6 @@
+option(
+  'cards_svg',
+  type: 'string',
+  value: '',
+  description: 'Path to an anglo.svg card deck to bundle; defaults to the aisleriot submodule checkout at ../aisleriot/cards/anglo.svg',
+)

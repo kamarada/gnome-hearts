@@ -1,6 +1,6 @@
 # Build playbooks
 
-Two playbooks, one per game in this repo. Both just need:
+Three playbooks, one per game in this repo. All just need:
 
 ```sh
 ansible-playbook <playbook>.yml
@@ -65,4 +65,40 @@ launcher, or run:
 
 ```sh
 /usr/local/bin/sol
+```
+
+## hearts.yml
+
+Builds and installs Hearts, the `hearts` project at the repo root — a
+from-scratch rewrite of GNOME Hearts in Python, GTK4 and libadwaita, using
+`aisleriot` as an architectural reference (an engine/rules split, mirrored
+here as a gi-free `hearts/hearts/engine/` package plus a GTK4 UI layer)
+rather than as a code source. Implements the Standard ruleset only; see
+`hearts/README.md` for what's deliberately deferred. Like Aisleriot, it has
+no legacy toolkit dependencies, so it's built directly on the host — no
+container needed.
+
+Requirements:
+
+- The `aisleriot` submodule checked out (`git submodule update --init
+  aisleriot` from the repo root) — Hearts reuses its `anglo.svg` card deck
+  rather than bundling its own card art
+- [Meson](https://mesonbuild.com/Getting-meson.html) and
+  [Ninja](https://ninja-build.org/)
+- Python 3 with [PyGObject](https://pygobject.gnome.org/) and the GTK 4,
+  libadwaita and Rsvg introspection typelibs (e.g. on Fedora:
+  `python3-gobject gtk4 libadwaita gobject-introspection librsvg2`; on
+  Debian/Ubuntu: `python3-gi gir1.2-gtk-4.0 gir1.2-adw-1
+  librsvg2-common`)
+
+The playbook checks for Meson, Ninja, Python 3, the PyGObject/GTK4/
+libadwaita/Rsvg typelibs, and the submodule, and stops with instructions
+if any are missing — it does not install any of these itself, since
+package names and installation vary by distribution.
+
+Once it finishes, look for **"Hearts"** in your application launcher, or
+run:
+
+```sh
+/usr/local/bin/hearts
 ```

@@ -1,0 +1,124 @@
+---
+# Builds and installs Hearts (the `hearts` Meson/Python/GTK4/libadwaita
+# project at the repo root) directly on the host -- a modern rewrite of
+# GNOME Hearts with no legacy toolkit dependencies, so it doesn't need a
+# container the way gnome-hearts-0.3.1 does.
+#
+# Requires: a Python 3 interpreter, meson, ninja, and PyGObject with GTK 4,
+# libadwaita and Rsvg typelibs available (e.g. on Fedora: python3-gobject
+# gtk4 libadwaita gobject-introspection librsvg2; on Debian/Ubuntu:
+# python3-gi gir1.2-gtk-4.0 gir1.2-adw-1 librsvg2-common). It also reuses
+# the card art already vendored by the aisleriot submodule, so that must be
+# checked out too.
+#
+# Usage:
+#   ansible-playbook hearts.yml
+
+- name: Build and install Hearts
+  hosts: localhost
+  connection: local
+  become: false
+
+  vars:
+    hearts_src: "{{ playbook_dir }}/../hearts"
+    hearts_build: "{{ hearts_src }}/build"
+    hearts_prefix: /usr/local
+
+  tasks:
+    - name: Check whether meson is installed
+      ansible.builtin.command: meson --version
+      register: hearts_meson_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if meson is missing
+      ansible.builtin.fail:
+        msg: >-
+          meson was not found. Install it for your distribution (see
+          https://mesonbuild.com/Getting-meson.html), then re-run this
+          playbook.
+      when: hearts_meson_check.rc != 0
+
+    - name: Check whether ninja is installed
+      ansible.builtin.command: ninja --version
+      register: hearts_ninja_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if ninja is missing
+      ansible.builtin.fail:
+        msg: >-
+          ninja was not found. Install it for your distribution (see
+          https://ninja-build.org/), then re-run this playbook.
+      when: hearts_ninja_check.rc != 0
+
+    - name: Check whether python3 is installed
+      ansible.builtin.command: python3 --version
+      register: hearts_python_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if python3 is missing
+      ansible.builtin.fail:
+        msg: >-
+          python3 was not found. Install it for your distribution, then
+          re-run this playbook.
+      when: hearts_python_check.rc != 0
+
+    - name: Check whether PyGObject and GTK4/libadwaita/Rsvg typelibs are usable
+      ansible.builtin.command: >-
+        python3 -c "import gi;
+        gi.require_version('Gtk', '4.0');
+        gi.require_version('Adw', '1');
+        gi.require_version('Rsvg', '2.0');
+        from gi.repository import Gtk, Adw, Rsvg"
+      register: hearts_gi_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if PyGObject/GTK4/libadwaita/Rsvg are missing
+      ansible.builtin.fail:
+        msg: >-
+          Could not import Gtk 4.0, Adw 1 and Rsvg 2.0 via PyGObject.
+          Install the GObject introspection packages for your distribution
+          providing PyGObject, GTK4, libadwaita and librsvg (e.g. on
+          Fedora: python3-gobject gtk4 libadwaita gobject-introspection
+          librsvg2; on Debian/Ubuntu: python3-gi gir1.2-gtk-4.0
+          gir1.2-adw-1 librsvg2-common), then re-run this playbook.
+      when: hearts_gi_check.rc != 0
+
+    - name: Ensure the aisleriot submodule (source of the card deck) is checked out
+      ansible.builtin.stat:
+        path: "{{ playbook_dir }}/../aisleriot/cards/anglo.svg"
+      register: hearts_cards_check
+
+    - name: Fail if the aisleriot submodule is missing
+      ansible.builtin.fail:
+        msg: >-
+          {{ playbook_dir }}/../aisleriot/cards/anglo.svg not found. Run
+          'git submodule update --init aisleriot' in the repo root, then
+          re-run this playbook.
+      when: not hearts_cards_check.stat.exists
+
+    - name: Configure the Hearts build
+      ansible.builtin.command: >
+        meson setup build --prefix={{ hearts_prefix }}
+      args:
+        chdir: "{{ hearts_src }}"
+        creates: "{{ hearts_build }}/build.ninja"
+
+    - name: Build Hearts
+      ansible.builtin.command: ninja -C {{ hearts_build }}
+      args:
+        creates: "{{ hearts_build }}/hearts-launcher"
+
+    - name: Install Hearts
+      become: true
+      ansible.builtin.command: ninja -C {{ hearts_build }} install
+      changed_when: true
+
+    - name: Done
+      ansible.builtin.debug:
+        msg: >-
+          Hearts is built and installed. Look for "Hearts" in your
+          application launcher, or run: {{ hearts_prefix }}/bin/hearts

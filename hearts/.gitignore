@@ -1,0 +1,10 @@
+# Meson build output
+/build/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Compiled GSettings schema cache, if ever generated in-tree during local
+# testing
+gschemas.compiled

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.gnome.Hearts</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Hearts</name>
+  <summary>Play the classic four-player card game</summary>
+  <description>
+    <p>
+      Hearts is a trick-taking card game for four players. Avoid taking
+      hearts and the Queen of Spades, or take them all to shoot the moon.
+      Play against three computer opponents.
+    </p>
+  </description>
+  <launchable type="desktop-id">org.gnome.Hearts.desktop</launchable>
+  <content_rating type="oars-1.1" />
+  <releases>
+    <release version="1.0.0" date="2026-07-20" />
+  </releases>
+  <url type="homepage">https://github.com/kamarada/gnome-hearts</url>
+</component>

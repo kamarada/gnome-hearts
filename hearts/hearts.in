@@ -1,0 +1,10 @@
+#!@PYTHON@
+# -*- coding: utf-8 -*-
+import sys
+
+sys.path.insert(0, "@pythondir@")
+
+from hearts.main import main
+
+if __name__ == "__main__":
+    sys.exit(main())

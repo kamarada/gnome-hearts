@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="HeartsWindow" parent="AdwApplicationWindow">
+    <property name="title" translatable="yes">Hearts</property>
+    <property name="default-width">900</property>
+    <property name="default-height">700</property>
+    <child>
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="GtkButton" id="pass_button">
+                <property name="label" translatable="yes">Pass</property>
+                <property name="sensitive">false</property>
+                <property name="action-name">win.pass-cards</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkMenuButton">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="menu-model">primary_menu</property>
+                <property name="tooltip-text" translatable="yes">Main Menu</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton">
+                <property name="icon-name">view-list-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Scores</property>
+                <property name="action-name">win.show-scores</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="AdwToastOverlay" id="toast_overlay">
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="status_label">
+                    <property name="label" translatable="yes">Welcome to Hearts</property>
+                    <property name="margin-top">6</property>
+                    <property name="margin-bottom">6</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="HeartsBoardWidget" id="board">
+                    <property name="vexpand">true</property>
+                    <property name="hexpand">true</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_New Game</attribute>
+        <attribute name="action">app.new-game</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_About Hearts</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

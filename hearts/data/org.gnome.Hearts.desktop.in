@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Hearts
+Comment=Play the classic four-player card game
+Exec=hearts
+Icon=org.gnome.Hearts
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Game;CardGame;
+Keywords=hearts;cards;trick;
