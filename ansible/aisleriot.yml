@@ -1,0 +1,92 @@
+---
+# Builds and installs Aisleriot (the `aisleriot` git submodule at the repo
+# root) directly on the host — unlike GNOME Hearts, it's an actively
+# maintained, Meson-based GTK3 app with no legacy toolkit dependencies, so
+# it doesn't need a container.
+#
+# Requires the build to already be able to find: a C/C++ compiler, meson,
+# ninja, pkg-config, guile (3.0/2.2/2.0), and the development files for
+# glib-2.0, gio-2.0, cairo, gtk+-3.0, librsvg-2.0 and libcanberra-gtk3, plus
+# the itstool, xmllint and gzip programs. Package names for these vary by
+# distribution; consult your distro's docs if `meson setup` below fails
+# because one is missing.
+#
+# Usage:
+#   ansible-playbook aisleriot.yml
+
+- name: Build and install Aisleriot
+  hosts: localhost
+  connection: local
+  become: false
+
+  vars:
+    aisleriot_src: "{{ playbook_dir }}/../aisleriot"
+    aisleriot_build: "{{ aisleriot_src }}/build"
+    aisleriot_prefix: /usr/local
+
+  tasks:
+    - name: Check whether meson is installed
+      ansible.builtin.command: meson --version
+      register: aisleriot_meson_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if meson is missing
+      ansible.builtin.fail:
+        msg: >-
+          meson was not found. Install it for your distribution (see
+          https://mesonbuild.com/Getting-meson.html), then re-run this
+          playbook.
+      when: aisleriot_meson_check.rc != 0
+
+    - name: Check whether ninja is installed
+      ansible.builtin.command: ninja --version
+      register: aisleriot_ninja_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if ninja is missing
+      ansible.builtin.fail:
+        msg: >-
+          ninja was not found. Install it for your distribution (see
+          https://ninja-build.org/), then re-run this playbook.
+      when: aisleriot_ninja_check.rc != 0
+
+    - name: Ensure the aisleriot submodule is checked out
+      ansible.builtin.stat:
+        path: "{{ aisleriot_src }}/meson.build"
+      register: aisleriot_submodule_check
+
+    - name: Fail if the aisleriot submodule is missing
+      ansible.builtin.fail:
+        msg: >-
+          {{ aisleriot_src }}/meson.build not found. Run
+          'git submodule update --init aisleriot' in the repo root, then
+          re-run this playbook.
+      when: not aisleriot_submodule_check.stat.exists
+
+    - name: Configure the Aisleriot build
+      ansible.builtin.command: >
+        meson setup build
+        -Dtheme_kde=false
+        -Dtheme_pysol=false
+        --prefix={{ aisleriot_prefix }}
+      args:
+        chdir: "{{ aisleriot_src }}"
+        creates: "{{ aisleriot_build }}/build.ninja"
+
+    - name: Build Aisleriot
+      ansible.builtin.command: ninja -C {{ aisleriot_build }}
+      args:
+        creates: "{{ aisleriot_build }}/src/sol"
+
+    - name: Install Aisleriot
+      become: true
+      ansible.builtin.command: ninja -C {{ aisleriot_build }} install
+      changed_when: true
+
+    - name: Done
+      ansible.builtin.debug:
+        msg: >-
+          Aisleriot is built and installed. Look for "AisleRiot Solitaire"
+          in your application launcher, or run: {{ aisleriot_prefix }}/bin/sol
