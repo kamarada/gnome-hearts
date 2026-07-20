@@ -1,0 +1,148 @@
+---
+# Builds and runs GNOME Hearts (an unmaintained GTK2/libglade2/Python 2 app)
+# on a modern Arch Linux desktop, by compiling it from source inside an
+# openSUSE Leap 15.4 distrobox container, whose repositories still ship
+# gtk2-devel, libglade2-devel, libgnomeui-devel and python-devel (2.7) as
+# ordinary, internally-consistent packages.
+#
+# Usage:
+#   ansible-galaxy collection install -r requirements.yml
+#   ansible-playbook -K playbook.yml
+#
+# -K prompts for the sudo password, needed to install distrobox/docker,
+# enable the docker service, and add the current user to the docker group.
+
+- name: Build and run GNOME Hearts in an openSUSE Leap distrobox container
+  hosts: localhost
+  connection: local
+  become: false
+
+  vars:
+    gnome_hearts_container: gnome-hearts
+    gnome_hearts_image: registry.opensuse.org/opensuse/leap:15.4
+    gnome_hearts_src: "{{ playbook_dir }}/../gnome-hearts-0.3.1"
+    gnome_hearts_zypper_packages:
+      - patterns-devel-base-devel_basis
+      - autoconf
+      - automake
+      - libtool
+      - intltool
+      - pkg-config
+      - gettext-tools
+      - gtk2-devel
+      - libglade2-devel
+      - python-devel
+      - libgnomeui-devel
+      - rarian-scrollkeeper-compat
+
+  environment:
+    # distrobox defaults to podman; on systems where the user's supplementary
+    # groups (e.g. vboxusers, for /dev/vboxusb) don't map into podman's
+    # rootless user namespace, container start fails with a permission error.
+    # Docker's root daemon doesn't have that problem, so we pin it here.
+    DBX_CONTAINER_MANAGER: docker
+
+  tasks:
+    - name: Ensure this playbook is running on Arch Linux
+      ansible.builtin.assert:
+        that: ansible_facts['distribution'] == 'Archlinux'
+        fail_msg: >-
+          This playbook installs distrobox and docker via pacman and has
+          only been tested on Arch Linux. Install distrobox and docker
+          manually on other distributions before running it.
+        success_msg: "Running on Arch Linux, continuing."
+
+    - name: Install distrobox and docker
+      become: true
+      community.general.pacman:
+        name:
+          - distrobox
+          - docker
+        state: present
+        update_cache: true
+
+    - name: Enable and start the docker service
+      become: true
+      ansible.builtin.systemd:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Add the current user to the docker group
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_user_id }}"
+        groups: docker
+        append: true
+      register: gnome_hearts_docker_group
+
+    - name: Stop until the new docker group membership is active
+      ansible.builtin.fail:
+        msg: >-
+          Added {{ ansible_user_id }} to the docker group. Log out and back
+          in (or run 'newgrp docker' in your shell), then re-run this
+          playbook to continue.
+      when: gnome_hearts_docker_group.changed
+
+    - name: Check whether the distrobox container already exists
+      ansible.builtin.command: docker inspect {{ gnome_hearts_container }}
+      register: gnome_hearts_container_check
+      failed_when: false
+      changed_when: false
+
+    - name: Create the openSUSE Leap distrobox container
+      ansible.builtin.command: >
+        distrobox create -n {{ gnome_hearts_container }}
+        -i {{ gnome_hearts_image }} -Y
+      when: gnome_hearts_container_check.rc != 0
+
+    - name: Initialize the container (first enter sets up sudo, user, etc.)
+      ansible.builtin.command: distrobox enter -n {{ gnome_hearts_container }} -- true
+      changed_when: false
+
+    - name: Refresh zypper repository metadata
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        sudo zypper --non-interactive refresh
+      changed_when: false
+
+    - name: Install build dependencies inside the container
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        sudo zypper --non-interactive install -y {{ gnome_hearts_zypper_packages | join(' ') }}
+      register: gnome_hearts_zypper_install
+      changed_when: "'Nothing to do' not in gnome_hearts_zypper_install.stdout"
+
+    - name: Configure the GNOME Hearts build
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        bash -c "cd {{ gnome_hearts_src }} && ./configure --prefix=/usr/local"
+      args:
+        creates: "{{ gnome_hearts_src }}/Makefile"
+
+    - name: Build GNOME Hearts
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        bash -c "cd {{ gnome_hearts_src }} && make -j$(nproc)"
+      args:
+        creates: "{{ gnome_hearts_src }}/src/gnome-hearts"
+
+    - name: Install GNOME Hearts inside the container
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        bash -c "cd {{ gnome_hearts_src }} && sudo make install && sudo ldconfig"
+      changed_when: true
+
+    - name: Export GNOME Hearts as a desktop application on the host
+      ansible.builtin.command: >
+        distrobox enter -n {{ gnome_hearts_container }} --
+        distrobox-export --app gnome-hearts
+      register: gnome_hearts_export
+      changed_when: "'successfully exported' in gnome_hearts_export.stdout"
+
+    - name: Done
+      ansible.builtin.debug:
+        msg: >-
+          GNOME Hearts is built and exported. Look for "Hearts (on
+          gnome-hearts)" in your application launcher, or run:
+          distrobox enter -n {{ gnome_hearts_container }} -- gnome-hearts
