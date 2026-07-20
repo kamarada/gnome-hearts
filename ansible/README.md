@@ -1,7 +1,7 @@
 # GNOME Hearts build playbook
 
 Builds and installs GNOME Hearts 0.3.1 from the `gnome-hearts-0.3.1/`
-source tree in this repo, targeting a modern Arch Linux desktop that no
+source tree in this repo, targeting a modern Linux desktop that no
 longer ships GTK2/libglade2/Python 2 as installable packages.
 
 It works around that by creating an [openSUSE Leap 15.4](https://get.opensuse.org/leap/)
@@ -12,22 +12,20 @@ and exporting it as a regular application on the host desktop.
 
 ## Requirements
 
-- Arch Linux
-- [Ansible](https://archlinux.org/packages/extra/any/ansible/)
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
+- [Docker](https://docs.docker.com/engine/install/), running, with your
+  user in the `docker` group
+- [distrobox](https://distrobox.it/#installation)
+
+The playbook checks for Docker and distrobox and stops with instructions
+if either is missing — it does not install them itself, since the right
+way to do so depends on your distribution.
 
 ## Usage
 
 ```sh
-ansible-galaxy collection install -r requirements.yml
-ansible-playbook -K playbook.yml
+ansible-playbook playbook.yml
 ```
-
-`-K` prompts for your sudo password, needed to install `distrobox`/`docker`,
-enable the docker service, and add your user to the `docker` group.
-
-If you weren't already in the `docker` group, the playbook will stop and
-ask you to log out and back in (or run `newgrp docker`) before re-running
-it.
 
 Once it finishes, look for **"Hearts (on gnome-hearts)"** in your
 application launcher, or run:

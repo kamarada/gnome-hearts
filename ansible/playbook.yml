@@ -1,16 +1,16 @@
 ---
 # Builds and runs GNOME Hearts (an unmaintained GTK2/libglade2/Python 2 app)
-# on a modern Arch Linux desktop, by compiling it from source inside an
+# on a modern Linux desktop, by compiling it from source inside an
 # openSUSE Leap 15.4 distrobox container, whose repositories still ship
 # gtk2-devel, libglade2-devel, libgnomeui-devel and python-devel (2.7) as
 # ordinary, internally-consistent packages.
 #
-# Usage:
-#   ansible-galaxy collection install -r requirements.yml
-#   ansible-playbook -K playbook.yml
+# Requires Docker and distrobox to already be installed (this playbook
+# checks for them but does not install them, since how to do so varies
+# by distribution).
 #
-# -K prompts for the sudo password, needed to install distrobox/docker,
-# enable the docker service, and add the current user to the docker group.
+# Usage:
+#   ansible-playbook playbook.yml
 
 - name: Build and run GNOME Hearts in an openSUSE Leap distrobox container
   hosts: localhost
@@ -43,46 +43,33 @@
     DBX_CONTAINER_MANAGER: docker
 
   tasks:
-    - name: Ensure this playbook is running on Arch Linux
-      ansible.builtin.assert:
-        that: ansible_facts['distribution'] == 'Archlinux'
-        fail_msg: >-
-          This playbook installs distrobox and docker via pacman and has
-          only been tested on Arch Linux. Install distrobox and docker
-          manually on other distributions before running it.
-        success_msg: "Running on Arch Linux, continuing."
+    - name: Check whether Docker is installed
+      ansible.builtin.command: docker --version
+      register: gnome_hearts_docker_check
+      failed_when: false
+      changed_when: false
 
-    - name: Install distrobox and docker
-      become: true
-      community.general.pacman:
-        name:
-          - distrobox
-          - docker
-        state: present
-        update_cache: true
-
-    - name: Enable and start the docker service
-      become: true
-      ansible.builtin.systemd:
-        name: docker
-        enabled: true
-        state: started
-
-    - name: Add the current user to the docker group
-      become: true
-      ansible.builtin.user:
-        name: "{{ ansible_user_id }}"
-        groups: docker
-        append: true
-      register: gnome_hearts_docker_group
-
-    - name: Stop until the new docker group membership is active
+    - name: Fail with instructions if Docker is missing
       ansible.builtin.fail:
         msg: >-
-          Added {{ ansible_user_id }} to the docker group. Log out and back
-          in (or run 'newgrp docker' in your shell), then re-run this
-          playbook to continue.
-      when: gnome_hearts_docker_group.changed
+          Docker was not found. Install it for your distribution (see
+          https://docs.docker.com/engine/install/), make sure the docker
+          service is running and your user is in the docker group, then
+          re-run this playbook.
+      when: gnome_hearts_docker_check.rc != 0
+
+    - name: Check whether distrobox is installed
+      ansible.builtin.command: distrobox version
+      register: gnome_hearts_distrobox_check
+      failed_when: false
+      changed_when: false
+
+    - name: Fail with instructions if distrobox is missing
+      ansible.builtin.fail:
+        msg: >-
+          distrobox was not found. Install it for your distribution (see
+          https://distrobox.it/#installation), then re-run this playbook.
+      when: gnome_hearts_distrobox_check.rc != 0
 
     - name: Check whether the distrobox container already exists
       ansible.builtin.command: docker inspect {{ gnome_hearts_container }}
