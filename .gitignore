@@ -1,0 +1,25 @@
+# Build artifacts produced by ./configure && make
+Makefile
+config.h
+config.log
+config.status
+stamp-h1
+*.o
+*.gmo
+*.omf.out
+omf_timestamp
+
+# intltool
+.intltool-merge-cache*
+**/po/POTFILES
+**/po/Makefile.in
+**/po/stamp-it
+
+# Generated from .in templates at configure time
+gnome-hearts.desktop
+**/src/gnome-hearts.cfg
+**/scripts/hearts.py
+
+# Build output
+**/src/gnome-hearts
+**/src/.deps/
