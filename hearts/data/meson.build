@@ -17,6 +17,14 @@ install_data(
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
 
+# Also compile the schema into the build directory itself (not just at
+# install time) and register it with `meson devenv`, so the app can be run
+# straight from the build tree without installing first.
+gnome.compile_schemas(
+  build_by_default: true,
+  depend_files: files('org.gnome.Hearts.gschema.xml'),
+)
+
 install_data(
   'icons' / 'hicolor' / 'scalable' / 'apps' / 'org.gnome.Hearts.svg',
   install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'scalable' / 'apps',

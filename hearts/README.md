@@ -45,10 +45,11 @@ Requires the `aisleriot` submodule checked out (`git submodule update
 Python 3, and PyGObject with GTK4/libadwaita/Rsvg — see
 `../ansible/README.md` for exact package names per distribution.
 
-To run without installing, from this directory:
+To run without installing, from this directory (the `PYTHONPATH` makes the
+source-tree package importable; `meson devenv` alone doesn't add it):
 
 ```sh
-meson devenv -C build ./hearts/hearts
+PYTHONPATH="$PWD" meson devenv -C build python3 -m hearts.main
 ```
 
 ## Layout

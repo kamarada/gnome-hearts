@@ -88,7 +88,7 @@ cd hearts
 meson setup build
 meson compile -C build
 meson test -C build        # engine unit tests (pure Python, no display needed)
-meson devenv -C build ./hearts/hearts   # run uninstalled
+PYTHONPATH="$PWD" meson devenv -C build python3 -m hearts.main   # run uninstalled
 sudo ninja -C build install
 ```
 
