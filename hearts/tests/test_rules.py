@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from hearts.engine.card import Card, Rank, Seat, Suit, TWO_OF_CLUBS, QUEEN_OF_SPADES
 from hearts.engine.rules import (
+    explain_illegal_play,
     is_hearts_broken,
     leader_of_first_trick,
     legal_plays,
@@ -132,6 +133,47 @@ class LegalPlaysNoBloodTest(unittest.TestCase):
         trick.play(Seat.NORTH, C(Suit.SPADES, Rank.THREE))
         legal = legal_plays(hand, trick, hearts_broken=True, is_first_trick=False)
         self.assertEqual(sorted(legal), sorted(hand))
+
+
+class ExplainIllegalPlayTest(unittest.TestCase):
+    def test_none_when_the_card_is_actually_legal(self):
+        hand = [TWO_OF_CLUBS]
+        self.assertIsNone(
+            explain_illegal_play(hand, None, hearts_broken=False, is_first_trick=True, card=TWO_OF_CLUBS)
+        )
+
+    def test_must_lead_two_of_clubs(self):
+        hand = [TWO_OF_CLUBS, C(Suit.CLUBS, Rank.KING)]
+        reason = explain_illegal_play(
+            hand, None, hearts_broken=False, is_first_trick=True, card=C(Suit.CLUBS, Rank.KING)
+        )
+        self.assertEqual(reason, "You must play the two of clubs.")
+
+    def test_hearts_not_broken_when_leading(self):
+        hand = [C(Suit.HEARTS, Rank.TWO), C(Suit.CLUBS, Rank.KING)]
+        trick = Trick(leader=Seat.NORTH)
+        reason = explain_illegal_play(
+            hand, trick, hearts_broken=False, is_first_trick=False, card=C(Suit.HEARTS, Rank.TWO)
+        )
+        self.assertEqual(reason, "Hearts have not been broken yet.")
+
+    def test_must_follow_suit(self):
+        hand = [C(Suit.CLUBS, Rank.KING), C(Suit.HEARTS, Rank.TWO)]
+        trick = Trick(leader=Seat.NORTH)
+        trick.play(Seat.NORTH, C(Suit.CLUBS, Rank.THREE))
+        reason = explain_illegal_play(
+            hand, trick, hearts_broken=True, is_first_trick=False, card=C(Suit.HEARTS, Rank.TWO)
+        )
+        self.assertEqual(reason, "You must follow suit. Play a club.")
+
+    def test_no_blood_on_first_trick(self):
+        hand = [QUEEN_OF_SPADES, C(Suit.SPADES, Rank.TWO)]
+        trick = Trick(leader=Seat.NORTH)
+        trick.play(Seat.NORTH, C(Suit.SPADES, Rank.THREE))
+        reason = explain_illegal_play(
+            hand, trick, hearts_broken=True, is_first_trick=True, card=QUEEN_OF_SPADES
+        )
+        self.assertEqual(reason, "You can't play a point card on the first trick.")
 
 
 if __name__ == "__main__":

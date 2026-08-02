@@ -73,3 +73,37 @@ def legal_plays(
         # only cards left in the led suit are hearts) -- forced, allow it.
 
     return candidates
+
+
+def explain_illegal_play(
+    hand: list[Card],
+    trick: Trick | None,
+    hearts_broken: bool,
+    is_first_trick: bool,
+    card: Card,
+) -> str | None:
+    """A human-readable reason `card` can't be played right now, or None if
+    it's actually legal. Mirrors legal_plays()'s logic, in the same order,
+    so the explanation always matches why the card was excluded."""
+    if card in legal_plays(hand, trick, hearts_broken, is_first_trick):
+        return None
+
+    is_leading = trick is None or not trick.plays
+
+    if is_leading:
+        if is_first_trick and TWO_OF_CLUBS in hand:
+            return "You must play the two of clubs."
+        hand_is_all_hearts = all(c.suit == Suit.HEARTS for c in hand)
+        if card.suit == Suit.HEARTS and not hearts_broken and not hand_is_all_hearts:
+            return "Hearts have not been broken yet."
+    else:
+        led_suit = trick.led_suit
+        if any(c.suit == led_suit for c in hand) and card.suit != led_suit:
+            # Suit names (CLUBS, DIAMONDS, HEARTS, SPADES) are all plural;
+            # drop the trailing "s" for a grammatical "play a club/heart/...".
+            return f"You must follow suit. Play a {led_suit.name.lower()[:-1]}."
+
+    if is_first_trick and card.points() > 0 and not all(c.points() > 0 for c in hand):
+        return "You can't play a point card on the first trick."
+
+    return "You can't play that card right now."

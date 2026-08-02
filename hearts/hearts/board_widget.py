@@ -14,7 +14,7 @@ from gi.repository import GObject, Gtk  # noqa: E402
 from .card_renderer import CARD_ASPECT_RATIO, CardRenderer
 from .engine.card import Card, HUMAN_SEAT, Seat
 from .engine.game import HeartsGame, Phase
-from .engine.rules import legal_plays
+from .engine.rules import explain_illegal_play, legal_plays
 
 _SEAT_LABELS = {
     Seat.NORTH: "North",
@@ -42,6 +42,7 @@ class BoardWidget(Gtk.DrawingArea):
         self._south_hit_rects: list[tuple[Card, tuple[float, float, float, float]]] = []
 
         self.on_change: callable = lambda: None
+        self.on_warning: callable = lambda message: None
 
         self.set_draw_func(self._on_draw)
         click = Gtk.GestureClick.new()
@@ -198,6 +199,9 @@ class BoardWidget(Gtk.DrawingArea):
             self._selected.discard(card)
         elif len(self._selected) < 3:
             self._selected.add(card)
+        else:
+            self.on_warning("You can only pass 3 cards.")
+            return
         self.emit("selection-changed", len(self._selected))
         self.queue_draw()
 
@@ -205,12 +209,17 @@ class BoardWidget(Gtk.DrawingArea):
         game = self._game
         if game.current_player_to_act() != HUMAN_SEAT:
             return
-        legal = legal_plays(
-            game.hands[HUMAN_SEAT], game.current_trick, game.hearts_broken,
-            game.tricks_played_this_round == 0,
-        )
+        hand = game.hands[HUMAN_SEAT]
+        trick = game.current_trick
+        hearts_broken = game.hearts_broken
+        is_first_trick = game.tricks_played_this_round == 0
+
+        legal = legal_plays(hand, trick, hearts_broken, is_first_trick)
         if card not in legal:
+            reason = explain_illegal_play(hand, trick, hearts_broken, is_first_trick, card)
+            self.on_warning(reason)
             return
+
         game.submit_play(HUMAN_SEAT, card)
         self.queue_draw()
         self.on_change()

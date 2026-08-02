@@ -39,6 +39,7 @@ class HeartsWindow(Adw.ApplicationWindow):
         self._game: HeartsGame | None = None
 
         self.board.on_change = self._refresh
+        self.board.on_warning = self._on_warning
         self.board.connect("selection-changed", self._on_selection_changed)
 
         self._install_actions()
@@ -105,6 +106,13 @@ class HeartsWindow(Adw.ApplicationWindow):
         if self._game is None:
             return
         ScoresDialog(self._game).present(self)
+
+    def _on_warning(self, message: str) -> None:
+        # Shown in the same status label used for turn/phase prompts (see
+        # _refresh()/_status_text()) -- it's overwritten by the next real
+        # game update, same as the invalid-move messages in the original
+        # Windows Hearts status bar this mirrors.
+        self.status_label.set_label(message)
 
     def _toast(self, message: str) -> None:
         self.toast_overlay.add_toast(Adw.Toast.new(message))
