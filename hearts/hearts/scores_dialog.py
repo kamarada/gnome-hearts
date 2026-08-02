@@ -55,4 +55,11 @@ class ScoresDialog(Adw.Dialog):
             label.add_css_class("heading")
             grid.attach(label, col + 1, 3, 1, 1)
 
-        self.set_child(grid)
+        # Adw.Dialog doesn't add a titlebar/close button on its own -- it
+        # only appears if the content includes a header bar, same as an
+        # Adw.ApplicationWindow. Without this, Esc was the only way to
+        # close the dialog (issue #3).
+        toolbar_view = Adw.ToolbarView()
+        toolbar_view.add_top_bar(Adw.HeaderBar())
+        toolbar_view.set_content(grid)
+        self.set_child(toolbar_view)
