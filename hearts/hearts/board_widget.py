@@ -9,7 +9,9 @@ from __future__ import annotations
 import gi
 
 gi.require_version("Gtk", "4.0")
-from gi.repository import GObject, Gtk  # noqa: E402
+gi.require_version("Pango", "1.0")
+gi.require_version("PangoCairo", "1.0")
+from gi.repository import GObject, Gtk, Pango, PangoCairo  # noqa: E402
 
 from .card_renderer import CARD_ASPECT_RATIO, CardRenderer
 from .engine.card import Card, HUMAN_SEAT, Seat
@@ -25,6 +27,9 @@ _SEAT_LABELS = {
 
 _FELT_COLOR = (0.06, 0.35, 0.16)
 _HIGHLIGHT_COLOR = (0.95, 0.85, 0.2)
+_LABEL_COLOR = (1, 1, 1)
+_LABEL_MARGIN = 12
+_SELECTION_LIFT = 18  # how far a selected south card rises, in _draw_south_hand
 
 
 class BoardWidget(Gtk.DrawingArea):
@@ -82,13 +87,61 @@ class BoardWidget(Gtk.DrawingArea):
         game = self._game
         card_h = max(60, min(150, height * 0.24))
 
-        self._draw_hand_back_row(cr, game, Seat.NORTH, width / 2, card_h * 0.6, card_h * 0.55, horizontal=True)
-        self._draw_hand_back_row(cr, game, Seat.WEST, card_h * 0.45, height / 2, card_h * 0.55, horizontal=False)
-        self._draw_hand_back_row(cr, game, Seat.EAST, width - card_h * 0.45, height / 2, card_h * 0.55, horizontal=False)
+        back_card_h = card_h * 0.55
+        back_card_w = back_card_h * CARD_ASPECT_RATIO
+
+        self._draw_hand_back_row(cr, game, Seat.NORTH, width / 2, card_h * 0.6, back_card_h, horizontal=True)
+        self._draw_hand_back_row(cr, game, Seat.WEST, card_h * 0.45, height / 2, back_card_h, horizontal=False)
+        self._draw_hand_back_row(cr, game, Seat.EAST, width - card_h * 0.45, height / 2, back_card_h, horizontal=False)
 
         self._draw_trick(cr, game, width / 2, height / 2, card_h * 0.85)
 
         self._draw_south_hand(cr, game, width / 2, height - card_h * 0.65, card_h)
+
+        # Player names, positioned on the side of each hand that faces the
+        # table (matching Aisleriot-era Hearts implementations, e.g. the
+        # Windows 98 and original GNOME Hearts clients).
+        self._draw_seat_label(
+            cr, _SEAT_LABELS[Seat.NORTH],
+            width / 2, card_h * 0.6 + back_card_h / 2 + _LABEL_MARGIN, "center",
+        )
+        self._draw_seat_label(
+            cr, _SEAT_LABELS[Seat.WEST],
+            card_h * 0.45 + back_card_w / 2 + _LABEL_MARGIN, height / 2, "left",
+        )
+        self._draw_seat_label(
+            cr, _SEAT_LABELS[Seat.EAST],
+            width - card_h * 0.45 - back_card_w / 2 - _LABEL_MARGIN, height / 2, "right",
+        )
+        self._draw_seat_label(
+            cr, _SEAT_LABELS[Seat.SOUTH],
+            width / 2,
+            height - card_h * 0.65 - card_h / 2 - _SELECTION_LIFT - _LABEL_MARGIN,
+            "center",
+        )
+
+    def _draw_seat_label(self, cr, text, x, y, halign):
+        layout = PangoCairo.create_layout(cr)
+        layout.set_text(text, -1)
+        font_desc = Pango.FontDescription()
+        font_desc.set_family("Sans")
+        font_desc.set_weight(Pango.Weight.BOLD)
+        font_desc.set_size(13 * Pango.SCALE)
+        layout.set_font_description(font_desc)
+
+        _ink, logical = layout.get_pixel_extents()
+        if halign == "center":
+            draw_x = x - logical.width / 2
+        elif halign == "right":
+            draw_x = x - logical.width
+        else:
+            draw_x = x
+
+        cr.save()
+        cr.set_source_rgb(*_LABEL_COLOR)
+        cr.move_to(draw_x, y - logical.height / 2)
+        PangoCairo.show_layout(cr, layout)
+        cr.restore()
 
     def _draw_hand_back_row(self, cr, game, seat, cx, cy, card_h, horizontal):
         count = len(game.hands.get(seat, []))
@@ -141,7 +194,7 @@ class BoardWidget(Gtk.DrawingArea):
 
         for i, card in enumerate(hand):
             offset = -total / 2 + i * step
-            lift = 18 if card in self._selected else 0
+            lift = _SELECTION_LIFT if card in self._selected else 0
             x = cx + offset - card_w / 2
             y = cy - card_h / 2 - lift
             surface = self._renderer.get_card_surface(card, int(card_h))
