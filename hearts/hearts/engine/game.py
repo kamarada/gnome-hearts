@@ -60,6 +60,7 @@ class HeartsGame:
         self._pending_passes: dict[Seat, list[Card]] = {}
         self._total_scores: dict[Seat, int] = {seat: 0 for seat in SEATS}
         self._last_round_scores: dict[Seat, int] = {seat: 0 for seat in SEATS}
+        self._round_history: list[dict[Seat, int]] = []
         self._winner: Seat | None = None
 
         self.on_round_start: list[Callable[[], None]] = []
@@ -75,6 +76,7 @@ class HeartsGame:
     def start_game(self) -> None:
         self.round_number = 0
         self._total_scores = {seat: 0 for seat in SEATS}
+        self._round_history = []
         self._winner = None
         self.start_round()
 
@@ -141,6 +143,10 @@ class HeartsGame:
 
     def total_scores(self) -> dict[Seat, int]:
         return dict(self._total_scores)
+
+    def score_history(self) -> list[dict[Seat, int]]:
+        """Per-round scores for every round played so far, oldest first."""
+        return [dict(scores) for scores in self._round_history]
 
     def is_game_over(self) -> bool:
         return self.phase == Phase.GAME_OVER
@@ -241,6 +247,7 @@ class HeartsGame:
     def _finish_round(self) -> None:
         round_scores = score_round(self.tricks_taken)
         self._last_round_scores = round_scores
+        self._round_history.append(round_scores)
         for seat in SEATS:
             self._total_scores[seat] += round_scores[seat]
 

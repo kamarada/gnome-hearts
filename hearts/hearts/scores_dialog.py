@@ -1,4 +1,4 @@
-"""A simple read-only view of the current round's and running scores."""
+"""A simple read-only view of the accumulated scores for each round."""
 
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ class ScoresDialog(Adw.Dialog):
         self.set_title("Scores")
         self.set_content_width(360)
 
-        grid = Gtk.Grid(column_spacing=18, row_spacing=8)
+        grid = Gtk.Grid(column_spacing=18, row_spacing=8, halign=Gtk.Align.CENTER)
         grid.set_margin_top(18)
         grid.set_margin_bottom(18)
         grid.set_margin_start(18)
@@ -36,24 +36,25 @@ class ScoresDialog(Adw.Dialog):
         for col, seat in enumerate(SEATS):
             heading = Gtk.Label(label=_SEAT_LABELS[seat.name])
             heading.add_css_class("heading")
-            grid.attach(heading, col + 1, 0, 1, 1)
+            grid.attach(heading, col, 0, 1, 1)
 
-        round_scores = game.round_scores()
-        grid.attach(Gtk.Label(label="This round", xalign=0), 0, 1, 1, 1)
-        for col, seat in enumerate(SEATS):
-            grid.attach(Gtk.Label(label=str(round_scores.get(seat, 0))), col + 1, 1, 1, 1)
-
-        separator = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
-        grid.attach(separator, 0, 2, len(SEATS) + 1, 1)
-
-        totals = game.total_scores()
-        total_label = Gtk.Label(label="Total", xalign=0)
-        total_label.add_css_class("heading")
-        grid.attach(total_label, 0, 3, 1, 1)
-        for col, seat in enumerate(SEATS):
-            label = Gtk.Label(label=str(totals[seat]))
-            label.add_css_class("heading")
-            grid.attach(label, col + 1, 3, 1, 1)
+        # One row per round, each cell showing the *running* total at that
+        # point. Superseded (non-final) totals are struck through, so the
+        # only plain number in each column is the current total -- the same
+        # tally-style scorecard the Windows 98 and original GNOME Hearts
+        # dialogs used (issue #7).
+        history = game.score_history()
+        totals = {seat: 0 for seat in SEATS}
+        for round_number, round_scores in enumerate(history, start=1):
+            for seat in SEATS:
+                totals[seat] += round_scores.get(seat, 0)
+            is_last_round = round_number == len(history)
+            for col, seat in enumerate(SEATS):
+                text = str(totals[seat])
+                label = Gtk.Label(label=text if is_last_round else f"<s>{text}</s>")
+                if not is_last_round:
+                    label.set_use_markup(True)
+                grid.attach(label, col, round_number, 1, 1)
 
         # Adw.Dialog doesn't add a titlebar/close button on its own -- it
         # only appears if the content includes a header bar, same as an

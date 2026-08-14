@@ -75,6 +75,11 @@ class FullGameTest(unittest.TestCase):
         self.assertEqual(totals[winner], min(totals.values()))
         self.assertGreaterEqual(max(totals.values()), 15)
 
+        history = game.score_history()
+        self.assertEqual(len(history), game.round_number)
+        summed = {seat: sum(round_scores[seat] for round_scores in history) for seat in SEATS}
+        self.assertEqual(summed, totals)
+
 
 class HumanSeatBlocksAutoPlayTest(unittest.TestCase):
     def test_engine_stops_and_waits_for_the_human_seat(self):
