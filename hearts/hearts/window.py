@@ -40,6 +40,9 @@ class HeartsWindow(Adw.ApplicationWindow):
 
         self.board.on_change = self._refresh
         self.board.on_warning = self._on_warning
+        self.board.on_trick_shown = self._on_trick_complete
+        self.board.on_round_shown = self._on_round_complete
+        self.board.on_game_shown = self._on_game_complete
         self.board.connect("selection-changed", self._on_selection_changed)
 
         self._install_actions()
@@ -72,9 +75,18 @@ class HeartsWindow(Adw.ApplicationWindow):
                 players[seat] = AIPlayer(seat)
 
         game = HeartsGame(players)
-        game.on_trick_complete.append(self._on_trick_complete)
-        game.on_round_complete.append(self._on_round_complete)
-        game.on_game_complete.append(self._on_game_complete)
+        # Routed through the board first, not straight to the toast/status
+        # handlers below -- it queues these as animation events (a card
+        # slide, a pause on a completed trick, ...) and calls back into
+        # on_trick_shown/on_round_shown/on_game_shown once each is actually
+        # visible, rather than the instant the (synchronous, unpaced)
+        # engine resolves it.
+        game.on_round_start.append(self.board.handle_round_start)
+        game.on_pass_complete.append(self.board.handle_pass_complete)
+        game.on_card_played.append(self.board.handle_card_played)
+        game.on_trick_complete.append(self.board.handle_trick_complete)
+        game.on_round_complete.append(self.board.handle_round_complete)
+        game.on_game_complete.append(self.board.handle_game_complete)
 
         self._game = game
         self.board.set_game(game)
@@ -121,9 +133,14 @@ class HeartsWindow(Adw.ApplicationWindow):
 
     def _refresh(self) -> None:
         self.board.queue_draw()
-        self.status_label.set_label(self._status_text())
         game = self._game
-        self.pass_button.set_visible(game is not None and game.phase == Phase.PASSING)
+        busy = self.board.is_busy()
+        # While a card is still sliding into place (or a completed trick is
+        # paused on screen), don't jump the status text ahead to "Your
+        # turn" -- the engine has already resolved everything, but the
+        # player hasn't seen it happen yet.
+        self.status_label.set_label("Playing…" if busy else self._status_text())
+        self.pass_button.set_visible(game is not None and game.phase == Phase.PASSING and not busy)
         self.pass_button.set_sensitive(len(self.board.selected_cards()) == 3)
 
     def _status_text(self) -> str:

@@ -1,9 +1,14 @@
 """The Hearts state machine: deal -> pass -> play tricks -> score -> repeat.
 
 UI-agnostic and gi-free by design. The UI subscribes to plain callback
-lists (on_trick_complete, on_round_complete, on_game_complete, on_ai_turn)
-and drives the human seat by calling submit_pass()/submit_play(); AI seats
-are resolved synchronously and internally whenever it becomes their turn.
+lists (on_round_start, on_pass_complete, on_card_played, on_trick_complete,
+on_round_complete, on_game_complete, on_ai_turn) and drives the human seat
+by calling submit_pass()/submit_play(); AI seats are resolved synchronously
+and internally whenever it becomes their turn -- a single submit_play()
+call can therefore fire on_card_played for several AI turns in a row
+before returning. This lets a UI capture the exact sequence of individual
+plays (e.g. to animate/pace them one at a time) despite the engine itself
+never pacing or waiting on anything.
 """
 
 from __future__ import annotations
@@ -57,6 +62,9 @@ class HeartsGame:
         self._last_round_scores: dict[Seat, int] = {seat: 0 for seat in SEATS}
         self._winner: Seat | None = None
 
+        self.on_round_start: list[Callable[[], None]] = []
+        self.on_pass_complete: list[Callable[[], None]] = []
+        self.on_card_played: list[Callable[[Seat, Card], None]] = []
         self.on_trick_complete: list[Callable[[Trick, Seat], None]] = []
         self.on_round_complete: list[Callable[[dict[Seat, int]], None]] = []
         self.on_game_complete: list[Callable[[Seat], None]] = []
@@ -79,6 +87,9 @@ class HeartsGame:
         self.tricks_played_this_round = 0
         self.hearts_broken = False
         self._pending_passes = {}
+
+        for callback in self.on_round_start:
+            callback()
 
         if pass_offset(self.round_number) == 0:
             self.phase = Phase.PLAYING
@@ -170,6 +181,9 @@ class HeartsGame:
 
         self.hands = new_hands
         self._pending_passes = {}
+        for callback in self.on_pass_complete:
+            callback()
+
         self.phase = Phase.PLAYING
         self._open_first_trick()
         self._advance()
@@ -177,6 +191,8 @@ class HeartsGame:
     def _apply_play(self, seat: Seat, card: Card) -> None:
         self.hands[seat].remove(card)
         self.current_trick.play(seat, card)
+        for callback in self.on_card_played:
+            callback(seat, card)
 
     def _advance(self) -> None:
         """Resolve trick/round completions and auto-play AI turns until the
