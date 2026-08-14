@@ -153,7 +153,15 @@ one widget per card — matching Aisleriot's own single-canvas approach, since G
 `Gdk.Texture` machinery isn't the natural fit for a plain `DrawingArea`. `card_renderer.py` caches
 rendered cards as `cairo.ImageSurface` (not `Gdk.Texture`, for the same reason) keyed by
 `(svg_element_id, pixel_height)`, rendered via `Rsvg.Handle.render_element()` against
-`anglo.svg`'s per-card element ids (`<suit>_<rank>`, e.g. `heart_queen`, ace = `1`).
+`anglo.svg`'s per-card element ids (`<suit>_<rank>`, e.g. `heart_queen`, ace = `1`). It also draws
+each seat's player name and, when a play is attempted outside `rules.legal_plays()`,
+`rules.explain_illegal_play()` supplies the human-readable reason surfaced via `on_warning` into
+`window.py`'s status label rather than the move just silently failing.
+
+`Adw.Dialog` (used by `scores_dialog.py`, and any future dialog) has no titlebar/close button by
+default — one only appears if the dialog's content includes a header bar, same as
+`Adw.ApplicationWindow`. Without an `Adw.ToolbarView` wrapping an `Adw.HeaderBar` around the
+content, Esc is the only way to close it.
 
 The card SVG and the `pkgdatadir` it's installed under are resolved at build time in
 `data/meson.build`/`hearts/meson.build` (a generated `hearts/config.py` — gitignored, never

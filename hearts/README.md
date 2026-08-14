@@ -23,6 +23,12 @@ end of each round the point cards each player took are shown on the table,
 and a Scores dialog (running total per round, oldest to newest) opens
 automatically.
 
+Also: each seat is labeled with its player name, card plays and trick
+collection are animated rather than snapping instantly into place, an
+invalid move attempt is explained in the status bar rather than silently
+rejected, and the 3 cards just received in a pass are highlighted (with a
+"click to continue" pause) so they're not missed.
+
 Deliberately deferred: other rulesets (Omnibus, Omnibus Alternative, Spot
 Hearts), card-theme customization, multiple AI personalities, sound,
 translations, undo/redo, hints.
