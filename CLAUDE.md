@@ -138,9 +138,15 @@ made configurable — that's a deliberate v1 scope cut, not an oversight.
 
 `HeartsGame` drives AI turns synchronously and internally; the UI only calls `submit_pass()`/
 `submit_play()` for the human seat (`HUMAN_SEAT` = South) and otherwise reacts to its callback
-lists (`on_trick_complete`, `on_round_complete`, `on_game_complete`, `on_ai_turn`). Between rounds
-(`Phase.ROUND_OVER`) nothing advances automatically — `board_widget.py` treats any click on the
-table as "deal the next round" (`game.start_round()`); there's no separate "Continue" button.
+lists (`on_trick_complete`, `on_round_complete`, `on_game_complete`, `on_ai_turn`). Besides the
+current-round `round_scores()`/`round_point_cards()`, `HeartsGame` also keeps `score_history()`, a
+list of every completed round's scores (oldest first) — `scores_dialog.py`'s score sheet replays
+this to show, per seat, the running total after each round, with superseded totals struck through.
+Between rounds (`Phase.ROUND_OVER`) nothing advances automatically — `board_widget.py` treats any
+click on the table as "deal the next round" (`game.start_round()`); there's no separate "Continue"
+button. `window.py` auto-presents the Scores dialog as soon as a round ends, and `board_widget.py`
+fans out the point cards (hearts + Queen of Spades) each seat took in that round in their now-empty
+hand spot, visible on the table behind the dialog until the next round is dealt.
 
 `board_widget.py` is a single `Gtk.DrawingArea` (raw Cairo draw callback + `Gtk.GestureClick`), not
 one widget per card — matching Aisleriot's own single-canvas approach, since GTK4's snapshot/

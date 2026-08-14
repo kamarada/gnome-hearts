@@ -18,7 +18,10 @@ v1 implements the **Standard ruleset only**, fully playable against 3 AI
 opponents: dealing, passing (left/across/right/hold, cycling every 4
 rounds), trick play (follow suit, 2♣ leads, "no blood" on the first trick,
 hearts must be broken before leading), scoring (hearts = 1 point, Queen of
-Spades = 13, shoot the moon/sun), and running score to 100 points.
+Spades = 13, shoot the moon/sun), and running score to 100 points. At the
+end of each round the point cards each player took are shown on the table,
+and a Scores dialog (running total per round, oldest to newest) opens
+automatically.
 
 Deliberately deferred: other rulesets (Omnibus, Omnibus Alternative, Spot
 Hearts), card-theme customization, multiple AI personalities, sound,
