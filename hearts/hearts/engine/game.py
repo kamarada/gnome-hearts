@@ -60,6 +60,7 @@ class HeartsGame:
         self._pending_passes: dict[Seat, list[Card]] = {}
         self._total_scores: dict[Seat, int] = {seat: 0 for seat in SEATS}
         self._last_round_scores: dict[Seat, int] = {seat: 0 for seat in SEATS}
+        self._last_round_point_cards: dict[Seat, list[Card]] = {seat: [] for seat in SEATS}
         self._round_history: list[dict[Seat, int]] = []
         self._winner: Seat | None = None
 
@@ -85,6 +86,7 @@ class HeartsGame:
         self.hands = deal(self.rng)
         self.tricks_taken = {seat: [] for seat in SEATS}
         self._last_round_scores = {seat: 0 for seat in SEATS}
+        self._last_round_point_cards = {seat: [] for seat in SEATS}
         self.current_trick = None
         self.tricks_played_this_round = 0
         self.hearts_broken = False
@@ -140,6 +142,11 @@ class HeartsGame:
 
     def round_scores(self) -> dict[Seat, int]:
         return dict(self._last_round_scores)
+
+    def round_point_cards(self) -> dict[Seat, list[Card]]:
+        """The point-scoring cards (hearts + the Queen of Spades) each seat
+        took in the round that just finished, sorted for display."""
+        return {seat: list(cards) for seat, cards in self._last_round_point_cards.items()}
 
     def total_scores(self) -> dict[Seat, int]:
         return dict(self._total_scores)
@@ -248,6 +255,9 @@ class HeartsGame:
         round_scores = score_round(self.tricks_taken)
         self._last_round_scores = round_scores
         self._round_history.append(round_scores)
+        self._last_round_point_cards = {
+            seat: sorted(c for c in self.tricks_taken[seat] if c.points() > 0) for seat in SEATS
+        }
         for seat in SEATS:
             self._total_scores[seat] += round_scores[seat]
 

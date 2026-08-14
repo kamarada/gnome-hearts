@@ -51,6 +51,12 @@ class FullRoundTest(unittest.TestCase):
         else:
             self.assertEqual(sum(round_scores.values()), 26)
 
+        point_cards = game.round_point_cards()
+        self.assertEqual(set(point_cards.keys()), set(SEATS))
+        all_point_cards = [c for cards in point_cards.values() for c in cards]
+        self.assertEqual(len(all_point_cards), 14)  # 13 hearts + the Queen of Spades
+        self.assertTrue(all(c.points() > 0 for c in all_point_cards))
+
     def test_hold_round_skips_passing_phase(self):
         game = make_scripted_game()
         game.round_number = 3  # next start_round() call makes it round 4: a hold round

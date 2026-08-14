@@ -72,6 +72,12 @@ class BoardWidget(Gtk.DrawingArea):
         self._display_counts: dict[Seat, int] = {s: 0 for s in SEATS if s != HUMAN_SEAT}
         self._display_trick: dict[Seat, Card] = {}
 
+        # The point cards each seat took, shown on the table (in each
+        # seat's now-empty hand spot) once a round ends -- and behind the
+        # Scores dialog window.py auto-presents at the same time (issue
+        # #8). Cleared as soon as the next round is dealt.
+        self._round_point_cards: dict[Seat, list[Card]] | None = None
+
         # Set right after a pass exchange, listing the 3 cards just
         # received; stays set (blocking the animation queue below, and
         # highlighted in the hand) until the player clicks to acknowledge.
@@ -112,6 +118,7 @@ class BoardWidget(Gtk.DrawingArea):
         self._display_south_hand = []
         self._display_counts = {s: 0 for s in SEATS if s != HUMAN_SEAT}
         self._display_trick = {}
+        self._round_point_cards = None
         self.queue_draw()
 
     def selected_cards(self) -> list[Card]:
@@ -166,6 +173,7 @@ class BoardWidget(Gtk.DrawingArea):
         self._display_south_hand = sorted(game.hands[HUMAN_SEAT])
         self._display_counts = {s: len(game.hands[s]) for s in SEATS if s != HUMAN_SEAT}
         self._display_trick = {}
+        self._round_point_cards = None
         self.queue_draw()
 
     def handle_pass_complete(self) -> None:
@@ -276,6 +284,8 @@ class BoardWidget(Gtk.DrawingArea):
             self.on_trick_shown(trick, winner)
         elif kind == "round_done":
             _, scores = event
+            self._round_point_cards = self._game.round_point_cards()
+            self.queue_draw()
             self.on_round_shown(scores)
         elif kind == "game_done":
             _, winner = event
@@ -369,12 +379,16 @@ class BoardWidget(Gtk.DrawingArea):
         back_card_w = back_card_h * CARD_ASPECT_RATIO
 
         self._draw_hand_back_row(cr, Seat.NORTH, width / 2, card_h * 0.6, back_card_h, horizontal=True)
+        self._draw_round_point_cards(cr, Seat.NORTH, width / 2, card_h * 0.6, back_card_h, horizontal=True)
         self._draw_hand_back_row(cr, Seat.WEST, card_h * 0.45, height / 2, back_card_h, horizontal=False)
+        self._draw_round_point_cards(cr, Seat.WEST, card_h * 0.45, height / 2, back_card_h, horizontal=False)
         self._draw_hand_back_row(cr, Seat.EAST, width - card_h * 0.45, height / 2, back_card_h, horizontal=False)
+        self._draw_round_point_cards(cr, Seat.EAST, width - card_h * 0.45, height / 2, back_card_h, horizontal=False)
 
         self._draw_trick(cr, width, height, card_h)
 
         self._draw_south_hand(cr, width / 2, height - card_h * 0.65, card_h)
+        self._draw_round_point_cards(cr, Seat.SOUTH, width / 2, height - card_h * 0.65, card_h, horizontal=True)
 
         # Player names, positioned on the side of each hand that faces the
         # table (matching Aisleriot-era Hearts implementations, e.g. the
@@ -438,6 +452,32 @@ class BoardWidget(Gtk.DrawingArea):
                 x, y = cx + offset - card_w / 2, cy - card_h / 2
             else:
                 x, y = cx - card_w / 2, cy + offset - card_h / 2
+            cr.save()
+            cr.translate(x, y)
+            cr.set_source_surface(surface, 0, 0)
+            cr.paint()
+            cr.restore()
+
+    def _draw_round_point_cards(self, cr, seat, cx, cy, card_h, horizontal):
+        """The hearts + Queen of Spades that seat took this round, fanned
+        out in their now-empty hand spot once the round is over -- visible
+        on the table underneath the Scores dialog window.py auto-presents
+        at the same time (issue #8)."""
+        if self._game is None or self._game.phase not in (Phase.ROUND_OVER, Phase.GAME_OVER):
+            return
+        cards = (self._round_point_cards or {}).get(seat, [])
+        if not cards:
+            return
+        card_w = card_h * CARD_ASPECT_RATIO
+        step = min(card_w * 0.35, (140 / max(len(cards), 1)))
+        total = step * (len(cards) - 1)
+        for i, card in enumerate(cards):
+            offset = -total / 2 + i * step
+            if horizontal:
+                x, y = cx + offset - card_w / 2, cy - card_h / 2
+            else:
+                x, y = cx - card_w / 2, cy + offset - card_h / 2
+            surface = self._renderer.get_card_surface(card, int(card_h))
             cr.save()
             cr.translate(x, y)
             cr.set_source_surface(surface, 0, 0)

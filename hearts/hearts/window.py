@@ -106,6 +106,13 @@ class HeartsWindow(Adw.ApplicationWindow):
         else:
             self._toast("Round over")
 
+        # Show the running totals without waiting for the player to open it
+        # from the menu -- matching the Windows 98 and original GNOME
+        # Hearts clients, which surface this automatically at the end of
+        # every round (issue #8). The point cards each seat took stay
+        # visible on the table underneath, drawn by the board itself.
+        ScoresDialog(self._game).present(self)
+
     def _on_game_complete(self, winner: Seat) -> None:
         self._toast(f"Game over — {_SEAT_NAMES[winner]} wins!")
 
