@@ -40,6 +40,7 @@ _SEAT_LABELS = {
 
 _FELT_COLOR = (0.06, 0.35, 0.16)
 _HIGHLIGHT_COLOR = (0.95, 0.85, 0.2)
+_RECEIVED_COLOR = (0.3, 0.65, 1.0)
 _LABEL_COLOR = (1, 1, 1)
 _LABEL_MARGIN = 12
 _SELECTION_LIFT = 18  # how far a selected south card rises, in _draw_south_hand
@@ -70,6 +71,12 @@ class BoardWidget(Gtk.DrawingArea):
         self._display_south_hand: list[Card] = []
         self._display_counts: dict[Seat, int] = {s: 0 for s in SEATS if s != HUMAN_SEAT}
         self._display_trick: dict[Seat, Card] = {}
+
+        # Set right after a pass exchange, listing the 3 cards just
+        # received; stays set (blocking the animation queue below, and
+        # highlighted in the hand) until the player clicks to acknowledge.
+        self._received_pause: list[Card] | None = None
+        self._received_highlight: set[Card] = set()
 
         self._pending_events: collections.deque = collections.deque()
         self._tick_active = False
@@ -110,6 +117,11 @@ class BoardWidget(Gtk.DrawingArea):
     def selected_cards(self) -> list[Card]:
         return list(self._selected)
 
+    def pending_received_cards(self) -> list[Card] | None:
+        """The 3 cards just received, while the player hasn't yet
+        acknowledged them (see handle_pass_complete()); None otherwise."""
+        return self._received_pause
+
     def is_busy(self) -> bool:
         """Whether an animation/pause is in progress or queued -- the UI
         should hold off on the "your turn"-style status text and ignore
@@ -120,6 +132,7 @@ class BoardWidget(Gtk.DrawingArea):
             or self._animating_seat is not None
             or self._pause_until is not None
             or self._collecting_start_time is not None
+            or self._received_pause is not None
         )
 
     def _reset_animation_state(self) -> None:
@@ -130,6 +143,8 @@ class BoardWidget(Gtk.DrawingArea):
         self._collecting_start_time = None
         self._animating_seat = None
         self._animating_card = None
+        self._received_pause = None
+        self._received_highlight = set()
 
     def pass_selected_cards(self) -> None:
         if self._game is None or len(self._selected) != 3:
@@ -156,10 +171,26 @@ class BoardWidget(Gtk.DrawingArea):
     def handle_pass_complete(self) -> None:
         """Fired right after the 4-way card exchange applies. Hand *size*
         is unaffected (still 13 each) so only south's actual displayed
-        cards need resyncing -- opponents are shown as backs either way."""
-        if self._game is not None:
-            self._display_south_hand = sorted(self._game.hands[HUMAN_SEAT])
-            self.queue_draw()
+        cards need resyncing -- opponents are shown as backs either way.
+
+        Diffs against the pre-exchange display hand (still untouched at
+        this point) to find which 3 cards were just received, then pauses
+        -- blocking the animation queue below, even though any resulting
+        trick-opening AI plays are likely already queued right behind this
+        by the time it returns -- until the player clicks to acknowledge,
+        the same "click to continue" beat both the original GNOME Hearts
+        and the Windows Hearts Network used here.
+        """
+        game = self._game
+        if game is None:
+            return
+        previously_held = set(self._display_south_hand)
+        self._display_south_hand = sorted(game.hands[HUMAN_SEAT])
+        received = sorted(set(self._display_south_hand) - previously_held)
+
+        self._received_pause = received
+        self._received_highlight = set(received)
+        self.queue_draw()
 
     def handle_card_played(self, seat: Seat, card: Card) -> None:
         self._pending_events.append(("play", seat, card))
@@ -185,6 +216,14 @@ class BoardWidget(Gtk.DrawingArea):
             GLib.timeout_add(_TICK_INTERVAL_MS, self._tick)
 
     def _tick(self) -> bool:
+        if self._received_pause is not None:
+            # Waiting on the player to click and acknowledge the cards
+            # they received -- nothing to animate meanwhile, so stop
+            # ticking entirely rather than idle-polling; _on_click()
+            # restarts it once dismissed.
+            self._tick_active = False
+            return False
+
         now = GLib.get_monotonic_time() / 1000.0
 
         if self._pause_until is not None:
@@ -432,7 +471,7 @@ class BoardWidget(Gtk.DrawingArea):
 
         for i, card in enumerate(hand):
             offset = -total / 2 + i * step
-            lift = _SELECTION_LIFT if card in self._selected else 0
+            lift = _SELECTION_LIFT if (card in self._selected or card in self._received_highlight) else 0
             x = cx + offset - card_w / 2
             y = cy - card_h / 2 - lift
             surface = self._renderer.get_card_surface(card, int(card_h))
@@ -445,6 +484,13 @@ class BoardWidget(Gtk.DrawingArea):
             if card in self._selected:
                 cr.save()
                 cr.set_source_rgb(*_HIGHLIGHT_COLOR)
+                cr.set_line_width(3)
+                cr.rectangle(x, y, card_w, card_h)
+                cr.stroke()
+                cr.restore()
+            elif card in self._received_highlight:
+                cr.save()
+                cr.set_source_rgb(*_RECEIVED_COLOR)
                 cr.set_line_width(3)
                 cr.rectangle(x, y, card_w, card_h)
                 cr.stroke()
@@ -497,7 +543,18 @@ class BoardWidget(Gtk.DrawingArea):
     # -- interaction --------------------------------------------------------
 
     def _on_click(self, gesture, n_press, x, y):
-        if self._game is None or self.is_busy():
+        if self._game is None:
+            return
+
+        if self._received_pause is not None:
+            self._received_pause = None
+            self._received_highlight = set()
+            self.queue_draw()
+            self.on_change()
+            self._ensure_ticking()
+            return
+
+        if self.is_busy():
             return
         game = self._game
 

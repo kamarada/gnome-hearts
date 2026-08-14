@@ -135,11 +135,16 @@ class HeartsWindow(Adw.ApplicationWindow):
         self.board.queue_draw()
         game = self._game
         busy = self.board.is_busy()
+        receiving = self.board.pending_received_cards() is not None
         # While a card is still sliding into place (or a completed trick is
         # paused on screen), don't jump the status text ahead to "Your
         # turn" -- the engine has already resolved everything, but the
-        # player hasn't seen it happen yet.
-        self.status_label.set_label("Playing…" if busy else self._status_text())
+        # player hasn't seen it happen yet. The received-cards pause is the
+        # one exception: it has its own status text to show instead.
+        if receiving:
+            self.status_label.set_label(self._status_text())
+        else:
+            self.status_label.set_label("Playing…" if busy else self._status_text())
         self.pass_button.set_visible(game is not None and game.phase == Phase.PASSING and not busy)
         self.pass_button.set_sensitive(len(self.board.selected_cards()) == 3)
 
@@ -147,6 +152,12 @@ class HeartsWindow(Adw.ApplicationWindow):
         game = self._game
         if game is None:
             return ""
+        received = self.board.pending_received_cards()
+        if received is not None:
+            if not received:
+                return "Click to continue"
+            names = ", ".join(str(card) for card in received)
+            return f"You received: {names} — click to continue"
         if game.phase == Phase.PASSING:
             if game.current_player_to_act() == HUMAN_SEAT:
                 return "Choose 3 cards to pass, then click Pass"
