@@ -1,5 +1,10 @@
 # GNOME Hearts
 
+> **Ready-to-use packages** (Arch Linux `.pkg.tar.zst`, portable `.AppImage`) for the Hearts rewrite
+> are available on the [GitHub Releases page](https://github.com/kamarada/gnome-hearts/releases) —
+> no need to build from source. See "Building and running" below only if you want to build it
+> yourself or need another distro's package.
+
 This repo hosts [GNOME Hearts](https://www.jejik.com/gnome-hearts/), an old
 (2013) GTK2/libglade2/Python2 Hearts card game; `hearts/`, a from-scratch
 modern rewrite of it; the infrastructure to keep the original running on

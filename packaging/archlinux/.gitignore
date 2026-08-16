@@ -1,0 +1,7 @@
+/src/
+/pkg/
+/anglo.svg
+/gnome-hearts/
+*.pkg.tar.zst
+*.pkg.tar.xz
+.SRCINFO
