@@ -59,10 +59,23 @@ class HeartsApplication(Adw.Application):
         about = Adw.AboutDialog(
             application_name="Hearts",
             application_icon="gnome-hearts",
-            developer_name="kamarada",
+            developer_name="The Linux Kamarada Project",
             version=VERSION,
             website="https://github.com/kamarada/gnome-hearts",
             license_type=Gtk.License.GPL_3_0,
             comments="A modern rewrite of the classic four-player card game.",
+        )
+        # The default "Credits" section (developers/designers/etc.) doesn't
+        # have room for the original 2006-2008 GNOME Hearts and this
+        # 2026 rewrite to be credited separately, so two named sections
+        # instead (issue #11) -- same custom-section mechanism GNOME
+        # Calculator's About dialog uses for its own credits breakdown.
+        about.add_credit_section(
+            "Originally developed by",
+            ["Sander Marechal, Stichting Lone Wolves (2006-2008)"],
+        )
+        about.add_credit_section(
+            "Rewritten and now maintained by",
+            ["Vinicius Menezes, The Linux Kamarada Project (2026)"],
         )
         about.present(self._window)
