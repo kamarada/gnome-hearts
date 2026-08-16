@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <schema id="org.gnome.Hearts" path="/org/gnome/Hearts/">
+  <schema id="com.linuxkamarada.Hearts" path="/com/linuxkamarada/Hearts/">
     <key name="window-width" type="i">
       <default>900</default>
       <summary>Window width</summary>

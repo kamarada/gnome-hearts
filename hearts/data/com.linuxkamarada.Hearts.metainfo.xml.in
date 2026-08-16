@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>org.gnome.Hearts</id>
+  <id>com.linuxkamarada.Hearts</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <name>Hearts</name>
@@ -12,7 +12,7 @@
       Play against three computer opponents.
     </p>
   </description>
-  <launchable type="desktop-id">org.gnome.Hearts.desktop</launchable>
+  <launchable type="desktop-id">com.linuxkamarada.Hearts.desktop</launchable>
   <content_rating type="oars-1.1" />
   <releases>
     <release version="@version@" date="2026-08-16" />

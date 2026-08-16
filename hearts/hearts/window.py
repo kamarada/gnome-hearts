@@ -60,7 +60,7 @@ class HeartsWindow(Adw.ApplicationWindow):
         self.add_action(scores_action)
 
     def _bind_settings(self) -> None:
-        settings = Gio.Settings.new("org.gnome.Hearts")
+        settings = Gio.Settings.new("com.linuxkamarada.Hearts")
         self._settings = settings  # keep a reference so bindings stay alive
         settings.bind("window-width", self, "default-width", Gio.SettingsBindFlags.DEFAULT)
         settings.bind("window-height", self, "default-height", Gio.SettingsBindFlags.DEFAULT)

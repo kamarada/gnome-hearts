@@ -8,7 +8,7 @@ from gi.repository import Adw, Gio, Gtk  # noqa: E402
 
 from .window import HeartsWindow
 
-APPLICATION_ID = "org.gnome.Hearts"
+APPLICATION_ID = "com.linuxkamarada.Hearts"
 
 try:
     # Generated at build time from config.py.in (see hearts/meson.build) --

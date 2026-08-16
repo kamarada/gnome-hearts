@@ -1,6 +1,6 @@
 desktop_file = configure_file(
-  input: 'org.gnome.Hearts.desktop.in',
-  output: 'org.gnome.Hearts.desktop',
+  input: 'com.linuxkamarada.Hearts.desktop.in',
+  output: 'com.linuxkamarada.Hearts.desktop',
   copy: true,
 )
 install_data(desktop_file, install_dir: get_option('datadir') / 'applications')
@@ -8,14 +8,14 @@ install_data(desktop_file, install_dir: get_option('datadir') / 'applications')
 metainfo_conf = configuration_data()
 metainfo_conf.set('version', meson.project_version())
 metainfo_file = configure_file(
-  input: 'org.gnome.Hearts.metainfo.xml.in',
-  output: 'org.gnome.Hearts.metainfo.xml',
+  input: 'com.linuxkamarada.Hearts.metainfo.xml.in',
+  output: 'com.linuxkamarada.Hearts.metainfo.xml',
   configuration: metainfo_conf,
 )
 install_data(metainfo_file, install_dir: get_option('datadir') / 'metainfo')
 
 install_data(
-  'org.gnome.Hearts.gschema.xml',
+  'com.linuxkamarada.Hearts.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
 
@@ -24,7 +24,7 @@ install_data(
 # straight from the build tree without installing first.
 gnome.compile_schemas(
   build_by_default: true,
-  depend_files: files('org.gnome.Hearts.gschema.xml'),
+  depend_files: files('com.linuxkamarada.Hearts.gschema.xml'),
 )
 
 subdir('icons')

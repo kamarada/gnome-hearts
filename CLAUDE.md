@@ -177,9 +177,15 @@ app-id/`gnome-hearts` icon-name drift from issue #9 happened — the About dialo
 each hardcoded the icon name separately, and only one of them got updated). `config.py.in` carries
 the version into `application.py` (`config.version`, same generated-file/fallback pattern as
 `pkgdatadir` above) for the About dialog, and `data/meson.build` substitutes it into
-`org.gnome.Hearts.metainfo.xml.in`'s `<release version="@version@">` — bump it in `meson.build` only,
-and update the `pkgver`/`_pkgtag` pair in `packaging/archlinux/PKGBUILD` to match for the next
-release.
+`com.linuxkamarada.Hearts.metainfo.xml.in`'s `<release version="@version@">` — bump it in
+`meson.build` only, and update the `pkgver`/`_pkgtag` pair in `packaging/archlinux/PKGBUILD` to match
+for the next release.
+
+The application ID is `com.linuxkamarada.Hearts` (`application.py`'s `APPLICATION_ID`, matching the
+`.desktop`/`.gschema.xml`/`.metainfo.xml.in` filenames and each file's own `id`/`path`/`launchable`
+fields) rather than `org.gnome.Hearts` — deliberately not under the `org.gnome.*` namespace, since
+that's reserved for apps GNOME itself has accepted (e.g. into GNOME Circle), which this hasn't been
+submitted for yet.
 
 ### Packaging (`packaging/`)
 
