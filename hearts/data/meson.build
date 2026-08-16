@@ -25,10 +25,7 @@ gnome.compile_schemas(
   depend_files: files('org.gnome.Hearts.gschema.xml'),
 )
 
-install_data(
-  'icons' / 'hicolor' / 'scalable' / 'apps' / 'org.gnome.Hearts.svg',
-  install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'scalable' / 'apps',
-)
+subdir('icons')
 
 # Card art: reuse the SVG deck already vendored by the aisleriot submodule
 # rather than bundling our own art. Not committed to git under hearts/.

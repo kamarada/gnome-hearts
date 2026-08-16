@@ -48,7 +48,7 @@ class HeartsApplication(Adw.Application):
     def _on_about(self, action, param) -> None:
         about = Adw.AboutDialog(
             application_name="Hearts",
-            application_icon="org.gnome.Hearts",
+            application_icon="gnome-hearts",
             developer_name="kamarada",
             version="1.0.0",
             website="https://github.com/kamarada/gnome-hearts",

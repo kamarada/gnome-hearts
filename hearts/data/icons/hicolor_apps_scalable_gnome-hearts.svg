@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <symbol id="heart" viewBox="0 0 24 24">
+      <path d="M12,20 C12,20 3,13.5 3,8 C3,4.5 5.5,2 8.5,2 C10.5,2 12,3.5 12,5 C12,3.5 13.5,2 15.5,2 C18.5,2 21,4.5 21,8 C21,13.5 12,20 12,20 Z"/>
+    </symbol>
+    <symbol id="spade" viewBox="0 0 24 24">
+      <path d="M12,20 C12,20 3,13.5 3,8 C3,4.5 5.5,2 8.5,2 C10.5,2 12,3.5 12,5 C12,3.5 13.5,2 15.5,2 C18.5,2 21,4.5 21,8 C21,13.5 12,20 12,20 Z" transform="rotate(180 12 11)"/>
+      <path d="M9,19 L15,19 L13,24 L11,24 Z"/>
+    </symbol>
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Queen of spades (back) -->
+  <g transform="rotate(-20 135 210)">
+    <rect x="90" y="35" width="90" height="130" rx="14" fill="#FFFFFF" stroke="#CFD8DC" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="99" y="59" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="16" fill="#263238">Q</text>
+    <use href="#spade" x="97" y="63" width="15" height="15" fill="#263238"/>
+  </g>
+
+  <!-- King of hearts (middle) -->
+  <g transform="rotate(-7 135 210)">
+    <rect x="90" y="35" width="90" height="130" rx="14" fill="#FFFFFF" stroke="#FFCDD2" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="99" y="59" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="16" fill="#E53935">K</text>
+    <use href="#heart" x="97" y="63" width="15" height="15" fill="#E53935"/>
+  </g>
+
+  <!-- Ace of hearts (front) -->
+  <g transform="rotate(9 135 210)">
+    <rect x="90" y="35" width="90" height="130" rx="14" fill="#FFFFFF" stroke="#FFCDD2" stroke-width="2" filter="url(#cardShadow)"/>
+
+    <use href="#heart" x="108" y="73" width="54" height="54" fill="#E53935"/>
+
+    <text x="99" y="59" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="16" fill="#E53935">A</text>
+    <use href="#heart" x="97" y="63" width="15" height="15" fill="#E53935"/>
+
+    <g transform="rotate(180 135 100)">
+      <text x="99" y="59" font-family="Roboto, Arial, sans-serif" font-weight="700" font-size="16" fill="#E53935">A</text>
+      <use href="#heart" x="97" y="63" width="15" height="15" fill="#E53935"/>
+    </g>
+  </g>
+</svg>

@@ -2,7 +2,7 @@
 Name=Hearts
 Comment=Play the classic four-player card game
 Exec=hearts
-Icon=org.gnome.Hearts
+Icon=gnome-hearts
 Terminal=false
 Type=Application
 Categories=GNOME;GTK;Game;CardGame;
