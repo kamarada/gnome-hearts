@@ -1,0 +1,57 @@
+# Maintainer: Vinícius Menezes <contato@viniciusmenezes.dev>
+
+pkgname=hearts
+pkgver=0.4.0.beta
+pkgrel=1
+pkgdesc="A modern GTK4/libadwaita rewrite of the classic four-player Hearts card game"
+url="https://github.com/kamarada/gnome-hearts"
+arch=(any)
+license=(GPL-3.0-or-later)
+depends=(
+  gtk4
+  hicolor-icon-theme
+  libadwaita
+  librsvg
+  python
+  python-gobject
+)
+makedepends=(
+  git
+  meson
+)
+
+# The upstream repo is a monorepo (this Meson-based rewrite alongside the
+# legacy GTK2 original and the aisleriot submodule used as an architecture
+# reference) -- only the "hearts" subdirectory is actually built here.
+#
+# anglo.svg (the card art, reused rather than bundled) lives in aisleriot,
+# a *separate* GNOME repo pulled in via git submodule -- and makepkg's git
+# source doesn't fetch submodules, so it's fetched here directly, pinned to
+# the exact commit the gnome-hearts.git submodule pointer above resolves
+# to at this release. Passed to meson via -Dcards_svg (see
+# hearts/meson_options.txt) instead of needing the aisleriot submodule/repo
+# at all.
+_pkgtag=v0.4.0-beta
+_anglo_commit=b7dbc2c02c43477ff379ea8e8907d4df9082f6cf
+source=(
+  "git+https://github.com/kamarada/gnome-hearts.git#tag=${_pkgtag}"
+  "anglo.svg::https://gitlab.gnome.org/GNOME/aisleriot/-/raw/${_anglo_commit}/cards/anglo.svg"
+)
+sha256sums=('SKIP'
+            '0619782e2a507248c305f050c60d12e8fcdeee397df54e0d656e2ab5d2daa568')
+
+build() {
+  cd gnome-hearts/hearts
+  arch-meson build -D cards_svg="$srcdir/anglo.svg"
+  meson compile -C build
+}
+
+check() {
+  cd gnome-hearts/hearts
+  meson test -C build --print-errorlogs
+}
+
+package() {
+  cd gnome-hearts/hearts
+  meson install -C build --destdir "$pkgdir"
+}

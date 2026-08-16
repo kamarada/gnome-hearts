@@ -22,6 +22,8 @@ collection used as a build/architecture reference for both.
   GTK3/Meson solitaire collection. Builds natively on the host (no container needed). Also the
   source of the `anglo.svg` card deck asset reused by `hearts/`. **Do not modify.**
 - `ansible/` — one playbook per buildable component (see below).
+- `packaging/` — distro packaging metadata, one directory per distro/format; currently
+  `packaging/archlinux/PKGBUILD` for `hearts/` (see below and `packaging/README.md`).
 - `docs/user/`, `docs/developer/` — archived Markdown mirrors of the original project's user and
   developer documentation from jejik.com (the upstream site), preserved verbatim including its
   original wording/typos, since jejik.com is the only remaining source for these docs. These
@@ -168,6 +170,24 @@ The card SVG and the `pkgdatadir` it's installed under are resolved at build tim
 committed — carries the installed `pkgdatadir` path); `card_renderer.find_cards_svg()` falls back
 to a path relative to its own source location (the `aisleriot` submodule checkout) when `config.py`
 doesn't exist, which is what makes `meson devenv`/uninstalled runs work without installing first.
+
+The version lives in exactly one place, `project('hearts', version: ...)` in `hearts/meson.build`;
+everything else reads it rather than repeating the string (that duplication is exactly how the
+app-id/`gnome-hearts` icon-name drift from issue #9 happened — the About dialog and `.desktop` file
+each hardcoded the icon name separately, and only one of them got updated). `config.py.in` carries
+the version into `application.py` (`config.version`, same generated-file/fallback pattern as
+`pkgdatadir` above) for the About dialog, and `data/meson.build` substitutes it into
+`org.gnome.Hearts.metainfo.xml.in`'s `<release version="@version@">` — bump it in `meson.build` only,
+and update the `pkgver`/`_pkgtag` pair in `packaging/archlinux/PKGBUILD` to match for the next
+release.
+
+### Packaging (`packaging/`)
+
+`packaging/archlinux/PKGBUILD` builds only the `hearts/` subdirectory of this monorepo (fetched via
+a pinned git tag), not `gnome-hearts-0.3.1/` or `aisleriot/`. Since makepkg's git source doesn't
+follow submodules, `anglo.svg` is fetched separately, straight from the `aisleriot` GNOME repo at
+the exact commit the submodule pointer resolves to, and handed to Meson via `-Dcards_svg=...`
+(`hearts/meson_options.txt`) instead of needing the submodule at all. See `packaging/README.md`.
 
 ### Aisleriot (`aisleriot/`)
 

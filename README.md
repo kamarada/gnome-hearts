@@ -17,6 +17,8 @@ used as a build/architecture reference for both.
   collection, used as an architecture reference and as the source of the
   `anglo.svg` card art reused by `hearts/`.
 - `ansible/` — one playbook per buildable component.
+- `packaging/` — distro packaging metadata, one directory per distro/format (currently just an Arch
+  Linux `PKGBUILD` for `hearts/`).
 
 ## Building and running
 
@@ -89,3 +91,12 @@ Requires the `aisleriot` submodule checked out and Meson/Ninja installed.
 
 See `ansible/README.md` for full requirements and options for all three
 playbooks.
+
+### Hearts (Arch Linux package)
+
+```sh
+cd packaging/archlinux
+makepkg -si
+```
+
+See `packaging/README.md`.

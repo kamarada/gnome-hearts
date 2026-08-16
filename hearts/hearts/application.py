@@ -10,6 +10,16 @@ from .window import HeartsWindow
 
 APPLICATION_ID = "org.gnome.Hearts"
 
+try:
+    # Generated at build time from config.py.in (see hearts/meson.build) --
+    # not present in the source tree itself, only in the build directory
+    # (see card_renderer.find_cards_svg() for the same fallback pattern).
+    from . import config
+
+    VERSION = config.version
+except ImportError:
+    VERSION = "0.0.0-dev"
+
 
 class HeartsApplication(Adw.Application):
     def __init__(self):
@@ -50,7 +60,7 @@ class HeartsApplication(Adw.Application):
             application_name="Hearts",
             application_icon="gnome-hearts",
             developer_name="kamarada",
-            version="1.0.0",
+            version=VERSION,
             website="https://github.com/kamarada/gnome-hearts",
             license_type=Gtk.License.GPL_3_0,
             comments="A modern rewrite of the classic four-player card game.",

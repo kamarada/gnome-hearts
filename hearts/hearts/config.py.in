@@ -1,3 +1,4 @@
 """Generated at build time by meson from config.py.in. Do not edit."""
 
 pkgdatadir = '@pkgdatadir@'
+version = '@version@'

@@ -61,6 +61,9 @@ source-tree package importable; `meson devenv` alone doesn't add it):
 PYTHONPATH="$PWD" meson devenv -C build python3 -m hearts.main
 ```
 
+Arch Linux users can instead build and install a real package via
+`../packaging/archlinux/PKGBUILD` — see `../packaging/README.md`.
+
 ## Layout
 
 - `hearts/engine/` — pure Python game logic (no `gi` imports), fully unit

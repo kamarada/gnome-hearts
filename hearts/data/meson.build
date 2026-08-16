@@ -5,10 +5,12 @@ desktop_file = configure_file(
 )
 install_data(desktop_file, install_dir: get_option('datadir') / 'applications')
 
+metainfo_conf = configuration_data()
+metainfo_conf.set('version', meson.project_version())
 metainfo_file = configure_file(
   input: 'org.gnome.Hearts.metainfo.xml.in',
   output: 'org.gnome.Hearts.metainfo.xml',
-  copy: true,
+  configuration: metainfo_conf,
 )
 install_data(metainfo_file, install_dir: get_option('datadir') / 'metainfo')
 

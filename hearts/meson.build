@@ -1,4 +1,4 @@
-project('hearts', version: '1.0.0', meson_version: '>= 0.62.0')
+project('hearts', version: '0.4.0-beta', meson_version: '>= 0.62.0')
 
 fs = import('fs')
 python = import('python')

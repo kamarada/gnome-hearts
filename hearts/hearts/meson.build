@@ -14,6 +14,7 @@ install_data('hearts.ui', install_dir: py_installation.get_install_dir() / 'hear
 
 conf = configuration_data()
 conf.set('pkgdatadir', prefix / hearts_pkgdatadir)
+conf.set('version', meson.project_version())
 configure_file(
   input: 'config.py.in',
   output: 'config.py',
