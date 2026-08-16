@@ -62,7 +62,8 @@ PYTHONPATH="$PWD" meson devenv -C build python3 -m hearts.main
 ```
 
 Arch Linux users can instead build and install a real package via
-`../packaging/archlinux/PKGBUILD` — see `../packaging/README.md`.
+`../packaging/archlinux/PKGBUILD`, or build a self-contained `.AppImage` via
+`../packaging/appimage/build-appimage.sh` — see `../packaging/README.md`.
 
 ## Layout
 

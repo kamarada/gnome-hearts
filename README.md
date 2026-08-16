@@ -100,3 +100,12 @@ makepkg -si
 ```
 
 See `packaging/README.md`.
+
+### Hearts (AppImage)
+
+```sh
+packaging/appimage/build-appimage.sh
+```
+
+Produces `packaging/appimage/Hearts-<version>-x86_64.AppImage` -- a self-contained build (bundles
+GTK4/libadwaita/librsvg; still needs the host's Python 3 + PyGObject). See `packaging/README.md`.

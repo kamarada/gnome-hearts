@@ -195,6 +195,19 @@ follow submodules, `anglo.svg` is fetched separately, straight from the `aisleri
 the exact commit the submodule pointer resolves to, and handed to Meson via `-Dcards_svg=...`
 (`hearts/meson_options.txt`) instead of needing the submodule at all. See `packaging/README.md`.
 
+`packaging/appimage/build-appimage.sh` builds a `.AppImage` (issue #13; chosen over Flatpak because
+Flathub's Generative AI policy rules this app out -- issue #12) via `linuxdeploy` + its `gtk` plugin,
+bundling GTK4/libadwaita/librsvg but deliberately *not* Python/PyGObject (relies on the host's --
+see `packaging/README.md`'s Scope section for the reasoning). `card_renderer.find_cards_svg()` has an
+`$HEARTS_PKGDATADIR` override (checked before `config.pkgdatadir`) specifically for this: an AppImage
+mounts itself at an unpredictable runtime path, so `config.pkgdatadir`'s build-time-baked absolute
+path (e.g. `/usr/share/hearts`) doesn't resolve there -- the AppImage's own `AppRun` sets the override
+instead. The same class of bug bit `hearts-launcher`'s (`hearts/hearts.in`) baked-in `sys.path`, which
+is why `AppRun` calls `python3 -m hearts.main` directly (with its own `PYTHONPATH`) rather than
+`usr/bin/hearts` -- see `AppRun`'s comments for the full reasoning, including why `libadwaita` needs
+an explicit `--library` flag to linuxdeploy (it's `dlopen()`d by name via `gi`, never linked, so
+linuxdeploy's own dependency scanning never finds it).
+
 ### Aisleriot (`aisleriot/`)
 
 Reference architecture worth knowing when reasoning about this repo's conventions: a C/GObject

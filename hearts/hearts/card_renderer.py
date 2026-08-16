@@ -26,9 +26,22 @@ BACK_ELEMENT_ID = "back"
 
 
 def find_cards_svg() -> str:
-    """Locate anglo.svg: the installed data file if this is an installed
-    run, falling back to the aisleriot submodule checkout for `meson
-    devenv`/uninstalled runs."""
+    """Locate anglo.svg: an $HEARTS_PKGDATADIR override if set, else the
+    installed data file if this is an installed run, falling back to the
+    aisleriot submodule checkout for `meson devenv`/uninstalled runs.
+
+    The override exists for relocatable bundles (e.g. the AppImage --
+    see packaging/appimage/AppRun) where config.pkgdatadir's absolute,
+    build-time-baked path (like config.py's pkgdatadir, generated from
+    the Meson prefix -- see hearts/meson.build) doesn't match wherever
+    the bundle actually ends up mounted/extracted at run time.
+    """
+    override = os.environ.get("HEARTS_PKGDATADIR")
+    if override:
+        override_path = os.path.join(override, "cards", "anglo.svg")
+        if os.path.exists(override_path):
+            return override_path
+
     try:
         from . import config
 
