@@ -61,10 +61,10 @@ source-tree package importable; `meson devenv` alone doesn't add it):
 PYTHONPATH="$PWD" meson devenv -C build python3 -m hearts.main
 ```
 
-Arch Linux users can instead build and install a real package via
-`../packaging/archlinux/PKGBUILD`, build a self-contained `.AppImage` via
-`../packaging/appimage/build-appimage.sh`, or install it as a Flatpak from the self-hosted repo —
-see `../packaging/README.md` and the top-level `README.md`.
+Instead, you can install it as a Flatpak from the self-hosted repo, build a self-contained
+`.AppImage` via `../packaging/appimage/build-appimage.sh`, or, on Arch Linux, build and install a
+real package via `../packaging/archlinux/PKGBUILD` — see `../packaging/README.md` and the
+top-level `README.md`.
 
 ## Layout
 

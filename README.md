@@ -1,6 +1,6 @@
 # GNOME Hearts
 
-> **Ready-to-use packages** (Arch Linux `.pkg.tar.zst`, portable `.AppImage`) for the Hearts rewrite
+> **Ready-to-use packages** (portable `.AppImage`, Arch Linux `.pkg.tar.zst`) for the Hearts rewrite
 > are available on the [GitHub Releases page](https://github.com/kamarada/gnome-hearts/releases) —
 > no need to build from source. See "Building and running" below only if you want to build it
 > yourself or need another distro's package.
@@ -97,24 +97,6 @@ Requires the `aisleriot` submodule checked out and Meson/Ninja installed.
 See `ansible/README.md` for full requirements and options for all three
 playbooks.
 
-### Hearts (Arch Linux package)
-
-```sh
-cd packaging/archlinux
-makepkg -si
-```
-
-See `packaging/README.md`.
-
-### Hearts (AppImage)
-
-```sh
-packaging/appimage/build-appimage.sh
-```
-
-Produces `packaging/appimage/Hearts-<version>-x86_64.AppImage` -- a self-contained build (bundles
-GTK4/libadwaita/librsvg; still needs the host's Python 3 + PyGObject). See `packaging/README.md`.
-
 ### Hearts (Flatpak, self-hosted repo)
 
 ```sh
@@ -133,3 +115,21 @@ app itself.
 
 Built from `packaging/flatpak/com.linuxkamarada.Hearts.json` and published by
 `.github/workflows/flatpak.yml`. See `packaging/README.md`.
+
+### Hearts (AppImage)
+
+```sh
+packaging/appimage/build-appimage.sh
+```
+
+Produces `packaging/appimage/Hearts-<version>-x86_64.AppImage` -- a self-contained build (bundles
+GTK4/libadwaita/librsvg; still needs the host's Python 3 + PyGObject). See `packaging/README.md`.
+
+### Hearts (Arch Linux package)
+
+```sh
+cd packaging/archlinux
+makepkg -si
+```
+
+See `packaging/README.md`.
