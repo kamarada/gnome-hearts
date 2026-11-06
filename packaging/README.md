@@ -137,4 +137,10 @@ flatpak run com.linuxkamarada.Hearts
 
 See the top-level `README.md` for end-user install instructions once the repo has been published
 via the GitHub Actions workflow (which also requires GitHub Pages to be enabled for this repository,
-with its source set to "GitHub Actions", in the repo's Settings).
+with its source set to "GitHub Actions", in the repo's Settings). Those instructions use `--user`
+throughout: this repo is unsigned, and `flatpak-system-helper` (the path used by a system-wide,
+no-`--user` install) hard-refuses to pull from *any* unsigned remote regardless of its
+`gpg-verify`/`gpg-verify-summary` config -- only per-user installs accept unsigned remotes. Signing
+the repo would be the fix if system-wide installs are ever needed. They also add the `flathub`
+user remote first: this self-hosted repo only serves the Hearts app itself, so Flatpak needs
+Flathub configured to resolve the `org.gnome.Platform` runtime dependency the manifest declares.

@@ -118,10 +118,18 @@ GTK4/libadwaita/librsvg; still needs the host's Python 3 + PyGObject). See `pack
 ### Hearts (Flatpak, self-hosted repo)
 
 ```sh
-flatpak remote-add --if-not-exists --no-gpg-verify hearts-kamarada https://kamarada.github.io/gnome-hearts/index.flatpakrepo
-flatpak install hearts-kamarada com.linuxkamarada.Hearts
+flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --no-gpg-verify --user hearts-kamarada https://kamarada.github.io/gnome-hearts/index.flatpakrepo
+flatpak install --user hearts-kamarada com.linuxkamarada.Hearts
 flatpak run com.linuxkamarada.Hearts
 ```
+
+The `--user` flag is required: this repo is unsigned, and Flatpak's system-wide install path
+(`flatpak-system-helper`) refuses to pull from any unsigned remote, regardless of its
+`--no-gpg-verify` setting -- only per-user installs accept unsigned remotes. The `flathub` remote
+is needed too (skip it if already configured): Hearts' manifest depends on the `org.gnome.Platform`
+runtime, and Flathub is the only place Flatpak can fetch it from -- this repo only serves the Hearts
+app itself.
 
 Built from `packaging/flatpak/com.linuxkamarada.Hearts.json` and published by
 `.github/workflows/flatpak.yml`. See `packaging/README.md`.
