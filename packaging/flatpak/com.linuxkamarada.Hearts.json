@@ -19,20 +19,16 @@
       "name": "hearts",
       "buildsystem": "meson",
       "subdir": "hearts",
-      "config-opts": [
-        "-Dcards_svg=../flatpak-anglo.svg"
+      "post-install": [
+        "for size in 16x16 22x22 24x24 32x32 40x40 48x48 256x256; do install -Dm644 /app/share/icons/hicolor/${size}/apps/gnome-hearts.png /app/share/icons/hicolor/${size}/apps/com.linuxkamarada.Hearts.png; done",
+        "install -Dm644 /app/share/icons/hicolor/scalable/apps/gnome-hearts.svg /app/share/icons/hicolor/scalable/apps/com.linuxkamarada.Hearts.svg",
+        "sed -i 's/^Icon=gnome-hearts$/Icon=com.linuxkamarada.Hearts/' /app/share/applications/com.linuxkamarada.Hearts.desktop"
       ],
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/kamarada/gnome-hearts.git",
           "tag": "v0.4.0-beta"
-        },
-        {
-          "type": "file",
-          "url": "https://gitlab.gnome.org/GNOME/aisleriot/-/raw/b7dbc2c02c43477ff379ea8e8907d4df9082f6cf/cards/anglo.svg",
-          "sha256": "0619782e2a507248c305f050c60d12e8fcdeee397df54e0d656e2ab5d2daa568",
-          "dest-filename": "flatpak-anglo.svg"
         }
       ]
     }

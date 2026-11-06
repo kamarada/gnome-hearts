@@ -101,9 +101,16 @@ runs on `v*` tags (or manual `workflow_dispatch`) -- same release cadence as the
 the published repo is unsigned, served over plain HTTPS.
 
 Like the Arch `PKGBUILD`, the manifest fetches the monorepo via a pinned git `tag` (kept in step
-with `_pkgtag` above) and builds only the `hearts/` subdirectory (via the module's `subdir` key,
-since `flatpak-builder` doesn't follow git submodules any more than makepkg does). It reuses the
-exact same `anglo.svg` commit/sha256 pair the Arch package already pins -- update both together.
+with `_pkgtag` above) and builds only the `hearts/` subdirectory (via the module's `subdir` key).
+Unlike makepkg, `flatpak-builder` *does* follow git submodules by default, so the `aisleriot`
+submodule (and its `anglo.svg` card art) comes along with the git source automatically -- no
+separate `anglo.svg` fetch or `-Dcards_svg=...` override needed, unlike the Arch package.
+
+Flatpak only exports an icon whose filename matches the app's icon theme name, but Hearts' desktop
+file uses `Icon=gnome-hearts` with icon files named `gnome-hearts.*` (see `hearts/data/`) rather
+than the app-id -- so the manifest's `post-install` step copies each hicolor icon to a
+`com.linuxkamarada.Hearts.*`-named copy and rewrites the installed desktop file's `Icon=` line to
+match, Flatpak-side only (the shared `hearts/data/` build used by Arch/AppImage is untouched).
 
 ### Building and testing locally
 
