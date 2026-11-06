@@ -18,6 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install GNOME SDK
+        run: flatpak install -y --noninteractive flathub org.gnome.Sdk//50 org.gnome.Platform//50
+
       - name: Build
         uses: andyholmes/flatter@main
         with:

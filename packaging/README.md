@@ -116,6 +116,13 @@ fails on any SVG (not just this one) on at least one tested host, due to its san
 working fontconfig to the SVG rasterizer -- a host/Flatpak-level bug, not a defect in this icon.
 PNG-only (up to 256x256) is exported instead, which covers normal desktop/icon-theme lookups fine.
 
+The `ghcr.io/andyholmes/flatter/gnome` container image only pre-installs the GNOME *nightly*
+runtime/SDK (branch `master`), not a numbered stable version -- so `.github/workflows/flatpak.yml`
+has an explicit `flatpak install ... org.gnome.Sdk//50 org.gnome.Platform//50` step (from the
+`flathub` remote, already configured in that image) before invoking Flatter, matching the
+`runtime-version` pinned in the manifest. Bump both together if the manifest's `runtime-version`
+ever changes.
+
 ### Building and testing locally
 
 Requires `flatpak`, `flatpak-builder`, and the `org.gnome.Platform`/`org.gnome.Sdk` runtime+SDK
