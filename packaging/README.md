@@ -43,10 +43,9 @@ makepkg --printsrcinfo > .SRCINFO
 
 ## AppImage (`appimage/build-appimage.sh`)
 
-A self-contained `.AppImage` build, chosen over Flatpak/Flathub for now because Flathub's Generative
-AI policy rules out an app built with Claude Code (see issue #12) -- AppImage has no such submission
-gate. Unlike the Arch package above, `build-appimage.sh` works from this working tree directly (no
-git tag needed) and needs nothing installed beyond `meson`, `ninja`, `curl`, and `python3`:
+A self-contained `.AppImage` build. Unlike the Arch package above, `build-appimage.sh` works from
+this working tree directly (no git tag needed) and needs nothing installed beyond `meson`, `ninja`,
+`curl`, and `python3`:
 
 ```sh
 packaging/appimage/build-appimage.sh
@@ -93,3 +92,31 @@ defeats the point for a general-purpose release artifact. This script doesn't en
 for an actual release build, run it inside a suitably old container (`ansible/gnome-hearts.yml`'s
 distrobox/openSUSE setup is this repo's existing precedent for that kind of thing, though AppImage
 recipes upstream more commonly use Ubuntu).
+
+## Flatpak (`flatpak/com.linuxkamarada.Hearts.json`)
+
+A Flatpak manifest, built with [Flatter](https://github.com/andyholmes/flatter) and published to a
+self-hosted Flatpak repo on GitHub Pages via `.github/workflows/flatpak.yml`. The workflow only
+runs on `v*` tags (or manual `workflow_dispatch`) -- same release cadence as the Arch package -- and
+the published repo is unsigned, served over plain HTTPS.
+
+Like the Arch `PKGBUILD`, the manifest fetches the monorepo via a pinned git `tag` (kept in step
+with `_pkgtag` above) and builds only the `hearts/` subdirectory (via the module's `subdir` key,
+since `flatpak-builder` doesn't follow git submodules any more than makepkg does). It reuses the
+exact same `anglo.svg` commit/sha256 pair the Arch package already pins -- update both together.
+
+### Building and testing locally
+
+Requires `flatpak`, `flatpak-builder`, and the `org.gnome.Platform`/`org.gnome.Sdk` runtime+SDK
+installed locally (matching `runtime-version` in the manifest):
+
+```sh
+flatpak-builder --force-clean --user --install build-dir packaging/flatpak/com.linuxkamarada.Hearts.json
+flatpak run com.linuxkamarada.Hearts
+```
+
+### Installing from the published repo
+
+See the top-level `README.md` for end-user install instructions once the repo has been published
+via the GitHub Actions workflow (which also requires GitHub Pages to be enabled for this repository,
+with its source set to "GitHub Actions", in the repo's Settings).

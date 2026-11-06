@@ -114,3 +114,14 @@ packaging/appimage/build-appimage.sh
 
 Produces `packaging/appimage/Hearts-<version>-x86_64.AppImage` -- a self-contained build (bundles
 GTK4/libadwaita/librsvg; still needs the host's Python 3 + PyGObject). See `packaging/README.md`.
+
+### Hearts (Flatpak, self-hosted repo)
+
+```sh
+flatpak remote-add --if-not-exists --no-gpg-verify hearts-kamarada https://kamarada.github.io/gnome-hearts/index.flatpakrepo
+flatpak install hearts-kamarada com.linuxkamarada.Hearts
+flatpak run com.linuxkamarada.Hearts
+```
+
+Built from `packaging/flatpak/com.linuxkamarada.Hearts.json` and published by
+`.github/workflows/flatpak.yml`. See `packaging/README.md`.

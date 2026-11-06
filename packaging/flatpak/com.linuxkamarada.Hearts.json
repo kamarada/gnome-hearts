@@ -1,0 +1,40 @@
+{
+  "app-id": "com.linuxkamarada.Hearts",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "hearts",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--filesystem=xdg-run/dconf",
+    "--filesystem=~/.config/dconf:ro",
+    "--talk-name=ca.desrt.dconf",
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+  ],
+  "modules": [
+    {
+      "name": "hearts",
+      "buildsystem": "meson",
+      "subdir": "hearts",
+      "config-opts": [
+        "-Dcards_svg=../flatpak-anglo.svg"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/kamarada/gnome-hearts.git",
+          "tag": "v0.4.0-beta"
+        },
+        {
+          "type": "file",
+          "url": "https://gitlab.gnome.org/GNOME/aisleriot/-/raw/b7dbc2c02c43477ff379ea8e8907d4df9082f6cf/cards/anglo.svg",
+          "sha256": "0619782e2a507248c305f050c60d12e8fcdeee397df54e0d656e2ab5d2daa568",
+          "dest-filename": "flatpak-anglo.svg"
+        }
+      ]
+    }
+  ]
+}
