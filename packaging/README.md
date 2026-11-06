@@ -108,9 +108,13 @@ separate `anglo.svg` fetch or `-Dcards_svg=...` override needed, unlike the Arch
 
 Flatpak only exports an icon whose filename matches the app's icon theme name, but Hearts' desktop
 file uses `Icon=gnome-hearts` with icon files named `gnome-hearts.*` (see `hearts/data/`) rather
-than the app-id -- so the manifest's `post-install` step copies each hicolor icon to a
-`com.linuxkamarada.Hearts.*`-named copy and rewrites the installed desktop file's `Icon=` line to
-match, Flatpak-side only (the shared `hearts/data/` build used by Arch/AppImage is untouched).
+than the app-id -- so the manifest's `post-install` step copies each hicolor PNG icon to a
+`com.linuxkamarada.Hearts.png`-named copy and rewrites the installed desktop file's `Icon=` line to
+match, Flatpak-side only (the shared `hearts/data/` build used by Arch/AppImage is untouched). The
+scalable SVG is deliberately *not* copied/exported this way: `flatpak build-export`'s icon validator
+fails on any SVG (not just this one) on at least one tested host, due to its sandbox not exposing a
+working fontconfig to the SVG rasterizer -- a host/Flatpak-level bug, not a defect in this icon.
+PNG-only (up to 256x256) is exported instead, which covers normal desktop/icon-theme lookups fine.
 
 ### Building and testing locally
 

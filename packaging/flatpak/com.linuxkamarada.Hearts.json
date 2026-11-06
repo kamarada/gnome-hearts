@@ -21,7 +21,6 @@
       "subdir": "hearts",
       "post-install": [
         "for size in 16x16 22x22 24x24 32x32 40x40 48x48 256x256; do install -Dm644 /app/share/icons/hicolor/${size}/apps/gnome-hearts.png /app/share/icons/hicolor/${size}/apps/com.linuxkamarada.Hearts.png; done",
-        "install -Dm644 /app/share/icons/hicolor/scalable/apps/gnome-hearts.svg /app/share/icons/hicolor/scalable/apps/com.linuxkamarada.Hearts.svg",
         "sed -i 's/^Icon=gnome-hearts$/Icon=com.linuxkamarada.Hearts/' /app/share/applications/com.linuxkamarada.Hearts.desktop"
       ],
       "sources": [
